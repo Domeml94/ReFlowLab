@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="addPane" styleClass="standardAchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.references.AddReferencesController">
+   <children>
+      <AnchorPane prefHeight="242.4" prefWidth="871.2" styleClass="standardAchorPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <StackPane styleClass="standardPaneBackgroundTranspColor" />
+            <BorderPane prefWidth="871.0">
+               <bottom>
+                  <AnchorPane maxHeight="40.0" prefHeight="40.0" prefWidth="500.0" styleClass="standardPaneBackgroundOutwards" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="871.0" spacing="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addAddReferences" text="add" />
+                              <Button mnemonicParsing="false" onAction="#cancelAddReferences" text="cancel" />
+                           </children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </bottom>
+               <center>
+                  <AnchorPane BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <children>
+                        <VBox alignment="CENTER" prefWidth="860.0" spacing="11.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox prefHeight="25.0" spacing="20.0">
+                                 <children>
+                                    <Label minHeight="25.0" prefHeight="100.0" prefWidth="100.0" />
+                                    <Label minHeight="25.0" prefWidth="800.0" styleClass="txtAddEditPaneHeader3" text="Input" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="50.0" spacing="20.0">
+                                 <children>
+                                    <Label minHeight="25.0" prefHeight="50.0" prefWidth="100.0" text="DOI:" />
+                                    <TextArea fx:id="inputDOI" prefHeight="50.0" prefWidth="800.0" wrapText="true" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="50.0" spacing="20.0">
+                                 <children>
+                                    <Label minHeight="25.0" prefHeight="50.0" prefWidth="100.0" text="Reference:" />
+                                    <TextArea fx:id="inputReference" prefHeight="50.0" prefWidth="800.0" wrapText="true" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </center>
+               <right>
+                  <Pane prefHeight="200.0" prefWidth="5.0" styleClass="standardPaneBackgroundOutwards" BorderPane.alignment="CENTER" />
+               </right>
+               <left>
+                  <Pane prefHeight="200.0" prefWidth="5.0" styleClass="standardPaneBackgroundOutwards" BorderPane.alignment="CENTER" />
+               </left>
+               <top>
+                  <Pane prefHeight="50.0" prefWidth="200.0" styleClass="standardPaneBackgroundOutwards" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="14.0" prefHeight="50.0" styleClass="txtAddEditPaneHeader" text="Add References:" textAlignment="CENTER" />
+                     </children>
+                  </Pane>
+               </top>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

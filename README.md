@@ -18,22 +18,22 @@ Features
 	- stack
 	- working point
 - full cell as well as half-cell systems consideration in calculation
-- export as .txt of calculation results (only full database at the moment)
-- Ragone calculation an plotting for battery systems (currently bugged) 
+
+- Future updates and bug fixes are planned
 
 
 
 
 Installation
 ------------
-...
+This project is setup as Maven project. All dependencies are setup by the provided pom file. A compiled version is available on request.
 
 
 
 Documentation
 -------------
 
-Full documentation is available at ...
+This tool is part of a publication currently undergoing submission process.
 
 
 

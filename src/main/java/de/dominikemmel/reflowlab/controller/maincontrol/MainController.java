@@ -5,6 +5,7 @@ package de.dominikemmel.reflowlab.controller.maincontrol;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -113,48 +114,30 @@ public class MainController implements Initializable {
         if (file.exists()) {
         	return pathStringDB;
         } else {
-//        	try {
-//				Files.createDirectories(Paths.get(pathString));
-//			} catch (IOException e2) {
-//				// TODO Auto-generated catch block
-//				e2.printStackTrace();
-//			}
+
 			if (!directory.exists()) {
 				directory.mkdirs();
 			}
         	
         	Path pathDB = Paths.get(pathStringDB);
 
-			Path pathDefaultDB = null;
-			
-//			File defaultDBLocation = new File("/de/dominikemmel/reflowlab/default/reflowlabDefaultDB.mv.db");
-//			
-//			if (defaultDBLocation.exists()) {
-					
-				try {
-					pathDefaultDB = Paths.get(MainController.class.getResource("/de/dominikemmel/reflowlab/default/reflowlabDefaultDB.mv.db").toURI());
-				} catch (URISyntaxException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+			InputStream inputStreamDB = MainController.class.getResourceAsStream("/de/dominikemmel/reflowlab/default/reflowlabDefaultDB.mv.db");
 
-				File defaultDB = new File(pathDefaultDB.toUri());
-				try {
-					Files.copy(defaultDB.toPath(), pathDB);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-	        	System.out.println("Path created and default DB copied: "+pathStringDB);
+			try {
+				Files.copy(inputStreamDB, pathDB);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+				
+	        System.out.println("Path created and default DB copied: "+pathStringDB);
 
-//			} else {
-//				pathStringDB = pathString + File.separator + "reflowlabDB.mv.db";
-//			}
         	return pathStringDB;
         	
-
         }
 	}
+	
+	
+	
 	public static String defaultInitSettings () {
 		
 		AppDirs appDirs = AppDirsFactory.getInstance();
@@ -174,20 +157,11 @@ public class MainController implements Initializable {
 			
 			Path pathSet = Paths.get(pathStringSet);
 			
-			Path pathDefaultSet = null;
+			InputStream inputStreamSet = MainController.class.getResourceAsStream("/de/dominikemmel/reflowlab/default/defaultSettings.properties");
+
 			try {
-				pathDefaultSet = Paths.get(MainController.class.getResource("/de/dominikemmel/reflowlab/default/defaultSettings.properties").toURI());
-			} catch (URISyntaxException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
-			File defaultSet = new File(pathDefaultSet.toUri());
-			
-			try {
-				Files.copy(defaultSet.toPath(), pathSet);
+				Files.copy(inputStreamSet, pathSet);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			

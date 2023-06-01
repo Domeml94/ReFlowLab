@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="addPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.electrolytes.AddElectrolytesController">
+<AnchorPane fx:id="addPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.electrolytes.AddElectrolytesController">
    <children>
       <AnchorPane fx:id="addPane1" prefWidth="871.0" styleClass="standardAchorPane">
          <children>

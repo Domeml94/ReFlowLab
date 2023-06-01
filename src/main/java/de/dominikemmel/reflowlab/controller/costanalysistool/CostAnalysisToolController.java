@@ -48,6 +48,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -4530,6 +4531,7 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 			stage.show();
 			
 			stage.setTitle("ReFlowLab - Stack Selection");
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 		
 			
 			Stage costAnalysisStage = (Stage) AnchorPane1.getScene().getWindow();

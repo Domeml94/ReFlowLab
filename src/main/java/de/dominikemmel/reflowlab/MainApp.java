@@ -23,7 +23,7 @@ public class MainApp extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		primaryStage.setTitle("ReFlowLab");
-//		primaryStage.getIcons().add(new Image("/.../.png"));
+		primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 
 //		MainController.dbTest();
 

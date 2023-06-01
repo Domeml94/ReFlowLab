@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class HomeController implements javafx.fxml.Initializable {
@@ -37,6 +38,7 @@ public class HomeController implements javafx.fxml.Initializable {
 			stage.setScene(scene);
 			stage.show();
 			stage.setTitle("ReFlowLab - RagoneTool");
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 			
 			btnRagone.setDisable(true);
 			
@@ -64,6 +66,7 @@ public class HomeController implements javafx.fxml.Initializable {
 			stage.show();
 			
 			stage.setTitle("ReFlowLab - CostAnalysisTool");
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 			
 			btnCostAnalysis.setDisable(true);
 			

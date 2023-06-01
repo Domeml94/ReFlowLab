@@ -203,7 +203,7 @@ public class MainController implements Initializable {
 
 		 URI msg;
 		try {
-			msg = new URI("mailto","d.emmel@tu-braunschweig.de?subject=Redox Flow Battery Calculations Tool", (String) null);
+			msg = new URI("mailto","d.emmel@tu-braunschweig.de?subject=ReFlowLab", (String) null);
 			Desktop.getDesktop().mail(msg);
 		} catch (URISyntaxException e) {
 

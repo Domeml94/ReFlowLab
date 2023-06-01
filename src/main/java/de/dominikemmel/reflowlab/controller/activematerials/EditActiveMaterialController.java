@@ -108,7 +108,7 @@ public class EditActiveMaterialController implements javafx.fxml.Initializable  
             }
         });
 		
-		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/controller/maincontrol/img/arrowDown.png"));
+		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/ArrowDown/1x/arrowDownmdpi.png"));
 		ImageView imgViewBtnInputRefN = new ImageView(img);
 		imgViewBtnInputRefN.setFitHeight(10);
 		imgViewBtnInputRefN.setFitWidth(12);

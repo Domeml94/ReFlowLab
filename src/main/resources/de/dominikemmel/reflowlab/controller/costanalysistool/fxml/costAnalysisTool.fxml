@@ -12,33 +12,33 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="AnchorPane1" prefHeight="780.0" prefWidth="1524.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.costanalysistool.CostAnalysisToolController">
+<AnchorPane fx:id="AnchorPane1" prefHeight="780.0" prefWidth="1524.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.costanalysistool.CostAnalysisToolController">
    <children>
       <Pane prefHeight="780.0" prefWidth="1520.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="6.0">
          <children>
-            <Pane fx:id="pane3" layoutX="-8.0" layoutY="-8.0" prefHeight="60.0" prefWidth="1524.0">
+            <Pane layoutX="-8.0" layoutY="-8.0" prefHeight="60.0" prefWidth="1524.0" styleClass="standardPaneBackground1">
                <children>
                   <Label fx:id="header2" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="4.0" text="Cost Analysis" textAlignment="CENTER" />
                </children>
             </Pane>
-            <AnchorPane layoutX="-8.0" layoutY="59.0" prefHeight="274.0" prefWidth="855.0" style="-fx-border-color: #000000;">
+            <AnchorPane layoutX="-8.0" layoutY="59.0" prefHeight="274.0" prefWidth="855.0" style="-fx-border-color: #000000;" styleClass="standardPaneBackground1">
                <children>
                   <CheckBox fx:id="checkStandard" layoutX="320.0" layoutY="157.0" mnemonicParsing="false" onAction="#uncheckFullCell" styleClass="txtInputPaneSelection" text="Active material vs Standard" />
                   <CheckBox fx:id="checkFullCell" layoutX="320.0" layoutY="182.0" mnemonicParsing="false" onAction="#uncheckStandard" styleClass="txtInputPaneSelection" text="Anolyte vs Catholyte" />
                   <Button fx:id="btnCalculate" layoutX="524.0" layoutY="225.0" mnemonicParsing="false" onAction="#btnCalculate" prefHeight="30.0" prefWidth="300.0" style="-fx-font-weight: bold;" text="Calculate" />
-                  <Label fx:id="txtInputPane" layoutX="35.0" layoutY="37.0" prefHeight="26.0" style="-fx-font-weight: bold;" text="Acitve Material:" />
-                  <Label fx:id="txtInputPane" layoutX="35.0" layoutY="79.0" prefHeight="26.0" style="-fx-font-weight: bold;" text="Solvent:" />
-                  <Label fx:id="labelLeft" layoutX="148.0" layoutY="2.0" style="-fx-font-weight: bold;" styleClass="txtInputPaneHeader" text="Anolyte" />
-                  <Label fx:id="labelRight" layoutX="320.0" layoutY="2.0" style="-fx-font-weight: bold;" styleClass="txtInputPaneHeader" text="Catholyte" />
+                  <Label layoutX="35.0" layoutY="37.0" prefHeight="26.0" styleClass="txtInputPane" text="Acitve Material:" />
+                  <Label layoutX="35.0" layoutY="79.0" prefHeight="26.0" styleClass="txtInputPane" text="Solvent:" />
+                  <Label fx:id="labelLeft" layoutX="148.0" layoutY="5.0" style="-fx-font-weight: bold;" styleClass="txtInputPaneHeader" text="Anolyte" />
+                  <Label fx:id="labelRight" layoutX="320.0" layoutY="5.0" style="-fx-font-weight: bold;" styleClass="txtInputPaneHeader" text="Catholyte" />
                   <ComboBox fx:id="comboLeftActiveMaterial" layoutX="148.0" layoutY="37.0" onAction="#populateComboLeftSolvent" prefHeight="26.0" prefWidth="150.0" />
                   <ComboBox fx:id="comboLeftSolvent" layoutX="148.0" layoutY="79.0" onAction="#populateComboLeftSalt" prefHeight="26.0" prefWidth="150.0" />
                   <ComboBox fx:id="comboRightActiveMaterial" layoutX="320.0" layoutY="37.0" onAction="#populateComboRightSolvent" prefHeight="26.0" prefWidth="150.0" />
                   <ComboBox fx:id="comboRightSolvent" layoutX="320.0" layoutY="79.0" onAction="#populateComboRightSalt" prefHeight="26.0" prefWidth="150.0" />
                   <ComboBox fx:id="comboRightSalt" layoutX="320.0" layoutY="121.0" onAction="#selectComboRightSalt" prefHeight="26.0" prefWidth="150.0" />
                   <ComboBox fx:id="comboLeftSalt" layoutX="148.0" layoutY="121.0" onAction="#selectComboLeftSalt" prefHeight="26.0" prefWidth="150.0" />
-                  <Label fx:id="txtInputPane" layoutX="35.0" layoutY="121.0" prefHeight="26.0" style="-fx-font-weight: bold;" text="Salt:" />
+                  <Label layoutX="35.0" layoutY="121.0" prefHeight="26.0" styleClass="txtInputPane" text="Salt:" />
                   <ComboBox fx:id="comboStack" accessibleText="0.06m2_Nafion&#10;0.06m2_SizeSelective&#10;2.76m2_Nafion&#10;2.76m2_SizeSelective" layoutX="148.0" layoutY="167.0" onAction="#selectComboStack" prefHeight="26.0" prefWidth="108.0" />
-                  <Label fx:id="txtInputPane" layoutX="35.0" layoutY="167.0" prefHeight="26.0" style="-fx-font-weight: bold;" text="Stack:" />
+                  <Label layoutX="35.0" layoutY="167.0" prefHeight="26.0" styleClass="txtInputPane" text="Stack:" />
                   <Pane layoutX="614.0" layoutY="9.0" prefHeight="145.0" prefWidth="210.0" style="-fx-border-color: #ffffff;">
                      <children>
                         <TextField fx:id="voltageEfficiencyInput" layoutX="121.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
@@ -47,7 +47,7 @@
                         <CheckBox fx:id="checkCurrentDensity" layoutX="13.0" layoutY="82.0" mnemonicParsing="false" />
                         <Label layoutX="44.0" layoutY="49.0">
                            <graphic>
-                              <TextFlow prefWidth="50.0">
+                              <TextFlow prefWidth="50.0" styleClass="txtSmallInputPane">
                                  <children>
                                     <Text fx:id="voltageEfficiencyInputText1" strokeType="OUTSIDE" strokeWidth="0.0" />
                                     <Text fx:id="voltageEfficiencyInputText2" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -60,7 +60,7 @@
                         </Label>
                         <Label layoutX="40.0" layoutY="82.0" prefWidth="70.0">
                            <graphic>
-                              <TextFlow>
+                              <TextFlow styleClass="txtSmallInputPane">
                                  <children>
                                     <Text fx:id="currentDensityInputText1" strokeType="OUTSIDE" strokeWidth="0.0" />
                                     <Text fx:id="currentDensityInputText2" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -71,13 +71,13 @@
                               </TextFlow>
                            </graphic>
                         </Label>
-                        <CheckBox fx:id="checkPeakPower" layoutX="13.0" layoutY="17.0" mnemonicParsing="false" text="peakPower" textFill="WHITE" />
+                        <CheckBox fx:id="checkPeakPower" layoutX="13.0" layoutY="17.0" mnemonicParsing="false" styleClass="txtSmallInputPane" text="peakPower" textFill="WHITE" />
                         <TextField fx:id="peakPowerInput" layoutX="121.0" layoutY="13.0" prefHeight="26.0" prefWidth="75.0" />
                         <TextField fx:id="specPowerInput" layoutX="121.0" layoutY="111.0" prefHeight="26.0" prefWidth="75.0" />
                         <CheckBox fx:id="checkSpecPower" layoutX="13.0" layoutY="111.0" mnemonicParsing="false" />
                         <Label layoutX="40.0" layoutY="111.0" prefWidth="70.0">
                            <graphic>
-                              <TextFlow>
+                              <TextFlow styleClass="txtSmallInputPane">
                                  <children>
                                     <Text fx:id="specPowerInputText1" strokeType="OUTSIDE" strokeWidth="0.0" />
                                     <Text fx:id="specPowerInputText2" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -101,11 +101,11 @@
                   </Pane>
                   <CheckBox fx:id="checkOhmicMode" layoutX="628.0" layoutY="170.0" mnemonicParsing="false" textFill="WHITE" />
                   <CheckBox fx:id="checkChargeTransferMode" layoutX="700.0" layoutY="170.0" mnemonicParsing="false" textFill="WHITE" />
-                  <Label layoutX="521.0" layoutY="17.0" text="working point:" textFill="WHITE" />
-                  <Label layoutX="526.0" layoutY="170.0" text="polarization:" textFill="WHITE" />
+                  <Label layoutX="521.0" layoutY="17.0" styleClass="txtSmallInputPane" text="working point:" textFill="WHITE" />
+                  <Label layoutX="526.0" layoutY="170.0" styleClass="txtSmallInputPane" text="polarization:" textFill="WHITE" />
                   <Label layoutX="650.0" layoutY="170.0" prefWidth="30.0">
                      <graphic>
-                        <TextFlow>
+                        <TextFlow styleClass="txtSmallInputPane">
                            <children>
                               <Text fx:id="checkOhmicModeText1" strokeType="OUTSIDE" strokeWidth="0.0" />
                               <Text fx:id="checkOhmicModeText2" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -115,7 +115,7 @@
                   </Label>
                   <Label layoutX="722.0" layoutY="170.0" prefWidth="30.0">
                      <graphic>
-                        <TextFlow>
+                        <TextFlow styleClass="txtSmallInputPane">
                            <children>
                               <Text fx:id="checkChargeTransferModeText1" strokeType="OUTSIDE" strokeWidth="0.0" />
                               <Text fx:id="checkChargeTransferModeText2" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -125,7 +125,7 @@
                   </Label>
                   <Label layoutX="789.0" layoutY="170.0" prefWidth="30.0">
                      <graphic>
-                        <TextFlow>
+                        <TextFlow styleClass="txtSmallInputPane">
                            <children>
                               <Text fx:id="checkTransportationLimitationModeText1" strokeType="OUTSIDE" strokeWidth="0.0" />
                               <Text fx:id="checkTransportationLimitationModeText2" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -177,7 +177,7 @@
               <tabs>
                 <Tab text="electrolyte">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="339.0" prefWidth="855.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="339.0" prefWidth="855.0" styleClass="standardPaneBackground1">
                            <children>
                               <Label fx:id="labelFlowAnolyteActMatCost" layoutX="20.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
@@ -271,7 +271,7 @@
                               <TextField fx:id="txtfdAnolyteSaltMolMass" layoutX="556.0" layoutY="45.0" prefHeight="26.0" prefWidth="90.0" />
                               <Label layoutX="661.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
-                                    <TextFlow prefHeight="26.0" prefWidth="85.0" textAlignment="CENTER">
+                                    <TextFlow prefHeight="26.0" prefWidth="88.0" textAlignment="CENTER">
                                        <children>
                                           <Text fx:id="anolyteSaltSol1" strokeType="OUTSIDE" strokeWidth="0.0" />
                                           <Text fx:id="anolyteSaltSol2" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -383,7 +383,7 @@
                               <TextField fx:id="txtfdCatholyteSaltMolMass" layoutX="556.0" layoutY="112.0" prefHeight="26.0" prefWidth="90.0" />
                               <Label layoutX="661.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
-                                    <TextFlow prefHeight="26.0" prefWidth="85.0" textAlignment="CENTER">
+                                    <TextFlow prefHeight="26.0" prefWidth="88.0" textAlignment="CENTER">
                                        <children>
                                           <Text fx:id="catholyteSaltSol1" strokeType="OUTSIDE" strokeWidth="0.0" />
                                           <Text fx:id="catholyteSaltSol2" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -575,7 +575,7 @@
                 </Tab>
                   <Tab text="power">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="standardPaneBackground1">
                            <children>
                               <Label layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
@@ -951,7 +951,7 @@
                   </Tab>
                   <Tab text="maintenance">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="standardPaneBackground1">
                            <children>
                               <Label layoutX="20.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
@@ -1144,7 +1144,7 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <AnchorPane prefHeight="348.0" prefWidth="855.0">
+                              <AnchorPane prefHeight="348.0" prefWidth="855.0" styleClass="standardPaneBackground1">
                                  <children>
                                     <Label layoutX="20.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
                                        <graphic>

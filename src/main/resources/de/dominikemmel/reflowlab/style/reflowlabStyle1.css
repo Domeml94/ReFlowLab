@@ -1,5 +1,23 @@
 
+
+@font-face {
+    src: url("font/Roboto-Thin.ttf");
+}
+@font-face {
+    src: url("font/Roboto-Black.ttf");
+}
+@font-face {
+    src: url("font/Roboto-BlackItalic.ttf");
+}
+@font-face {
+    src: url("font/Roboto-Regular.ttf");
+}
+@font-face {
+    src: url("font/Roboto-Medium.ttf");
+}
+
 .button1{
+	-fx-font-family: "Roboto Medium";
 	-fx-font-size: 20;
 	-fx-background-color: #F2911B;
 	-fx-pref-width: 200px;
@@ -9,12 +27,25 @@
     -fx-effect: dropshadow( gaussian , Black , 10,0,5,5 );
 }
 
-.button1:hover{
-     -fx-effect: dropshadow( gaussian , Black , 0,0,0,0 );
+.textMain1{
+	-fx-font-family: "Roboto Medium";
+
 }
 
 
+.button1:hover{
+     -fx-effect: dropshadow( gaussian , White , 1,1,0,0);
+}
+
+.buttonIcon:hover{
+	-fx-effect: dropshadow( gaussian , White , 1,1,0,0);
+}
+.buttonMail:hover{
+	-fx-effect: dropshadow( gaussian , Black , 1,1,0,0);
+}
+
 .buttonSelected{
+	-fx-font-family: "Roboto Medium";
 	-fx-font-size: 20;
 	-fx-background-color: #D7D7D9;
 	-fx-pref-width: 200px;
@@ -25,13 +56,16 @@
 
 
 .header1.label .text {
-	-fx-font-weight: bold;
-	-fx-font-size: 55;
+	-fx-font-family: "Roboto Medium";
+	/*-fx-font-weight: bold; */
+	-fx-font-size: 75;
 	-fx-alignment: center;
-	-fx-fill: #F2911B;
-	-fx-stroke: #000000;
+	-fx-fill: #232226;
+	-fx-stroke: #F2911B;
+	
     -fx-stroke-width: 2px;
     -fx-stroke-type: outside;
+    
     }
 
 .outline1.label .text {
@@ -43,15 +77,25 @@
 	-fx-effect: dropshadow( gaussian , Black , 0,0,3,3 );
 }
 
+.buttonHome{
+	-fx-font-family: "Roboto Medium";
+	-fx-background-color: #F2911B;
+	-fx-font-weight: bold;
+	-fx-font-size: 28;
+	-fx-text-fill: White;
+	-fx-border-width: 4;
+	-fx-border-color: Black;
+}
+
 #pane1 {
-   -fx-background-image: url('../controller/maincontrol/img/Block.png');
+   -fx-background-image: url('../img/Block.png');
    -fx-background-size: 1520 100;
    -fx-background-position: center,center;
    
 }
 
 #pane2 {
-	-fx-background-image: url('../controller/maincontrol/img/Block2.png');
+	-fx-background-image: url('../img/Block2.png');
 	-fx-background-size: 1520 115;
     -fx-background-position: center,center;
     -fx-border-color: black;
@@ -59,7 +103,7 @@
 }
 
 #pane3 {
-	-fx-background-image: url('../controller/maincontrol/img/Block2.png');
+	-fx-background-image: url('../img/Block2.png');
 	-fx-background-size: 1520 60;
     -fx-background-position: top,center;
     -fx-border-color: black;
@@ -72,7 +116,7 @@
 
 
 #AnchorPane1 {
-	-fx-background-color:  #585859;
+	-fx-background-color:  #232226;
 	-fx-border-width:  2;
 	-fx-border-color:  black;
 }
@@ -98,42 +142,52 @@
 }
 
 #header2.label .text {
-	-fx-font-weight: bold;
-	-fx-font-size: 36;
+	-fx-font-family: "Roboto Medium";
+	-fx-font-size: 40;
 	-fx-alignment: center;
 	-fx-fill: #F2911B;
 	-fx-stroke: #000000;
-    -fx-stroke-width: 2px;
+    -fx-stroke-width: 1px;
     -fx-stroke-type: outside;
 }
 
-#txtInputPane .text {
-	-fx-font-weight: bold;
-	-fx-fill: #F2911B;
+#btnCalculate {
+	-fx-font-family: "Roboto Medium";
+	-fx-font-size: 16;
+	-fx-background-color: White;
 }
-#txtInputPane {
+
+.textStyleDefault {
+	-fx-font-family: "Roboto Medium";
+}
+
+.txtInputPane .text {
+	-fx-font-family: "Roboto Medium";
+	-fx-fill: #F2911B;
 	-fx-font-size: 12;
 }
 
 .txtInputPaneHeader .text {
-	-fx-font-weight: bold;
+	-fx-font-family: "Roboto Medium";
 	-fx-fill: #F2911B;
+	-fx-font-size: 20;
+}
 
-}
-.txtInputPaneHeader {
-	-fx-font-size: 18;
-}
 
 .txtInputPaneSelection .text {
-	-fx-font-weight: bold;
+	-fx-font-family: "Roboto Medium";
 	-fx-fill: #F2911B;
+	-fx-font-size: 13;
 }
-.txtInputPaneSelection {
+
+.txtSmallInputPane .text {
+	-fx-font-family: "Roboto Medium";
+	-fx-fill: White;
 	-fx-font-size: 12;
 }
 
 .plotPane {
-	-fx-background-color:  #E4E4E6;
+	-fx-background-color:  White;
 }
 
 .txtInputValues {

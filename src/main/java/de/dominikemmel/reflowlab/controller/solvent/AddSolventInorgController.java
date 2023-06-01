@@ -53,7 +53,7 @@ public class AddSolventInorgController implements javafx.fxml.Initializable {
             }
         });
 		
-		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/controller/maincontrol/img/arrowDown.png"));
+		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/ArrowDown/1x/arrowDownmdpi.png"));
 		ImageView imgViewBtnInputRefDensity = new ImageView(img);
 		imgViewBtnInputRefDensity.setFitHeight(10);
 		imgViewBtnInputRefDensity.setFitWidth(12);

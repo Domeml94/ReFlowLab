@@ -22,6 +22,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -827,6 +828,7 @@ public class CostsController implements javafx.fxml.Initializable {
 					stage.setScene(new Scene(rootAddStack));
 					stage.show();
 					stage.setTitle("ReFlowLab - Add stack costs");
+					stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 					
 					stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 					
@@ -853,6 +855,7 @@ public class CostsController implements javafx.fxml.Initializable {
 					stage.setScene(new Scene(rootAddSalt));
 					stage.show();
 					stage.setTitle("ReFlowLab - Add salt costs");
+					stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 					
 					stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -878,6 +881,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootAddSolvent));
 				stage.show();
 				stage.setTitle("ReFlowLab - Add solvent costs");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -903,6 +907,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootAddSeparator));
 				stage.show();
 				stage.setTitle("ReFlowLab - Add separator parameters");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -928,6 +933,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootAddPeripherals));
 				stage.show();
 				stage.setTitle("ReFlowLab - Add peripherals costs");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 				
@@ -986,6 +992,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootEditStack));
 				stage.show();
 				stage.setTitle("ReFlowLab - Edit stack costs");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -1037,6 +1044,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootEditSalt));
 				stage.show();
 				stage.setTitle("ReFlowLab - Edit salt costs");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -1088,6 +1096,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootEditSolvent));
 				stage.show();
 				stage.setTitle("ReFlowLab - Edit solvent costs");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -1139,6 +1148,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootEditSeparator));
 				stage.show();
 				stage.setTitle("ReFlowLab - Edit separator parameters");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -1190,6 +1200,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootEditPeripherals));
 				stage.show();
 				stage.setTitle("ReFlowLab - Edit peripherals costs");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 

@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -311,6 +312,7 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 			stage.show();
 			
 			stage.setTitle("ReFlowLab - Add Active materials");
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 			
 			stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 			
@@ -364,6 +366,7 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 			stage.show();
 			
 			stage.setTitle("ReFlowLab - Edit Active materials");
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 			
 			stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 

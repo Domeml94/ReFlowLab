@@ -201,9 +201,9 @@ public class MainController implements Initializable {
 	@FXML
 	public void emailToMe (ActionEvent event) throws IOException {
 
-		 URI msg;
+		URI msg;
 		try {
-			msg = new URI("mailto","d.emmel@tu-braunschweig.de?subject=ReFlowLab", (String) null);
+			msg = new URI("mailto","d.emmel@tu-braunschweig.de?subject=[ReFlowLab]", (String) null);
 			Desktop.getDesktop().mail(msg);
 		} catch (URISyntaxException e) {
 

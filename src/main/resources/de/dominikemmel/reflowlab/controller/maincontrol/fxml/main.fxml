@@ -193,7 +193,7 @@
                                     </Button>
                                     <HBox alignment="CENTER" prefWidth="1324.0" spacing="40.0">
                                        <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" styleClass="header1" text="ReFlowLab" />
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" styleClass="headerMain" text="ReFlowLab" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -208,9 +208,9 @@
                      <children>
                         <Pane minWidth="1300.0" prefHeight="161.0" prefWidth="1400.0" styleClass="standardPaneBackground1">
                            <children>
-                              <Label layoutX="24.0" layoutY="40.0" style="-fx-text-fill: White;" styleClass="textMain1" text="WG Prof. Dr.-Ing. Daniel Schröder">
+                              <Label layoutX="24.0" layoutY="40.0" styleClass="textMain1" text="WG Prof. Dr.-Ing. Daniel Schröder">
                                  <font>
-                                    <Font name="System Bold" size="18.0" />
+                                    <Font size="18.0" />
                                  </font>
                               </Label>
                               <HBox alignment="CENTER" layoutX="511.0" layoutY="1.0" prefHeight="100.0" spacing="25.0">
@@ -239,18 +239,14 @@
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#emailToMe" style="-fx-background-color: none;" styleClass="buttonMail">
                                        <graphic>
-                                          <Label layoutX="1250.0" style="-fx-text-fill: White; -fx-font-size: 14;" styleClass="textMain1" text="created by: Dominik Emmel">
+                                          <Label layoutX="1250.0" styleClass="textMain2" text="created by: Dominik Emmel">
                                              <font>
-                                                <Font name="System Bold Italic" size="14.0" />
+                                                <Font size="14.0" />
                                              </font>
                                           </Label>
                                        </graphic>
                                     </Button>
-                                    <Label style="-fx-text-fill: White;" styleClass="textMain1" text="   Version: 1.0.0-SNAPSHOT  ">
-                                       <font>
-                                          <Font name="System Bold Italic" size="12.0" />
-                                       </font>
-                                    </Label>
+                                    <Label styleClass="textMain3" text="   Version: 1.0.0-SNAPSHOT  " />
                                  </children>
                                  <padding>
                                     <Insets top="15.0" />
@@ -262,7 +258,7 @@
                                        <children>
                                           <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="155.0" spacing="40.0">
                                              <children>
-                                                <Label style="-fx-text-fill: White;" styleClass="textMain1" text="Status:">
+                                                <Label styleClass="textMain1" text="Status:">
                                                    <font>
                                                       <Font name="System Bold Italic" size="18.0" />
                                                    </font>
@@ -275,7 +271,7 @@
                                           </HBox>
                                        </children>
                                     </Pane>
-                                    <TextField editable="false" onMouseClicked="#openConsole" prefHeight="34.0" prefWidth="133.0" />
+                                    <TextField editable="false" onMouseClicked="#openConsole" prefHeight="34.0" prefWidth="133.0" styleClass="standardTextField1" />
                                  </children>
                                  <padding>
                                     <Insets top="15.0" />

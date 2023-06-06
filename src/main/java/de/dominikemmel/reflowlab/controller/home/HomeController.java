@@ -1,9 +1,15 @@
 package de.dominikemmel.reflowlab.controller.home;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
+import de.dominikemmel.reflowlab.Database;
 import de.dominikemmel.reflowlab.controller.electrolytes.ElectrolytesController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -77,6 +83,59 @@ public class HomeController implements javafx.fxml.Initializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	@FXML
+	private void btnFeedbackEvent(ActionEvent event) {
+		URI msg = null;
+		
+		try {
+			msg = new URI("mailto","d.emmel@tu-braunschweig.de?subject=[ReFlowLab] Feedback & Requests", (String) null);
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		try {
+			Desktop.getDesktop().mail(msg);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
+	}
+	
+	@FXML
+	private void btnDataProposalEvent(ActionEvent event) {
+		
+		Properties prop = new Properties();
+		prop = Database.readDatabasePropertyFile();
+		String pathProp = prop.getProperty("db.path");
+		
+		String dbName = "reflowlabDefaultDB.mv.db";
+		String[] pathDB = pathProp.split(dbName);
+		
+		
+		URI msg;
+		try {
+			msg = new URI("mailto","d.emmel@tu-braunschweig.de?subject=[ReFlowLab] Data proposal&body=Describe specific materials and cite corresponding papers or attach your database file: ['"+dbName+"', path = '"+pathDB[0]+"'].&attachment="+pathProp, (String) null);
+			try {
+				Desktop.getDesktop().mail(msg);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (URISyntaxException e) {
+
+			e.printStackTrace();
+		}
+		
+		
+		File file = new File (pathDB[0]);
+		Desktop desktop = Desktop.getDesktop();
+		try {
+			desktop.open(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 

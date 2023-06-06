@@ -1,5 +1,6 @@
 package de.dominikemmel.reflowlab;
 
+import java.awt.Color;
 import java.io.IOException;
 
 import javafx.application.Application;
@@ -8,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 
@@ -20,11 +22,13 @@ public class MainApp extends Application {
 		
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
+		primaryStage.initStyle(StageStyle.DECORATED);
+		
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		primaryStage.setTitle("ReFlowLab");
 		primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
-
+		
 //		MainController.dbTest();
 
 //		Database.createConnection("activeMaterial");

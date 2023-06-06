@@ -21,15 +21,15 @@
                   <Label fx:id="header2" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="4.0" text="Cost Analysis" textAlignment="CENTER" />
                </children>
             </Pane>
-            <AnchorPane layoutX="-8.0" layoutY="59.0" prefHeight="274.0" prefWidth="855.0" style="-fx-border-color: #000000;" styleClass="standardPaneBackground1">
+            <AnchorPane layoutX="-8.0" layoutY="59.0" prefHeight="274.0" prefWidth="855.0" styleClass="standardPaneBackground1_Outline">
                <children>
                   <CheckBox fx:id="checkStandard" layoutX="320.0" layoutY="157.0" mnemonicParsing="false" onAction="#uncheckFullCell" styleClass="txtInputPaneSelection" text="Active material vs Standard" />
                   <CheckBox fx:id="checkFullCell" layoutX="320.0" layoutY="182.0" mnemonicParsing="false" onAction="#uncheckStandard" styleClass="txtInputPaneSelection" text="Anolyte vs Catholyte" />
-                  <Button fx:id="btnCalculate" layoutX="524.0" layoutY="225.0" mnemonicParsing="false" onAction="#btnCalculate" prefHeight="30.0" prefWidth="300.0" style="-fx-font-weight: bold;" text="Calculate" />
+                  <Button fx:id="btnCalculate" layoutX="524.0" layoutY="225.0" mnemonicParsing="false" onAction="#btnCalculate" prefHeight="30.0" prefWidth="300.0" text="Calculate" />
                   <Label layoutX="35.0" layoutY="37.0" prefHeight="26.0" styleClass="txtInputPane" text="Acitve Material:" />
                   <Label layoutX="35.0" layoutY="79.0" prefHeight="26.0" styleClass="txtInputPane" text="Solvent:" />
-                  <Label fx:id="labelLeft" layoutX="148.0" layoutY="5.0" style="-fx-font-weight: bold;" styleClass="txtInputPaneHeader" text="Anolyte" />
-                  <Label fx:id="labelRight" layoutX="320.0" layoutY="5.0" style="-fx-font-weight: bold;" styleClass="txtInputPaneHeader" text="Catholyte" />
+                  <Label fx:id="labelLeft" layoutX="148.0" layoutY="5.0" styleClass="txtInputPaneHeader" text="Anolyte" />
+                  <Label fx:id="labelRight" layoutX="320.0" layoutY="5.0" styleClass="txtInputPaneHeader" text="Catholyte" />
                   <ComboBox fx:id="comboLeftActiveMaterial" layoutX="148.0" layoutY="37.0" onAction="#populateComboLeftSolvent" prefHeight="26.0" prefWidth="150.0" />
                   <ComboBox fx:id="comboLeftSolvent" layoutX="148.0" layoutY="79.0" onAction="#populateComboLeftSalt" prefHeight="26.0" prefWidth="150.0" />
                   <ComboBox fx:id="comboRightActiveMaterial" layoutX="320.0" layoutY="37.0" onAction="#populateComboRightSolvent" prefHeight="26.0" prefWidth="150.0" />
@@ -39,11 +39,11 @@
                   <Label layoutX="35.0" layoutY="121.0" prefHeight="26.0" styleClass="txtInputPane" text="Salt:" />
                   <ComboBox fx:id="comboStack" accessibleText="0.06m2_Nafion&#10;0.06m2_SizeSelective&#10;2.76m2_Nafion&#10;2.76m2_SizeSelective" layoutX="148.0" layoutY="167.0" onAction="#selectComboStack" prefHeight="26.0" prefWidth="108.0" />
                   <Label layoutX="35.0" layoutY="167.0" prefHeight="26.0" styleClass="txtInputPane" text="Stack:" />
-                  <Pane layoutX="614.0" layoutY="9.0" prefHeight="145.0" prefWidth="210.0" style="-fx-border-color: #ffffff;">
+                  <Pane layoutX="614.0" layoutY="9.0" prefHeight="145.0" prefWidth="210.0" styleClass="outline2">
                      <children>
-                        <TextField fx:id="voltageEfficiencyInput" layoutX="121.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                        <TextField fx:id="voltageEfficiencyInput" layoutX="121.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" styleClass="standardTextField1" />
                         <CheckBox fx:id="checkVoltageEfficiency" layoutX="13.0" layoutY="49.0" mnemonicParsing="false" />
-                        <TextField fx:id="currentDensityInput" layoutX="121.0" layoutY="78.0" prefHeight="26.0" prefWidth="75.0" />
+                        <TextField fx:id="currentDensityInput" layoutX="121.0" layoutY="78.0" prefHeight="26.0" prefWidth="75.0" styleClass="standardTextField1" />
                         <CheckBox fx:id="checkCurrentDensity" layoutX="13.0" layoutY="82.0" mnemonicParsing="false" />
                         <Label layoutX="44.0" layoutY="49.0">
                            <graphic>
@@ -72,8 +72,8 @@
                            </graphic>
                         </Label>
                         <CheckBox fx:id="checkPeakPower" layoutX="13.0" layoutY="17.0" mnemonicParsing="false" styleClass="txtSmallInputPane" text="peakPower" textFill="WHITE" />
-                        <TextField fx:id="peakPowerInput" layoutX="121.0" layoutY="13.0" prefHeight="26.0" prefWidth="75.0" />
-                        <TextField fx:id="specPowerInput" layoutX="121.0" layoutY="111.0" prefHeight="26.0" prefWidth="75.0" />
+                        <TextField fx:id="peakPowerInput" layoutX="121.0" layoutY="13.0" prefHeight="26.0" prefWidth="75.0" styleClass="standardTextField1" />
+                        <TextField fx:id="specPowerInput" layoutX="121.0" layoutY="111.0" prefHeight="26.0" prefWidth="75.0" styleClass="standardTextField1" />
                         <CheckBox fx:id="checkSpecPower" layoutX="13.0" layoutY="111.0" mnemonicParsing="false" />
                         <Label layoutX="40.0" layoutY="111.0" prefWidth="70.0">
                            <graphic>
@@ -134,9 +134,9 @@
                      </graphic>
                   </Label>
                   <CheckBox fx:id="checkTransportationLimitationMode" layoutX="767.0" layoutY="170.0" mnemonicParsing="false" textFill="WHITE" />
-                  <TextField fx:id="txtfbTimeDischarge" layoutX="35.0" layoutY="238.0" prefHeight="26.0" prefWidth="116.0" />
-                  <TextField fx:id="txtfbPowerDischarge" layoutX="166.0" layoutY="238.0" prefHeight="26.0" prefWidth="116.0" />
-                  <TextField fx:id="txtfbEnergyCapacity" layoutX="297.0" layoutY="238.0" prefHeight="26.0" prefWidth="116.0" />
+                  <TextField fx:id="txtfbTimeDischarge" layoutX="35.0" layoutY="238.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
+                  <TextField fx:id="txtfbPowerDischarge" layoutX="166.0" layoutY="238.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
+                  <TextField fx:id="txtfbEnergyCapacity" layoutX="297.0" layoutY="238.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                   <Label layoutX="35.0" layoutY="210.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                      <graphic>
                         <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -170,12 +170,12 @@
                         </TextFlow>
                      </graphic>
                   </Label>
-                  <Button fx:id="btnStackSelection" layoutX="262.0" layoutY="168.0" mnemonicParsing="false" onAction="#btnStackSelection" text="Edit" />
+                  <Button fx:id="btnStackSelection" layoutX="262.0" layoutY="168.0" mnemonicParsing="false" onAction="#btnStackSelection" styleClass="standardBotton1" text="Edit" />
                </children>
             </AnchorPane>
             <TabPane layoutX="-8.0" layoutY="340.0" prefHeight="380.0" prefWidth="855.0" style="-fx-border-color: #000000;" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="electrolyte">
+                <Tab styleClass="standardTabTxt" text="electrolyte">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="339.0" prefWidth="855.0" styleClass="standardPaneBackground1">
                            <children>
@@ -191,7 +191,7 @@
                                     </TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdAnolyteActMatCost" layoutX="20.0" layoutY="45.0" maxHeight="26.0" maxWidth="116.0" minHeight="26.0" minWidth="116.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdAnolyteActMatCost" layoutX="20.0" layoutY="45.0" maxHeight="26.0" maxWidth="116.0" minHeight="26.0" minWidth="116.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="151.0" layoutY="18.0" maxHeight="26.0" maxWidth="25.0" minHeight="26.0" minWidth="25.0" prefHeight="26.0" prefWidth="25.0" style="-fx-font-weight: bold;" styleClass="txtInputValues" textAlignment="CENTER">
                                  <graphic>
                                     <TextFlow maxHeight="26.0" maxWidth="31.0" minHeight="26.0" minWidth="31.0" prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
@@ -213,7 +213,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdAnolyteActMatMolMass" layoutX="197.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdAnolyteActMatMolMass" layoutX="197.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="328.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow fx:id="textFlowAnolyteSocRange" prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
@@ -224,7 +224,7 @@
                                     </TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdAnolyteSocRange" layoutX="328.0" layoutY="45.0" prefHeight="26.0" prefWidth="31.0" />
+                              <TextField fx:id="txtfdAnolyteSocRange" layoutX="328.0" layoutY="45.0" prefHeight="26.0" prefWidth="31.0" styleClass="standardTextField1" />
                               <Label layoutX="374.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
@@ -234,7 +234,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdAnolyteActMatNumberElectron" layoutX="374.0" layoutY="45.0" prefHeight="26.0" prefWidth="31.0" />
+                              <TextField fx:id="txtfdAnolyteActMatNumberElectron" layoutX="374.0" layoutY="45.0" prefHeight="26.0" prefWidth="31.0" styleClass="standardTextField1" />
                               <Label layoutX="420.0" layoutY="18.0" prefHeight="26.0" prefWidth="31.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow textAlignment="CENTER">
@@ -244,7 +244,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdAnolyteActMatNumberProton" layoutX="420.0" layoutY="45.0" prefHeight="26.0" prefWidth="31.0" />
+                              <TextField fx:id="txtfdAnolyteActMatNumberProton" layoutX="420.0" layoutY="45.0" prefHeight="26.0" prefWidth="31.0" styleClass="standardTextField1" />
                               <Label layoutX="466.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="75.0" textAlignment="CENTER">
@@ -268,7 +268,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdAnolyteSaltMolMass" layoutX="556.0" layoutY="45.0" prefHeight="26.0" prefWidth="90.0" />
+                              <TextField fx:id="txtfdAnolyteSaltMolMass" layoutX="556.0" layoutY="45.0" prefHeight="26.0" prefWidth="90.0" styleClass="standardTextField1" />
                               <Label layoutX="661.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="88.0" textAlignment="CENTER">
@@ -291,7 +291,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdAnolytePotential" layoutX="761.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                              <TextField fx:id="txtfdAnolytePotential" layoutX="761.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" styleClass="standardTextField1" />
                               <Label layoutX="20.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -303,7 +303,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdCatholyteActMatCost" layoutX="20.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdCatholyteActMatCost" layoutX="20.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="151.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
@@ -325,7 +325,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdCatholyteActMatMolMass" layoutX="197.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdCatholyteActMatMolMass" layoutX="197.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="328.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
@@ -335,7 +335,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdCatholyteSocRange" layoutX="328.0" layoutY="112.0" prefHeight="26.0" prefWidth="31.0" />
+                              <TextField fx:id="txtfdCatholyteSocRange" layoutX="328.0" layoutY="112.0" prefHeight="26.0" prefWidth="31.0" styleClass="standardTextField1" />
                               <Label layoutX="374.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
@@ -345,7 +345,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdCatholyteActMatNumberElectron" layoutX="374.0" layoutY="112.0" prefHeight="26.0" prefWidth="31.0" />
+                              <TextField fx:id="txtfdCatholyteActMatNumberElectron" layoutX="374.0" layoutY="112.0" prefHeight="26.0" prefWidth="31.0" styleClass="standardTextField1" />
                               <Label layoutX="420.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
@@ -355,7 +355,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdCatholyteActMatNumberProton" layoutX="420.0" layoutY="112.0" prefHeight="26.0" prefWidth="31.0" />
+                              <TextField fx:id="txtfdCatholyteActMatNumberProton" layoutX="420.0" layoutY="112.0" prefHeight="26.0" prefWidth="31.0" styleClass="standardTextField1" />
                               <Label layoutX="466.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="75.0" textAlignment="CENTER">
@@ -380,7 +380,7 @@
                                     </TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdCatholyteSaltMolMass" layoutX="556.0" layoutY="112.0" prefHeight="26.0" prefWidth="90.0" />
+                              <TextField fx:id="txtfdCatholyteSaltMolMass" layoutX="556.0" layoutY="112.0" prefHeight="26.0" prefWidth="90.0" styleClass="standardTextField1" />
                               <Label layoutX="661.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="88.0" textAlignment="CENTER">
@@ -403,7 +403,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdCatholytePotential" layoutX="761.0" layoutY="112.0" prefHeight="26.0" prefWidth="75.0" />
+                              <TextField fx:id="txtfdCatholytePotential" layoutX="761.0" layoutY="112.0" prefHeight="26.0" prefWidth="75.0" styleClass="standardTextField1" />
                               <Label layoutX="20.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -448,7 +448,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdEfficiencySysDischarge" layoutX="413.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdEfficiencySysDischarge" layoutX="413.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="544.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -458,7 +458,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdEfficiencyVoltDischarge" layoutX="544.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdEfficiencyVoltDischarge" layoutX="544.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="675.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -468,7 +468,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdEfficiencyCoulombicRoundTrip" layoutX="675.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdEfficiencyCoulombicRoundTrip" layoutX="675.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="20.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -480,7 +480,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdSaltCost" layoutX="20.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdSaltCost" layoutX="20.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="151.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -492,7 +492,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdSolventCost" layoutX="151.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdSolventCost" layoutX="151.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="282.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0">
@@ -503,7 +503,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdSolventDensity" layoutX="282.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdSolventDensity" layoutX="282.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="413.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -513,7 +513,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdTemp" layoutX="413.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdTemp" layoutX="413.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="544.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -522,7 +522,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdPH" layoutX="544.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdPH" layoutX="544.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="20.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -534,7 +534,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdAnolyteTankCost" layoutX="20.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdAnolyteTankCost" layoutX="20.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="151.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -546,7 +546,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdCatholyteTankCost" layoutX="151.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdCatholyteTankCost" layoutX="151.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="282.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -557,7 +557,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdTankFillLevel" layoutX="282.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdTankFillLevel" layoutX="282.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="413.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -573,7 +573,7 @@
                            </children></AnchorPane>
                   </content>
                 </Tab>
-                  <Tab text="power">
+                  <Tab styleClass="standardTabTxt" text="power">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="standardPaneBackground1">
                            <children>
@@ -588,7 +588,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdStackCost" layoutX="20.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                              <TextField fx:id="txtfdStackCost" layoutX="20.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" styleClass="standardTextField1" />
                               <Label layoutX="90.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -599,7 +599,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfbASR" layoutX="110.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                              <TextField fx:id="txtfbASR" layoutX="110.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" styleClass="standardTextField1" />
                               <Label layoutX="180.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -608,7 +608,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfbSocDischarge" layoutX="200.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                              <TextField fx:id="txtfbSocDischarge" layoutX="200.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" styleClass="standardTextField1" />
                               <Label layoutX="584.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -620,7 +620,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfbCurrentDensityDischarge" layoutX="584.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfbCurrentDensityDischarge" layoutX="584.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="715.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -687,7 +687,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfbAnolyteReactionRate" layoutX="20.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfbAnolyteReactionRate" layoutX="20.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="151.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="54.0" textAlignment="CENTER">
@@ -697,7 +697,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfbAnolyteTransferCoeff" layoutX="151.0" layoutY="179.0" prefHeight="26.0" prefWidth="54.0" />
+                              <TextField fx:id="txtfbAnolyteTransferCoeff" layoutX="151.0" layoutY="179.0" prefHeight="26.0" prefWidth="54.0" styleClass="standardTextField1" />
                               <Label layoutX="220.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -709,7 +709,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfbCatholyteReactionRate" layoutX="220.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfbCatholyteReactionRate" layoutX="220.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="351.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="54.0" textAlignment="CENTER">
@@ -719,7 +719,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfbCatholyteTransferCoeff" layoutX="351.0" layoutY="179.0" prefHeight="26.0" prefWidth="46.0" />
+                              <TextField fx:id="txtfbCatholyteTransferCoeff" layoutX="351.0" layoutY="179.0" prefHeight="26.0" prefWidth="46.0" styleClass="standardTextField1" />
                               <Label layoutX="412.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -777,7 +777,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdCellArea" layoutX="20.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdCellArea" layoutX="20.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="151.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -799,7 +799,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdNumberCellsPerStack" layoutX="282.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdNumberCellsPerStack" layoutX="282.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="413.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -809,7 +809,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdNumberCells" layoutX="413.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdNumberCells" layoutX="413.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="544.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -819,7 +819,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdNumberStacks" layoutX="544.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdNumberStacks" layoutX="544.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="675.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -830,7 +830,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdReactorCost" layoutX="675.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdReactorCost" layoutX="675.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="270.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -842,7 +842,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfbCostBOP" layoutX="290.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                              <TextField fx:id="txtfbCostBOP" layoutX="290.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" styleClass="standardTextField1" />
                               <Label layoutX="360.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -854,7 +854,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfbCostAdd" layoutX="380.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                              <TextField fx:id="txtfbCostAdd" layoutX="380.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" styleClass="standardTextField1" />
                               <TextField fx:id="txtfbConcentrationOverPotDischarge" editable="false" layoutX="544.0" layoutY="114.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
                               <Label layoutX="544.0" layoutY="87.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
@@ -867,10 +867,10 @@
                                     </TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfbDiaFiber" layoutX="20.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
-                              <TextField fx:id="txtfbFlowVelocity" layoutX="151.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
-                              <TextField fx:id="txtfbAnolyteDiffusionCoeff" layoutX="282.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
-                              <TextField fx:id="txtfbCatholyteDiffusionCoeff" layoutX="412.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfbDiaFiber" layoutX="20.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
+                              <TextField fx:id="txtfbFlowVelocity" layoutX="151.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
+                              <TextField fx:id="txtfbAnolyteDiffusionCoeff" layoutX="282.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
+                              <TextField fx:id="txtfbCatholyteDiffusionCoeff" layoutX="412.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <TextField fx:id="txtfbAnolyteConcentrationOverPotDischarge" editable="false" layoutX="544.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
                               <TextField fx:id="txtfbCatholyteConcentrationOverPotDischarge" editable="false" layoutX="675.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
                               <Label layoutX="20.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
@@ -949,7 +949,7 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="maintenance">
+                  <Tab styleClass="standardTabTxt" text="maintenance">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="standardPaneBackground1">
                            <children>
@@ -962,7 +962,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdOperationalLifetime" layoutX="20.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdOperationalLifetime" layoutX="20.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="151.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="45.0" textAlignment="CENTER">
@@ -971,7 +971,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdInterestRate" layoutX="151.0" layoutY="45.0" prefHeight="26.0" prefWidth="45.0" />
+                              <TextField fx:id="txtfdInterestRate" layoutX="151.0" layoutY="45.0" prefHeight="26.0" prefWidth="45.0" styleClass="standardTextField1" />
                               <Label layoutX="211.0" layoutY="15.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -983,7 +983,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdAnolyteReplacementFraction" layoutX="211.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdAnolyteReplacementFraction" layoutX="211.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="342.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -995,7 +995,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdCatholyteReplacementFraction" layoutX="342.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdCatholyteReplacementFraction" layoutX="342.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="473.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -1031,7 +1031,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdAnolyteReplacementCostMass" layoutX="20.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdAnolyteReplacementCostMass" layoutX="20.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="151.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="150.0" textAlignment="CENTER">
@@ -1044,7 +1044,7 @@
                                     </TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdAnolyteReplacementCost" layoutX="151.0" layoutY="112.0" prefHeight="26.0" prefWidth="150.0" />
+                              <TextField fx:id="txtfdAnolyteReplacementCost" layoutX="151.0" layoutY="112.0" prefHeight="26.0" prefWidth="150.0" styleClass="standardTextField1" />
                               <Label layoutX="316.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -1056,7 +1056,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdCatholyteReplacementCostMass" layoutX="316.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdCatholyteReplacementCostMass" layoutX="316.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="447.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="150.0" textAlignment="CENTER">
@@ -1068,7 +1068,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdCatholyteReplacementCost" layoutX="447.0" layoutY="112.0" prefHeight="26.0" prefWidth="150.0" />
+                              <TextField fx:id="txtfdCatholyteReplacementCost" layoutX="447.0" layoutY="112.0" prefHeight="26.0" prefWidth="150.0" styleClass="standardTextField1" />
                               <Label layoutX="612.0" layoutY="85.0" prefWidth="116.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -1088,7 +1088,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdThreshold" layoutX="743.0" layoutY="112.0" prefHeight="26.0" prefWidth="45.0" />
+                              <TextField fx:id="txtfdThreshold" layoutX="743.0" layoutY="112.0" prefHeight="26.0" prefWidth="45.0" styleClass="standardTextField1" />
                               <Label layoutX="20.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -1123,7 +1123,7 @@
                                        </children></TextFlow>
                                  </graphic>
                               </Label>
-                              <TextField fx:id="txtfdStackOperationalTime" layoutX="151.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfdStackOperationalTime" layoutX="151.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="standardTextField1" />
                               <Label layoutX="282.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
                                  <graphic>
                                     <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
@@ -1140,7 +1140,7 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                <Tab text="results">
+                <Tab styleClass="standardTabTxt" text="results">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -1275,7 +1275,7 @@
             </TabPane>
             <TabPane layoutX="859.0" layoutY="59.0" prefHeight="600.0" prefWidth="642.0" styleClass="shadow" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                  <Tab text="Radar chart">
+                  <Tab styleClass="standardTabTxt" text="Radar chart">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="555.0" prefWidth="626.0">
                            <children>
@@ -1284,7 +1284,7 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                <Tab text="Ud vs SOC">
+                <Tab styleClass="standardTabTxt" text="Ud vs SOC">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="319.0" prefWidth="534.0">
                            <children>
@@ -1293,7 +1293,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="Ud vs id">
+                <Tab styleClass="standardTabTxt" text="Ud vs id">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -1302,7 +1302,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab text="Pd vs id">
+                  <Tab styleClass="standardTabTxt" text="Pd vs id">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -1313,23 +1313,23 @@
                   </Tab>
               </tabs>
             </TabPane>
-            <Pane layoutX="-8.0" layoutY="727.0" prefHeight="44.0" prefWidth="1521.0" style="-fx-border-color: #000000; -fx-background-color: #E4E4E6;" styleClass="shadow">
+            <Pane layoutX="-8.0" layoutY="727.0" prefHeight="44.0" prefWidth="1521.0" styleClass="standardPaneBackground3_Outline">
                <children>
                   <Label disable="true" layoutX="963.0" layoutY="15.0" text="Export:" visible="false" />
                   <ComboBox fx:id="comboExportSelection" disable="true" layoutX="1027.0" layoutY="10.0" prefWidth="150.0" visible="false" />
                   <Button fx:id="btnExport" disable="true" layoutX="1196.0" layoutY="10.0" mnemonicParsing="false" onAction="#export" text="Button" visible="false" />
                   <Button fx:id="btnSA" disable="true" layoutX="1298.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnSA" text="SA" visible="false" />
-                  <Label layoutX="14.0" layoutY="15.0" opacity="0.34" text="View:" />
-                  <Button fx:id="btnView" layoutX="51.0" layoutY="10.0" mnemonicParsing="false" opacity="0.42" prefHeight="25.0" prefWidth="77.0" textAlignment="CENTER" />
+                  <Label layoutX="14.0" layoutY="15.0" opacity="0.34" styleClass="standardTextField1" text="View:" />
+                  <Button fx:id="btnView" layoutX="51.0" layoutY="10.0" mnemonicParsing="false" opacity="0.42" prefHeight="25.0" prefWidth="77.0" styleClass="standardTextField1" textAlignment="CENTER" />
                </children>
             </Pane>
-            <TextField fx:id="txtfdCostElectrolyteKWh1" editable="false" layoutX="859.0" layoutY="692.0" prefHeight="26.0" prefWidth="149.0" style="-fx-font-weight: bold;" styleClass="txtDiabled" />
-            <TextField fx:id="txtfdCostPower1" editable="false" layoutX="1023.0" layoutY="692.0" prefHeight="26.0" prefWidth="149.0" style="-fx-font-weight: bold;" styleClass="txtDiabled" />
-            <TextField fx:id="txtfdCostMaintenance1" editable="false" layoutX="1187.0" layoutY="692.0" prefHeight="26.0" prefWidth="149.0" style="-fx-font-weight: bold;" styleClass="txtDiabled" />
-            <TextField fx:id="txtfdCostCapital1" editable="false" layoutX="1351.0" layoutY="690.0" prefHeight="26.0" prefWidth="149.0" style="-fx-font-weight: bold; -fx-border-color: #000000; -fx-border-width: 2;" styleClass="txtDiabled" />
+            <TextField fx:id="txtfdCostElectrolyteKWh1" editable="false" layoutX="859.0" layoutY="692.0" prefHeight="26.0" prefWidth="149.0" styleClass="txtDiabled" />
+            <TextField fx:id="txtfdCostPower1" editable="false" layoutX="1023.0" layoutY="692.0" prefHeight="26.0" prefWidth="149.0" styleClass="txtDiabled" />
+            <TextField fx:id="txtfdCostMaintenance1" editable="false" layoutX="1187.0" layoutY="692.0" prefHeight="26.0" prefWidth="149.0" styleClass="txtDiabled" />
+            <TextField fx:id="txtfdCostCapital1" editable="false" layoutX="1351.0" layoutY="690.0" prefHeight="26.0" prefWidth="149.0" style="-fx-border-color: #000000; -fx-border-width: 2;" styleClass="txtDiabled" />
             <Label layoutX="1351.0" layoutY="669.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
                <graphic>
-                  <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                  <TextFlow prefHeight="26.0" prefWidth="149.0" styleClass="standardTextField1" textAlignment="CENTER">
                      <children>
                         <Text fx:id="costCapital11" strokeType="OUTSIDE" strokeWidth="0.0" />
                         <Text fx:id="costCapital21" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -1341,7 +1341,7 @@
             </Label>
             <Label layoutX="859.0" layoutY="669.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
                <graphic>
-                  <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                  <TextFlow prefHeight="26.0" prefWidth="149.0" styleClass="standardTextField1" textAlignment="CENTER">
                      <children>
                         <Text fx:id="costElectrolyteKWh11" strokeType="OUTSIDE" strokeWidth="0.0" />
                         <Text fx:id="costElectrolyteKWh21" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -1353,7 +1353,7 @@
             </Label>
             <Label layoutX="1023.0" layoutY="666.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
                <graphic>
-                  <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                  <TextFlow prefHeight="26.0" prefWidth="149.0" styleClass="standardTextField1" textAlignment="CENTER">
                      <children>
                         <Text fx:id="costPower11" strokeType="OUTSIDE" strokeWidth="0.0" />
                         <Text fx:id="costPower21" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -1365,7 +1365,7 @@
             </Label>
             <Label layoutX="1187.0" layoutY="669.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
                <graphic>
-                  <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                  <TextFlow prefHeight="26.0" prefWidth="149.0" styleClass="standardTextField1" textAlignment="CENTER">
                      <children>
                         <Text fx:id="costMaintenance11" strokeType="OUTSIDE" strokeWidth="0.0" />
                         <Text fx:id="costMaintenance21" strokeType="OUTSIDE" strokeWidth="0.0" />

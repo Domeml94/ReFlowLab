@@ -171,6 +171,8 @@ public class ObjCostAnalysisOutput {
 
 	public DoubleProperty anolyteEnergyDensity = new SimpleDoubleProperty();
 	public DoubleProperty catholyteEnergyDensity = new SimpleDoubleProperty();
+	public DoubleProperty anolyteEnergyDensityKg = new SimpleDoubleProperty();
+	public DoubleProperty catholyteEnergyDensityKg = new SimpleDoubleProperty();
 	public DoubleProperty energyDensity = new SimpleDoubleProperty();
 	public DoubleProperty energyDensityKg = new SimpleDoubleProperty();
 

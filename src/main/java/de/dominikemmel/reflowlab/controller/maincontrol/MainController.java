@@ -27,10 +27,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import de.dominikemmel.reflowlab.Database;
 import de.dominikemmel.reflowlab.FxmlLoader;
 import de.dominikemmel.reflowlab.VariousMethods;
@@ -57,6 +59,8 @@ public class MainController implements Initializable {
 	private Button btnReference;
 	@FXML
 	private Button btnDB;
+	
+	Stage stageConsole = new Stage();
 
 
 	@Override
@@ -84,6 +88,7 @@ public class MainController implements Initializable {
 		MainController.defaultInitSettings();
 		MainController.this.dbTest();
 		MainController.this.testBtnDB();
+		MainController.this.startConsole();
 
 	}
 
@@ -529,16 +534,25 @@ public class MainController implements Initializable {
 
 	@FXML
 	public void openConsole(MouseEvent event) {
+
+		stageConsole.show();
+
+	}
+	
+	public void startConsole() {
 		try {
 			Parent rootRagoneTool;
 			rootRagoneTool = FXMLLoader.load(getClass().getResource("/de/dominikemmel/reflowlab/controller/maincontrol/fxml/consoleOverview.fxml"));
-			Stage stage = new Stage();
-			stage.setScene(new Scene(rootRagoneTool));
-			stage.show();
+			
+			stageConsole.setScene(new Scene(rootRagoneTool));
+			stageConsole.initStyle(StageStyle.DECORATED);
+//			stage.show();
+			stageConsole.setTitle("Console");
+			stageConsole.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }

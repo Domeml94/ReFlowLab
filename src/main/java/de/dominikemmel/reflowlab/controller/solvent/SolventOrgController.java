@@ -194,6 +194,8 @@ public class SolventOrgController implements javafx.fxml.Initializable {
 
 		try {
 			tblOrgSolvent.refresh();
+			
+			Database.createConnection("solventOrganic");
 
 			ResultSet res = Database.selectData("solventOrganic");
 

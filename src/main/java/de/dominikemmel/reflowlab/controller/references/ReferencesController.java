@@ -68,6 +68,8 @@ public class ReferencesController implements javafx.fxml.Initializable {
 
 		try {
 			tblReference.refresh();
+			
+			Database.createConnection("reference");
 
 			ResultSet res = Database.selectData("reference");
 

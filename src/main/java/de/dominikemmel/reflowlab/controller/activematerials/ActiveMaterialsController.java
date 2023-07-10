@@ -87,6 +87,8 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 
 		try {
 			tblActiveMaterial.refresh();
+			
+			Database.createConnection("activeMaterial");
 
 			ResultSet res = Database.selectData("activeMaterial");
 

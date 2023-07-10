@@ -91,6 +91,8 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
 
 		try {
 			tblElectrolytes.refresh();
+			
+			Database.createConnection("electrolyte");
 
 			ResultSet res = Database.selectData("electrolyte");
 

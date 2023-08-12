@@ -21,12 +21,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<ScrollPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.maincontrol.MainController">
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.maincontrol.MainController">
    <content>
       <AnchorPane>
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="723.0" prefWidth="1532.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <MenuBar opacity="0.8">
                     <menus>
@@ -287,7 +286,7 @@
                         </VBox>
                      </bottom>
                      <center>
-                        <Pane maxHeight="483.0" maxWidth="1300.0" minHeight="483.0" minWidth="1300.0" BorderPane.alignment="CENTER" />
+                        <Pane maxHeight="483.0" minHeight="483.0" minWidth="1300.0" prefHeight="483.0" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                </children>

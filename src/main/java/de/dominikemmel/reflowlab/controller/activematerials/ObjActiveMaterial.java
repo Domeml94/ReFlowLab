@@ -22,6 +22,7 @@ public class ObjActiveMaterial {
 	public DoubleProperty SaltC = new SimpleDoubleProperty();
 	public DoubleProperty PH = new SimpleDoubleProperty();
 	public DoubleProperty E = new SimpleDoubleProperty();
+	public StringProperty Category = new SimpleStringProperty();
 	public StringProperty EDITDATE = new SimpleStringProperty();
 	public IntegerProperty RefIDn = new SimpleIntegerProperty();
 	public IntegerProperty RefIDNumberH = new SimpleIntegerProperty();
@@ -67,6 +68,9 @@ public class ObjActiveMaterial {
 	public DoubleProperty EProperty() {
 		return E;
 	}
+	public StringProperty CategoryProperty() {
+		return Category;
+	}
 	public StringProperty EDITDATEProperty() {
 		return EDITDATE;
 	}
@@ -84,7 +88,7 @@ public class ObjActiveMaterial {
 	}
 
 	// Using constructor to set values of properties.
-	public ObjActiveMaterial(int IDValue, String ABBREVIATIONValue, String NAMEValue, String STRUCTURALFORMULAValue, double MValue, int NValue, int NumberHValue, double CAMValue, String SOLVENTValue, String SaltValue, double SaltCValue, double PHValue, double EValue, String EDITDATEValue, int RefIDnValue, int RefIDNumberHValue, int RefIDCAMValue, int RefIDEValue) {
+	public ObjActiveMaterial(int IDValue, String ABBREVIATIONValue, String NAMEValue, String STRUCTURALFORMULAValue, double MValue, int NValue, int NumberHValue, double CAMValue, String SOLVENTValue, String SaltValue, double SaltCValue, double PHValue, double EValue, String CategoryValue, String EDITDATEValue, int RefIDnValue, int RefIDNumberHValue, int RefIDCAMValue, int RefIDEValue) {
 		ID.set(IDValue);
 		ABBREVIATION.set(ABBREVIATIONValue);
 		NAME.set(NAMEValue);
@@ -98,6 +102,7 @@ public class ObjActiveMaterial {
 		SaltC.set(SaltCValue);
 		PH.set(PHValue);
 		E.set(EValue);
+		Category.set(CategoryValue);
 		EDITDATE.set(EDITDATEValue);
 		RefIDn.set(RefIDnValue);
 		RefIDNumberH.set(RefIDNumberHValue);

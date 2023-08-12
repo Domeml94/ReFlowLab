@@ -50,6 +50,7 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 	@FXML private TableColumn<ObjActiveMaterial, Double> PH;
 	@FXML private TableColumn<ObjActiveMaterial, Double> E;
 	@FXML private TableColumn<ObjActiveMaterial, String> EDITDATE;
+	@FXML private TableColumn<ObjActiveMaterial, String> Category;
 	
 	@FXML private TableColumn<ObjActiveMaterial, Integer> RefIDn;
 	@FXML private TableColumn<ObjActiveMaterial, Integer> RefIDNumberH;
@@ -69,6 +70,7 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 	@FXML private TextFlow SaltC_TextFlow;
 	@FXML private TextFlow PH_TextFlow;
 	@FXML private TextFlow E_TextFlow;
+	@FXML private TextFlow Category_TextFlow;
 	@FXML private TextFlow EDITDATE_TextFlow;
 
 	@FXML private Button addActiveMaterial;
@@ -110,6 +112,7 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 		    		objActiveMaterial.SaltC.set(res.getDouble("SaltC"));
 		    		objActiveMaterial.PH.set(res.getDouble("PH"));
 		    		objActiveMaterial.E.set(res.getDouble("E"));
+		    		objActiveMaterial.Category.set(res.getString("Category"));
 		    		objActiveMaterial.RefIDn.set(res.getInt("RefIDn"));
 		    		objActiveMaterial.RefIDNumberH.set(res.getInt("RefIDNumberH"));
 		    		objActiveMaterial.RefIDCAM.set(res.getInt("RefIDCAM"));
@@ -137,6 +140,7 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 	    	SaltC.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, Double>("SaltC"));
 	    	PH.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, Double>("PH"));
 	    	E.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, Double>("E"));
+	    	Category.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, String>("Category"));
 	    	EDITDATE.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, String>("EDITDATE"));
 	    	RefIDn.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, Integer>("RefIDn"));
 	    	RefIDNumberH.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, Integer>("RefIDNumberH"));
@@ -288,11 +292,17 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 		Text E1 = new Text("E");
 		E1.setStyle("-fx-font-weight: bold");
 		E1.setStyle("-fx-font-style: italic");
-		Text E2 = new Text("� vs NHE / V");
+		Text E2 = new Text(" vs NHE / V");
 		E2.setStyle("-fx-font-weight: bold");
 
 		E_TextFlow.getChildren().addAll(E1,E2);
 
+		//Category:
+		Text Category1 = new Text("Category");
+		Category1.setStyle("-fx-font-weight: bold");
+		
+		Category_TextFlow.getChildren().addAll(Category1);
+		
 		//EDITDATE:
 		Text EDITDATE1 = new Text("Date");
 		EDITDATE1.setStyle("-fx-font-weight: bold");

@@ -29,6 +29,7 @@ public class AddActiveMaterialController implements javafx.fxml.Initializable {
 	@FXML private TextField inputName;
 	@FXML private TextField inputSTRUCTURALFORMULA;
 	@FXML private TextField inputM;
+	@FXML private TextField inputCategory;
 	@FXML private TextField inputN;
 	@FXML private TextField inputNumberH;
 	@FXML private TextField inputCAM;
@@ -205,6 +206,7 @@ public void btnAddActiveMaterial(ActionEvent event) throws ClassNotFoundExceptio
 	String inputName_Value = VariousMethods.getTextFieldInput(inputName, "stringInput");
 	String inputSTRUCTURALFORMULA_Value = VariousMethods.getTextFieldInput(inputSTRUCTURALFORMULA, "stringInput");
 	Double inputM_Value = VariousMethods.getTextFieldInput(inputM, "doubleInput");
+	String inputCategory_Value = VariousMethods.getTextFieldInput(inputCategory, "stringInput");
 	Integer inputN_Value = VariousMethods.getTextFieldInput(inputN, "integerInput");
 	Integer inputNumberH_Value = VariousMethods.getTextFieldInput(inputNumberH, "integerInput");
 	Double inputCAM_Value = VariousMethods.getTextFieldInput(inputCAM, "doubleInput");
@@ -222,6 +224,7 @@ public void btnAddActiveMaterial(ActionEvent event) throws ClassNotFoundExceptio
 	objActiveMaterial.NAME.set(inputName_Value);
 	objActiveMaterial.STRUCTURALFORMULA.set(inputSTRUCTURALFORMULA_Value);
 	objActiveMaterial.M.set(inputM_Value);
+	objActiveMaterial.Category.set(inputCategory_Value);
 	objActiveMaterial.N.set(inputN_Value);
 	objActiveMaterial.NumberH.set(inputNumberH_Value);
 	objActiveMaterial.CAM.set(inputCAM_Value);
@@ -234,10 +237,10 @@ public void btnAddActiveMaterial(ActionEvent event) throws ClassNotFoundExceptio
 	try {
 		Connection con = Database.getConnection("activeMaterial");
 		Statement state = con.createStatement();
-		state.executeUpdate("INSERT INTO activeMaterial(ID, Abbreviation, Name, StructuralFormula, M, n, NumberH, CAM, Solvent, Salt, Saltc, pH, E, editDate)"
+		state.executeUpdate("INSERT INTO activeMaterial(ID, Abbreviation, Name, StructuralFormula, M, Category, n, NumberH, CAM, Solvent, Salt, Saltc, pH, E, editDate)"
 				+" VALUES(DEFAULT, '"+objActiveMaterial.ABBREVIATION.getValue()+"', '"
 				+objActiveMaterial.NAME.getValue()+"', '"+objActiveMaterial.STRUCTURALFORMULA.getValue()+"', "
-				+objActiveMaterial.M.getValue()+", "+objActiveMaterial.N.getValue()+", "+objActiveMaterial.NumberH.getValue()+", "
+				+objActiveMaterial.M.getValue()+", '"+objActiveMaterial.Category.getValue()+"', "+objActiveMaterial.N.getValue()+", "+objActiveMaterial.NumberH.getValue()+", "
 				+objActiveMaterial.CAM.getValue()+", '"+objActiveMaterial.SOLVENT.getValue()+"', '"
 				+objActiveMaterial.Salt.getValue()+"', "
 				+objActiveMaterial.SaltC.getValue()+", "+objActiveMaterial.PH.getValue()+", "

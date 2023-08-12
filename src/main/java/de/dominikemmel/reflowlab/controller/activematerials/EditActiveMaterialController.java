@@ -29,6 +29,7 @@ public class EditActiveMaterialController implements javafx.fxml.Initializable  
 	@FXML private TextField inputName;
 	@FXML private TextField inputSTRUCTURALFORMULA;
 	@FXML private TextField inputM;
+	@FXML private TextField inputCategory;
 	@FXML private TextField inputN;
 	@FXML private TextField inputNumberH;
 	@FXML private TextField inputCAM;
@@ -67,6 +68,7 @@ public class EditActiveMaterialController implements javafx.fxml.Initializable  
 		inputName.setText(selection.get(0).NAME.getValue());
 		inputSTRUCTURALFORMULA.setText(selection.get(0).STRUCTURALFORMULA.getValue());
 		inputM.setText(selection.get(0).M.getValue().toString());
+		inputCategory.setText(selection.get(0).Category.getValue());
 		inputN.setText(selection.get(0).N.getValue().toString());
 		inputNumberH.setText(selection.get(0).NumberH.getValue().toString());
 		inputCAM.setText(selection.get(0).CAM.getValue().toString());
@@ -238,6 +240,7 @@ public class EditActiveMaterialController implements javafx.fxml.Initializable  
 		String inputName_Value = VariousMethods.getTextFieldInput(inputName, "stringInput");
 		String inputSTRUCTURALFORMULA_Value = VariousMethods.getTextFieldInput(inputSTRUCTURALFORMULA, "stringInput");
 		Double inputM_Value = VariousMethods.getTextFieldInput(inputM, "doubleInput");
+		String inputCategory_Value = VariousMethods.getTextFieldInput(inputCategory, "stringInput");
 		Integer inputN_Value = VariousMethods.getTextFieldInput(inputN, "integerInput");
 		Integer inputNumberH_Value = VariousMethods.getTextFieldInput(inputNumberH, "integerInput");
 		Double inputCAM_Value = VariousMethods.getTextFieldInput(inputCAM, "doubleInput");
@@ -251,6 +254,7 @@ public class EditActiveMaterialController implements javafx.fxml.Initializable  
 		objActiveMaterial.NAME.set(inputName_Value);
 		objActiveMaterial.STRUCTURALFORMULA.set(inputSTRUCTURALFORMULA_Value);
 		objActiveMaterial.M.set(inputM_Value);
+		objActiveMaterial.Category.set(inputCategory_Value);
 		objActiveMaterial.N.set(inputN_Value);
 		objActiveMaterial.NumberH.set(inputNumberH_Value);
 		objActiveMaterial.CAM.set(inputCAM_Value);
@@ -266,8 +270,8 @@ public class EditActiveMaterialController implements javafx.fxml.Initializable  
 			state.executeUpdate("UPDATE activeMaterial "
 					+ "SET ID = "+selection.get(0).ID.getValue()+
 					", Abbreviation = '"+objActiveMaterial.ABBREVIATION.getValue()+"', Name = '"+objActiveMaterial.NAME.getValue()+
-					"', StructuralFormula = '"+objActiveMaterial.STRUCTURALFORMULA.getValue()+"', M = "+objActiveMaterial.M.getValue()+
-					", n = "+objActiveMaterial.N.getValue()+", NumberH = "+objActiveMaterial.NumberH.getValue()+
+					"', StructuralFormula = '"+objActiveMaterial.STRUCTURALFORMULA.getValue()+"', M = "+objActiveMaterial.M.getValue()+ ", Category = '"+objActiveMaterial.Category.getValue()+
+					"', n = "+objActiveMaterial.N.getValue()+", NumberH = "+objActiveMaterial.NumberH.getValue()+
 					", CAM = "+objActiveMaterial.CAM.getValue()+", Solvent = '"+objActiveMaterial.SOLVENT.getValue()+
 					"', Salt = '"+objActiveMaterial.Salt.getValue()+
 					"', Saltc = "+objActiveMaterial.SaltC.getValue()+", pH = "

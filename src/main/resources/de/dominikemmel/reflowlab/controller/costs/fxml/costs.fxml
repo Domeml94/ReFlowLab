@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="483.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.costs.CostsController">
+<AnchorPane prefHeight="483.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.costs.CostsController">
    <children>
       <Pane layoutX="392.0" layoutY="48.0" minWidth="1300.0" prefHeight="483.0" prefWidth="1184.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -21,11 +21,11 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ScrollPane layoutY="62.0" prefHeight="419.0" prefWidth="1270.0">
+            <ScrollPane fitToHeight="true" layoutY="62.0" prefHeight="403.0" prefWidth="1270.0">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="403.0">
                      <children>
-                        <TableView fx:id="tblStackCosts" layoutY="30.0" onMouseClicked="#tblStackCostsSelected" prefHeight="405.0" prefWidth="680.0">
+                        <TableView fx:id="tblStackCosts" layoutY="30.0" onMouseClicked="#tblStackCostsSelected" prefWidth="680.0">
                            <columns>
                               <TableColumn fx:id="ID1" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
                                  <graphic>
@@ -95,7 +95,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <TableView fx:id="tblCostsSalt" layoutX="705.0" layoutY="30.0" onMouseClicked="#tblCostsSaltSelected" prefHeight="405.0" prefWidth="270.0">
+                        <TableView fx:id="tblCostsSalt" layoutX="705.0" layoutY="30.0" onMouseClicked="#tblCostsSaltSelected" prefWidth="270.0">
                           <columns>
                             <TableColumn fx:id="ID2" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
                                  <graphic>
@@ -165,7 +165,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <TableView fx:id="tblCostsSolvent" layoutX="1000.0" layoutY="30.0" onMouseClicked="#tblCostsSolventSelected" prefHeight="405.0" prefWidth="270.0">
+                        <TableView fx:id="tblCostsSolvent" layoutX="1000.0" layoutY="30.0" onMouseClicked="#tblCostsSolventSelected" prefWidth="270.0">
                           <columns>
                             <TableColumn fx:id="ID3" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
                                  <graphic>
@@ -235,7 +235,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <TableView fx:id="tblSeparatorParameter" layoutX="1290.0" layoutY="30.0" onMouseClicked="#tblSeparatorParameterSelected" prefHeight="405.0" prefWidth="270.0">
+                        <TableView fx:id="tblSeparatorParameter" layoutX="1290.0" layoutY="30.0" onMouseClicked="#tblSeparatorParameterSelected" prefWidth="270.0">
                            <columns>
                               <TableColumn fx:id="ID4" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
                                  <graphic>
@@ -287,7 +287,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <TableView fx:id="tblPeripheralCosts" layoutX="1585.0" layoutY="30.0" onMouseClicked="#tblPeripheralCostsSelected" prefHeight="405.0" prefWidth="680.0">
+                        <TableView fx:id="tblPeripheralCosts" layoutX="1585.0" layoutY="30.0" onMouseClicked="#tblPeripheralCostsSelected" prefWidth="680.0">
                            <columns>
                               <TableColumn fx:id="ID5" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
                                  <graphic>

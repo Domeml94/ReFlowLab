@@ -34,6 +34,8 @@ public class MainApp extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
+		
+		Updates.updateDB();
 
 		Parent root = FXMLLoader.load(getClass().getResource("/de/dominikemmel/reflowlab/controller/maincontrol/fxml/main.fxml"));
 		

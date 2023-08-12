@@ -2,21 +2,27 @@ package de.dominikemmel.reflowlab.controller.electrolytes;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import de.dominikemmel.reflowlab.Database;
+import de.dominikemmel.reflowlab.MyConstants;
 import de.dominikemmel.reflowlab.VariousMethods;
+import de.dominikemmel.reflowlab.controller.costanalysistool.CostAnalysisToolController;
 import de.dominikemmel.reflowlab.controller.references.ObjReference;
 import de.dominikemmel.reflowlab.controller.references.ReferencesController;
 
@@ -51,6 +57,16 @@ public class AddElectrolytesController implements javafx.fxml.Initializable {
 	private TextField inputdegRate;
 	@FXML
 	private TextField inputf;
+	@FXML
+	private TextField inputTheoMaxCap;
+	@FXML
+	private TextField inputNote;
+	@FXML
+	private TextField inputfEloVol;
+	@FXML
+	private TextField inputfConc;
+	@FXML
+	private CheckBox inputfSymCellCycl;
 	
 	@FXML
 	private TextField inputRefDOIMaxSolubility;
@@ -107,6 +123,9 @@ public class AddElectrolytesController implements javafx.fxml.Initializable {
 	private Button btnInputRefdegRate; 
 	@FXML
 	private Button btnInputRefF; 
+	
+	@FXML
+	private Button btnCalcQmax; 
 	
 	String table = "electrolyte";
 
@@ -415,6 +434,48 @@ public class AddElectrolytesController implements javafx.fxml.Initializable {
 		inputRefF.setText(inputRefdegRate.getText());
 	}
 	
+	@FXML
+	public void btnCalcQmaxEvent(ActionEvent event) {
+		
+		double vol = Double.valueOf(inputfEloVol.getText()) * Math.pow(10, -3); 
+		double conc = Double.valueOf(inputfConc.getText()); 
+		
+		int numberEl = 0;
+		
+		try {
+			
+			ResultSet res = Database.selectData("activeMaterial");
+
+			ObservableList<Integer> dataActiveMaterial = FXCollections.observableArrayList();
+
+			while (res.next()) {
+				String sqlAbbrev = res.getString("ABBREVIATION");
+				
+				if (sqlAbbrev.equals(inputActiveMaterial.getText())) {
+					int dataNumberEl = res.getInt("N");
+					dataActiveMaterial.add(dataNumberEl);
+				}
+			}
+
+			if (!dataActiveMaterial.isEmpty()) {
+				numberEl = dataActiveMaterial.get(0).intValue();
+			}
+ 
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// theo. max. capacity / mAh
+		double maxCap = 0;
+		if (numberEl > 0) {
+			maxCap = MyConstants.F * vol * conc * numberEl * Math.pow(10, 3) / (60 * 60);
+		}
+		
+		inputTheoMaxCap.setText(String.valueOf(maxCap));
+	}
+	
+	
 	// Event Listener on Button.onAction
 	@FXML
 	public void cancelAddElectrolytes(ActionEvent event) {
@@ -441,6 +502,11 @@ public class AddElectrolytesController implements javafx.fxml.Initializable {
 		Double inputAlphaRed_Value = VariousMethods.getTextFieldInput(inputAlphaRed, "doubleInput");
 		Double inputdegRate_Value = VariousMethods.getTextFieldInput(inputdegRate, "doubleInput");
 		Double inputf_Value = VariousMethods.getTextFieldInput(inputf, "doubleInput");
+		Double inputTheoMaxCap_Value = VariousMethods.getTextFieldInput(inputTheoMaxCap, "doubleInput");
+		String inputNote_Value = VariousMethods.getTextFieldInput(inputNote, "stringInput");
+		Double inputfEloVol_Value = VariousMethods.getTextFieldInput(inputfEloVol, "doubleInput");
+		Double inputfConc_Value = VariousMethods.getTextFieldInput(inputfConc, "doubleInput");
+		Boolean inputfSymCellCycl_Value = inputfSymCellCycl.isSelected();
 
 		objElectrolytes.ActiveMaterial.set(inputActiveMaterial_Value);
 		objElectrolytes.Solvent.set(inputSolvent_Value);
@@ -456,18 +522,30 @@ public class AddElectrolytesController implements javafx.fxml.Initializable {
 		objElectrolytes.AlphaRed.set(inputAlphaRed_Value);
 		objElectrolytes.degRate.set(inputdegRate_Value);
 		objElectrolytes.f.set(inputf_Value);
+		objElectrolytes.theoMaxCap.set(inputTheoMaxCap_Value);
+		objElectrolytes.note.set(inputNote_Value);
+		objElectrolytes.fEloVol.set(inputfEloVol_Value);
+		objElectrolytes.fConc.set(inputfConc_Value);
+		objElectrolytes.fSymCellCycl.set(inputfSymCellCycl_Value);
+		
+		double fSymCellCycl_sql = 0;
+		if (inputfSymCellCycl_Value) {
+			fSymCellCycl_sql = 1;
+		} else {
+			fSymCellCycl_sql = 0;
+		}
 
 		try {
 			Connection con = Database.getConnection("electrolyte");
 			Statement state = con.createStatement();
-			state.executeUpdate("INSERT INTO electrolyte(ID, ActiveMaterial, Solvent, Salt, cSalt, pH, maxSolubility, DOx, DRed, kOx, AlphaOx, kRed, AlphaRed, degRate, f, editDate)"
+			state.executeUpdate("INSERT INTO electrolyte(ID, ActiveMaterial, Solvent, Salt, cSalt, pH, maxSolubility, DOx, DRed, kOx, AlphaOx, kRed, AlphaRed, degRate, f, theoMaxCap, fEloVol, fConc, note, fSymCellCycl, editDate)"
 					+" VALUES(DEFAULT, '"+objElectrolytes.ActiveMaterial.getValue()+"', '"
 					+objElectrolytes.Solvent.getValue()+"', '"+objElectrolytes.Salt.getValue()+"', "
 					+objElectrolytes.cSalt.getValue()+", "
 					+objElectrolytes.pH.getValue()+", "+objElectrolytes.maxSolubility.getValue()+", "
 					+objElectrolytes.DOx.getValue()+", "+objElectrolytes.DRed.getValue()+", "+objElectrolytes.kOx.getValue()+", "
 					+objElectrolytes.AlphaOx.getValue()+", "+objElectrolytes.kRed.getValue()+", "+objElectrolytes.AlphaRed.getValue()+", "
-					+objElectrolytes.degRate.getValue()+", "+objElectrolytes.f.getValue()+", CURRENT_TIMESTAMP)");
+					+objElectrolytes.degRate.getValue()+", "+objElectrolytes.f.getValue()+", "+objElectrolytes.theoMaxCap.getValue()+", "+objElectrolytes.fEloVol.getValue()+", "+objElectrolytes.fConc.getValue()+", '"+objElectrolytes.note.getValue()+"', "+fSymCellCycl_sql+", CURRENT_TIMESTAMP)");
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

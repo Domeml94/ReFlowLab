@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,13 +11,17 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="editPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.electrolytes.EditElectrolytesController">
+<AnchorPane fx:id="editPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.electrolytes.EditElectrolytesController">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000099" height="230.0" layoutX="-6.0" layoutY="534.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="2.0" width="877.0" />
       <AnchorPane fx:id="addPane1" prefWidth="871.0" styleClass="standardAchorPane">
          <children>
-            <StackPane prefHeight="662.0" prefWidth="871.0" styleClass="standardPaneBackgroundTranspColor" />
-            <BorderPane prefHeight="662.0" prefWidth="871.0">
+            <StackPane prefHeight="760.0" prefWidth="871.0" styleClass="standardPaneBackgroundTranspColor" />
+            <BorderPane prefHeight="242.0" prefWidth="871.0">
                <bottom>
                   <AnchorPane maxHeight="40.0" prefHeight="40.0" prefWidth="500.0" styleClass="standardPaneBackgroundOutwards" BorderPane.alignment="CENTER">
                      <children>
@@ -35,137 +40,296 @@
                   </AnchorPane>
                </bottom>
                <center>
-                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="standardPaneBackgroundCenter" BorderPane.alignment="CENTER">
-                     <children>
-                        <VBox prefHeight="200.0" prefWidth="200.0" spacing="11.0">
-                           <children>
-                              <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" />
-                              <Label minHeight="25.0" text="Active Material:" />
-                              <Label minHeight="25.0" text="Solvent:" />
-                              <Label minHeight="25.0" text="Salt:" />
-                              <Label minHeight="25.0" text="Salt c:" />
-                              <Label minHeight="25.0" text="pH:" />
-                              <Label minHeight="25.0" text="Solubility:" />
-                              <Label minHeight="25.0" text="D ox:" />
-                              <Label minHeight="25.0" text="D red:" />
-                              <Label minHeight="25.0" text="k ox:" />
-                              <Label minHeight="25.0" text="Alpha ox:" />
-                              <Label minHeight="25.0" text="k red:" />
-                              <Label minHeight="25.0" text="Alpha red:" />
-                              <Label minHeight="25.0" text="capacity fade rate:" />
-                              <Label minHeight="25.0" text="f:" />
-                           </children>
-                           <padding>
-                              <Insets bottom="20.0" top="10.0" />
-                           </padding>
-                        </VBox>
-                        <VBox prefHeight="417.0" prefWidth="426.0" spacing="11.0">
-                           <children>
-                              <Label minHeight="25.0" styleClass="txtAddEditPaneHeader2" text="Value" />
-                              <TextField fx:id="inputActiveMaterial" />
-                              <TextField fx:id="inputSolvent" />
-                              <TextField fx:id="inputSalt" />
-                              <TextField fx:id="inputcSalt" />
-                              <TextField fx:id="inputpH" />
-                              <TextField fx:id="inputmaxSolubility" />
-                              <TextField fx:id="inputDOx" />
-                              <TextField fx:id="inputDRed" />
-                              <TextField fx:id="inputkOx" />
-                              <TextField fx:id="inputAlphaOx" />
-                              <TextField fx:id="inputkRed" />
-                              <TextField fx:id="inputAlphaRed" />
-                              <TextField fx:id="inputdegRate" />
-                              <TextField fx:id="inputf" />
-                           </children>
-                           <padding>
-                              <Insets bottom="20.0" top="10.0" />
-                           </padding>
-                        </VBox>
-                        <VBox prefHeight="417.0" prefWidth="426.0" spacing="11.0">
-                           <children>
-                              <Label minHeight="25.0" styleClass="txtAddEditPaneHeader2" text="Reference" />
-                              <TextField fx:id="inputComponentName1" disable="true" visible="false" />
-                              <TextField fx:id="inputCostUnit1" disable="true" editable="false" visible="false" />
-                              <TextField fx:id="inputCostUnit11" disable="true" editable="false" visible="false" />
-                              <TextField fx:id="inputCostUnit12" disable="true" editable="false" visible="false" />
-                              <TextField fx:id="inputCostUnit121" disable="true" editable="false" visible="false" />
-                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                                 <children>
-                                    <TextField fx:id="inputRefDOIMaxSolubility" prefWidth="100.0" promptText="DOI" />
-                                    <TextField fx:id="inputRefMaxSolubility" prefWidth="250.0" promptText="Reference" />
-                                    <Button fx:id="btnInputRefMaxSolubility" disable="true" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefMaxSolubilityEvent" prefHeight="25.0" prefWidth="25.0" visible="false" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                                 <children>
-                                    <TextField fx:id="inputRefDOIDOx" prefWidth="100.0" promptText="DOI" />
-                                    <TextField fx:id="inputRefDOx" prefWidth="250.0" promptText="Reference" />
-                                    <Button fx:id="btnInputRefDOx" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefDOxEvent" visible="false" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                                 <children>
-                                    <TextField fx:id="inputRefDOIDRed" prefWidth="100.0" promptText="DOI" />
-                                    <TextField fx:id="inputRefDRed" prefWidth="250.0" promptText="Reference" />
-                                    <Button fx:id="btnInputRefDRed" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefDRedEvent" visible="false" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                                 <children>
-                                    <TextField fx:id="inputRefDOIkOx" prefWidth="100.0" promptText="DOI" />
-                                    <TextField fx:id="inputRefkOx" prefWidth="250.0" promptText="Reference" />
-                                    <Button fx:id="btnInputRefkOx" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefkOxEvent" visible="false" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                                 <children>
-                                    <TextField fx:id="inputRefDOIAlphaOx" prefWidth="100.0" promptText="DOI" />
-                                    <TextField fx:id="inputRefAlphaOx" prefWidth="250.0" promptText="Reference" />
-                                    <Button fx:id="btnInputRefAlphaOx" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" visible="false" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                                 <children>
-                                    <TextField fx:id="inputRefDOIkRed" prefWidth="100.0" promptText="DOI" />
-                                    <TextField fx:id="inputRefkRed" prefWidth="250.0" promptText="Reference" />
-                                    <Button fx:id="btnInputRefkRed" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefkRedEvent" visible="false" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                                 <children>
-                                    <TextField fx:id="inputRefDOIAlphaRed" prefWidth="100.0" promptText="DOI" />
-                                    <TextField fx:id="inputRefAlphaRed" prefWidth="250.0" promptText="Reference" />
-                                    <Button fx:id="btnInputRefAlphaRed" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" visible="false" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                                 <children>
-                                    <TextField fx:id="inputRefDOIdegRate" prefWidth="100.0" promptText="DOI" />
-                                    <TextField fx:id="inputRefdegRate" prefWidth="250.0" promptText="Reference" />
-                                    <Button fx:id="btnInputRefdegRate" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefdegRateEvent" visible="false" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                                 <children>
-                                    <TextField fx:id="inputRefDOIF" prefWidth="100.0" promptText="DOI" />
-                                    <TextField fx:id="inputRefF" prefWidth="250.0" promptText="Reference" />
-                                    <Button fx:id="btnInputRefF" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" visible="false" />
-                                 </children>
-                              </HBox>
-                           </children>
-                           <padding>
-                              <Insets bottom="20.0" top="10.0" />
-                           </padding>
-                        </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="11.0" />
-                     </children>
+                  <VBox BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets />
                      </BorderPane.margin>
-                     <padding>
-                        <Insets left="15.0" right="15.0" />
-                     </padding>
-                  </HBox>
+                     <children>
+                        <HBox prefHeight="800.0" prefWidth="861.0" spacing="20.0" styleClass="standardPaneBackgroundCenter">
+                           <children>
+                              <VBox minWidth="150.0" prefHeight="200.0" prefWidth="200.0" spacing="12.0">
+                                 <children>
+                                    <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" />
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="ActiveMaterial_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="Solvent_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="Salt_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="cSalt_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="pH_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="maxSolubility_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="DOx_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="DRed_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="kOx_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="AlphaOx_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="kRed_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="AlphaRed_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0" textFill="WHITE">
+                                       <graphic>
+                                          <TextFlow fx:id="degRate_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0" textFill="WHITE">
+                                       <graphic>
+                                          <TextFlow fx:id="f_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0" textFill="WHITE">
+                                       <graphic>
+                                          <TextFlow fx:id="theoMaxCap_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0" textFill="WHITE">
+                                       <graphic>
+                                          <TextFlow fx:id="note_TextFlow">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefHeight="417.0" prefWidth="426.0" spacing="12.0">
+                                 <children>
+                                    <Label minHeight="25.0" styleClass="txtAddEditPaneHeader2" text="Value" />
+                                    <TextField fx:id="inputActiveMaterial" />
+                                    <TextField fx:id="inputSolvent" />
+                                    <TextField fx:id="inputSalt" />
+                                    <TextField fx:id="inputcSalt" />
+                                    <TextField fx:id="inputpH" />
+                                    <TextField fx:id="inputmaxSolubility" />
+                                    <TextField fx:id="inputDOx" />
+                                    <TextField fx:id="inputDRed" />
+                                    <TextField fx:id="inputkOx" />
+                                    <TextField fx:id="inputAlphaOx" />
+                                    <TextField fx:id="inputkRed" />
+                                    <TextField fx:id="inputAlphaRed" />
+                                    <TextField fx:id="inputdegRate" />
+                                    <TextField fx:id="inputf" />
+                                    <TextField fx:id="inputTheoMaxCap" />
+                                    <TextField fx:id="inputNote" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefHeight="417.0" prefWidth="426.0" spacing="12.0">
+                                 <children>
+                                    <Label minHeight="25.0" styleClass="txtAddEditPaneHeader2" text="Reference" />
+                                    <TextField fx:id="inputComponentName1" disable="true" visible="false" />
+                                    <TextField fx:id="inputCostUnit1" disable="true" editable="false" visible="false" />
+                                    <TextField fx:id="inputCostUnit11" disable="true" editable="false" visible="false" />
+                                    <TextField fx:id="inputCostUnit12" disable="true" editable="false" visible="false" />
+                                    <TextField fx:id="inputCostUnit121" disable="true" editable="false" visible="false" />
+                                    <HBox maxHeight="25.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="inputRefDOIMaxSolubility" prefWidth="100.0" promptText="DOI" />
+                                          <TextField fx:id="inputRefMaxSolubility" prefWidth="250.0" promptText="Reference" />
+                                          <Button fx:id="btnInputRefMaxSolubility" disable="true" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefMaxSolubilityEvent" prefHeight="25.0" prefWidth="25.0" visible="false" />
+                                       </children>
+                                    </HBox>
+                                    <HBox maxHeight="25.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="inputRefDOIDOx" prefWidth="100.0" promptText="DOI" />
+                                          <TextField fx:id="inputRefDOx" prefWidth="250.0" promptText="Reference" />
+                                          <Button fx:id="btnInputRefDOx" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefDOxEvent" visible="false" />
+                                       </children>
+                                    </HBox>
+                                    <HBox maxHeight="25.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="inputRefDOIDRed" prefWidth="100.0" promptText="DOI" />
+                                          <TextField fx:id="inputRefDRed" prefWidth="250.0" promptText="Reference" />
+                                          <Button fx:id="btnInputRefDRed" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefDRedEvent" visible="false" />
+                                       </children>
+                                    </HBox>
+                                    <HBox maxHeight="25.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="inputRefDOIkOx" prefWidth="100.0" promptText="DOI" />
+                                          <TextField fx:id="inputRefkOx" prefWidth="250.0" promptText="Reference" />
+                                          <Button fx:id="btnInputRefkOx" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefkOxEvent" visible="false" />
+                                       </children>
+                                    </HBox>
+                                    <HBox maxHeight="25.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="inputRefDOIAlphaOx" prefWidth="100.0" promptText="DOI" />
+                                          <TextField fx:id="inputRefAlphaOx" prefWidth="250.0" promptText="Reference" />
+                                          <Button fx:id="btnInputRefAlphaOx" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" visible="false" />
+                                       </children>
+                                    </HBox>
+                                    <HBox maxHeight="25.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="inputRefDOIkRed" prefWidth="100.0" promptText="DOI" />
+                                          <TextField fx:id="inputRefkRed" prefWidth="250.0" promptText="Reference" />
+                                          <Button fx:id="btnInputRefkRed" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefkRedEvent" visible="false" />
+                                       </children>
+                                    </HBox>
+                                    <HBox maxHeight="25.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="inputRefDOIAlphaRed" prefWidth="100.0" promptText="DOI" />
+                                          <TextField fx:id="inputRefAlphaRed" prefWidth="250.0" promptText="Reference" />
+                                          <Button fx:id="btnInputRefAlphaRed" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" visible="false" />
+                                       </children>
+                                    </HBox>
+                                    <HBox maxHeight="25.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="inputRefDOIdegRate" prefWidth="100.0" promptText="DOI" />
+                                          <TextField fx:id="inputRefdegRate" prefWidth="250.0" promptText="Reference" />
+                                          <Button fx:id="btnInputRefdegRate" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefdegRateEvent" visible="false" />
+                                       </children>
+                                    </HBox>
+                                    <HBox maxHeight="25.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="inputRefDOIF" prefWidth="100.0" promptText="DOI" />
+                                          <TextField fx:id="inputRefF" prefWidth="250.0" promptText="Reference" />
+                                          <Button fx:id="btnInputRefF" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" visible="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="11.0" />
+                           </children>
+                           <padding>
+                              <Insets left="15.0" right="15.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                           <children>
+                              <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                 <children>
+                                    <Label disable="true" minHeight="25.0" textFill="WHITE" visible="false" />
+                                    <Button fx:id="btnCalcQmax" contentDisplay="CENTER" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#btnCalcQmaxEvent" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" spacing="11.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" prefWidth="150.0" textAlignment="CENTER" textFill="WHITE">
+                                       <graphic>
+                                          <TextFlow fx:id="fEloVol_TextFlow" />
+                                       </graphic></Label>
+                                    <TextField fx:id="inputfEloVol" alignment="CENTER" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" spacing="11.0">
+                                 <children>
+                                    <Label alignment="CENTER" minHeight="25.0" prefHeight="150.0" textAlignment="CENTER" textFill="WHITE">
+                                       <graphic>
+                                          <TextFlow fx:id="fConc_TextFlow" />
+                                       </graphic></Label>
+                                    <TextField fx:id="inputfConc" alignment="CENTER" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="11.0">
+                                 <children>
+                                    <Label minHeight="25.0" text="sym. cyclization?" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <CheckBox fx:id="inputfSymCellCycl" mnemonicParsing="false" textAlignment="CENTER" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets left="100.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
                </center>
                <right>
                   <Pane prefHeight="200.0" prefWidth="5.0" styleClass="standardPaneBackgroundOutwards" BorderPane.alignment="CENTER" />

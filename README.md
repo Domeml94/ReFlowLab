@@ -33,8 +33,17 @@ This project is setup as Maven project. All dependencies are setup by the provid
 **Documentation**
 
 This tool is part of a publication currently undergoing submission process.
-
-
+___
+ 
+ 
+Adding Active Materials to Database - The following parameters need to be known for proper calculation:
+- Mechanism of electrochemical reaction (number of transfered electrons | number of transfered protons at defined pH value)
+- Solubility
+- Redox potential
+- Diffusion coefficient
+- Reaction rate constant + charge transfer coefficient
+- Capacity fade rate / capacity retention
+- In case of organic solvents: Density, dyn./kin. viscosity as well as electrochemical stability window of selected solvent
 
 
 

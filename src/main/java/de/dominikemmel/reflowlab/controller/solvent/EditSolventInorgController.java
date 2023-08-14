@@ -14,6 +14,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import de.dominikemmel.reflowlab.Database;
 import de.dominikemmel.reflowlab.VariousMethods;
@@ -45,6 +48,11 @@ public class EditSolventInorgController implements javafx.fxml.Initializable {
 	@FXML private Button btnInputRefDensity;
 	@FXML private Button btnInputRefdynViscosity;
 	
+	@FXML private TextFlow c_TextFlow;
+	@FXML private TextFlow density_TextFlow;
+	@FXML private TextFlow dynViscosity_TextFlow;
+	@FXML private TextFlow kinViscosity_TextFlow;
+	
 	String table = "solventInorganic";
 
 	private ObjInorganicSolvent selection = new ObjInorganicSolvent();
@@ -59,7 +67,61 @@ public class EditSolventInorgController implements javafx.fxml.Initializable {
             }
         });
 		
-		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/controller/maincontrol/img/arrowDown.png"));
+		//c:
+		Text c1 = new Text("c");
+		c1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text c2 = new Text(" / mol L");
+		c2.setStyle("-fx-font-weight: bold");
+		Text c3 = new Text("⁻¹");
+		c3.setStyle("-fx-font-weight: bold");
+		Text c4 = new Text(":");
+		c4.setStyle("-fx-font-weight: bold");
+
+		c_TextFlow.getChildren().addAll(c1,c2,c3,c4);
+
+
+		//density:
+		Text density1 = new Text("density");
+		density1.setStyle("-fx-font-weight: bold");
+		Text density2 = new Text(" / g cm");
+		density2.setStyle("-fx-font-weight: bold");
+		Text density3 = new Text("⁻³");
+		density3.setStyle("-fx-font-weight: bold");
+		Text density4 = new Text(":");
+		density4.setStyle("-fx-font-weight: bold");
+
+		density_TextFlow.getChildren().addAll(density1,density2,density3,density4);
+
+
+		//dynViscosity
+		Text dynViscosity1 = new Text("dyn. viscosity");
+		dynViscosity1.setStyle("-fx-font-weight: bold");
+		Text dynViscosity2 = new Text(" / mPa s");
+		dynViscosity2.setStyle("-fx-font-weight: bold");
+		Text dynViscosity3 = new Text(":");
+		dynViscosity3.setStyle("-fx-font-weight: bold");
+
+		dynViscosity_TextFlow.getChildren().addAll(dynViscosity1,dynViscosity2,dynViscosity3);
+
+
+		//kinViscosity
+		Text kinViscosity1 = new Text("kin. viscosity");
+		kinViscosity1.setStyle("-fx-font-weight: bold");
+		Text kinViscosity2 = new Text(" / cm");
+		kinViscosity2.setStyle("-fx-font-weight: bold");
+		Text kinViscosity3 = new Text("²");
+		kinViscosity3.setStyle("-fx-font-weight: bold");
+		Text kinViscosity4 = new Text(" s");
+		kinViscosity4.setStyle("-fx-font-weight: bold");
+		Text kinViscosity5 = new Text("⁻¹");
+		kinViscosity5.setStyle("-fx-font-weight: bold");
+		Text kinViscosity6 = new Text(":");
+		kinViscosity5.setStyle("-fx-font-weight: bold");
+
+		kinViscosity_TextFlow.getChildren().addAll(kinViscosity1,kinViscosity2,kinViscosity3,kinViscosity4,kinViscosity5,kinViscosity6);
+		
+		
+		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/ArrowDown/0.5x/Asset 2@0.5x.png"));
 		ImageView imgViewBtnInputRefDensity = new ImageView(img);
 		imgViewBtnInputRefDensity.setFitHeight(10);
 		imgViewBtnInputRefDensity.setFitWidth(12);

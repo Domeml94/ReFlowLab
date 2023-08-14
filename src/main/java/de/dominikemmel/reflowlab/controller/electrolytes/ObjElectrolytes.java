@@ -1,7 +1,9 @@
 package de.dominikemmel.reflowlab.controller.electrolytes;
 
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -24,6 +26,11 @@ public class ObjElectrolytes {
 	public DoubleProperty AlphaRed = new SimpleDoubleProperty();
 	public DoubleProperty degRate = new SimpleDoubleProperty();
 	public DoubleProperty f = new SimpleDoubleProperty();
+	public DoubleProperty fEloVol = new SimpleDoubleProperty();
+	public DoubleProperty fConc = new SimpleDoubleProperty();
+	public StringProperty note = new SimpleStringProperty();
+	public BooleanProperty fSymCellCycl = new SimpleBooleanProperty();
+	public DoubleProperty theoMaxCap = new SimpleDoubleProperty();
 	public StringProperty editDate = new SimpleStringProperty();
 	
 	public IntegerProperty RefIDmaxSolubility = new SimpleIntegerProperty();
@@ -81,6 +88,21 @@ public class ObjElectrolytes {
 	public DoubleProperty fProperty() {
 		return f;
 	}
+	public DoubleProperty fEloVolProperty() {
+		return fEloVol;
+	}
+	public DoubleProperty fConcProperty() {
+		return fConc;
+	}
+	public StringProperty noteProperty() {
+		return note;
+	}
+	public BooleanProperty fSymCellCyclProperty() {
+		return fSymCellCycl;
+	}
+	public DoubleProperty theoMaxCapProperty() {
+		return theoMaxCap;
+	}
 	public StringProperty editDateProperty() {
 		return editDate;
 	}
@@ -114,7 +136,7 @@ public class ObjElectrolytes {
 	}
 
 	// Using constructor to set values of properties.
-	public ObjElectrolytes(int IDValue, String ActiveMaterialValue, String SolventValue, String SaltValue, double cSaltValue, double pHValue, double maxSolubilityValue, double DOxValue, double DRedValue, double kOxValue, double AlphaOxValue, double kRedValue, double AlphaRedValue, double degRateValue, double fValue, String editDateValue, int RefIDmaxSolubilityValue, int RefIDDOxValue, int RefIDDRedValue, int RefIDkOxValue, int RefIDAlphaOxValue, int RefIDkRedValue, int RefIDAlphaRedValue, int RefIDdegRateValue, int RefIDfValue) {
+	public ObjElectrolytes(int IDValue, String ActiveMaterialValue, String SolventValue, String SaltValue, double cSaltValue, double pHValue, double maxSolubilityValue, double DOxValue, double DRedValue, double kOxValue, double AlphaOxValue, double kRedValue, double AlphaRedValue, double degRateValue, double fValue, double fEloVolValue, double fConcValue, String noteValue, boolean fSymCellCyclValue, double theoMaxCapValue, String editDateValue, int RefIDmaxSolubilityValue, int RefIDDOxValue, int RefIDDRedValue, int RefIDkOxValue, int RefIDAlphaOxValue, int RefIDkRedValue, int RefIDAlphaRedValue, int RefIDdegRateValue, int RefIDfValue) {
 		ID.set(IDValue);
 		ActiveMaterial.set(ActiveMaterialValue);
 		Solvent.set(SolventValue);
@@ -130,6 +152,11 @@ public class ObjElectrolytes {
 		AlphaRed.set(AlphaRedValue);
 		degRate.set(degRateValue);
 		f.set(fValue);
+		fEloVol.set(fEloVolValue);
+		fConc.set(fConcValue);
+		note.set(noteValue);
+		fSymCellCycl.set(fSymCellCyclValue);
+		theoMaxCap.set(theoMaxCapValue);
 		editDate.set(editDateValue);
 		
 		RefIDmaxSolubility.set(RefIDmaxSolubilityValue);

@@ -14,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import de.dominikemmel.reflowlab.Database;
 import de.dominikemmel.reflowlab.VariousMethods;
@@ -40,6 +42,11 @@ public class AddCostsSaltController implements javafx.fxml.Initializable {
 	private TextField inputRefCSalt;
 	
 	@FXML
+	private TextFlow MSalt_TextFlow;
+	@FXML
+	private TextFlow CSalt_TextFlow;
+	
+	@FXML
 	private Button btnInputRefMSalt; 
 
 	String table = "costSalt";
@@ -53,8 +60,33 @@ public class AddCostsSaltController implements javafx.fxml.Initializable {
             	inputSalt.requestFocus();
             }
         });
+		
+    	//MSalt:
+    	Text MSalt1 = new Text("M");
+    	MSalt1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+    	Text MSalt2 = new Text(" / g mol");
+    	MSalt2.setStyle("-fx-font-weight: bold");
+    	Text MSalt3 = new Text("⁻¹");
+    	MSalt3.setStyle("-fx-font-weight: bold");
+		Text MSalt4 = new Text(":");
+		MSalt4.setStyle("-fx-font-weight: bold");
 
-		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/controller/maincontrol/img/arrowDown.png"));
+    	MSalt_TextFlow.getChildren().addAll(MSalt1,MSalt2,MSalt3,MSalt4);
+
+    	//CSalt:
+    	Text CSalt1 = new Text("C");
+    	CSalt1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text CSalt2 = new Text(" / $ kg");
+		CSalt2.setStyle("-fx-font-weight: bold");
+		Text CSalt3 = new Text("⁻¹");
+		CSalt3.setStyle("-fx-font-weight: bold");
+		Text CSalt4 = new Text(":");
+		CSalt4.setStyle("-fx-font-weight: bold");
+
+		CSalt_TextFlow.getChildren().addAll(CSalt1,CSalt2,CSalt3,CSalt4);
+		
+
+		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/ArrowDown/0.5x/Asset 2@0.5x.png"));
 		ImageView imgView = new ImageView(img);
 		imgView.setFitHeight(10);
 		imgView.setFitWidth(12);

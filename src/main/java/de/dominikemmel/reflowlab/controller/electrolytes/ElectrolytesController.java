@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -48,6 +49,11 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
 	@FXML private TableColumn<ObjElectrolytes, Double> AlphaRed;
 	@FXML private TableColumn<ObjElectrolytes, Double> degRate;
 	@FXML private TableColumn<ObjElectrolytes, Double> f;
+	@FXML private TableColumn<ObjElectrolytes, Double> fEloVol;
+	@FXML private TableColumn<ObjElectrolytes, Double> fConc;
+	@FXML private TableColumn<ObjElectrolytes, String> note;
+	@FXML private TableColumn<ObjElectrolytes, Boolean> fSymCellCycl;
+	@FXML private TableColumn<ObjElectrolytes, Double> theoMaxCap;
 	@FXML private TableColumn<ObjElectrolytes, String> editDate;
 	
 	@FXML private TableColumn<ObjElectrolytes, Integer> RefIDmaxSolubility;
@@ -75,6 +81,11 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
 	@FXML private TextFlow AlphaRed_TextFlow;
 	@FXML private TextFlow degRate_TextFlow;
 	@FXML private TextFlow f_TextFlow;
+	@FXML private TextFlow fEloVol_TextFlow;
+	@FXML private TextFlow fConc_TextFlow;
+	@FXML private TextFlow note_TextFlow;
+	@FXML private TextFlow fSymCellCycl_TextFlow;
+	@FXML private TextFlow theoMaxCap_TextFlow;
 	@FXML private TextFlow editDate_TextFlow;
 
 
@@ -90,6 +101,8 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
 
 		try {
 			tblElectrolytes.refresh();
+			
+			Database.createConnection("electrolyte");
 
 			ResultSet res = Database.selectData("electrolyte");
 
@@ -113,6 +126,16 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
 	    		objElectrolytes.AlphaRed.set(res.getDouble("AlphaRed"));
 	    		objElectrolytes.degRate.set(res.getDouble("degRate"));
 	    		objElectrolytes.f.set(res.getDouble("f"));
+	    		objElectrolytes.fEloVol.set(res.getDouble("fEloVol"));
+	    		objElectrolytes.fConc.set(res.getDouble("fConc"));
+	    		objElectrolytes.note.set(res.getString("note"));
+	    		if (res.getInt("fSymCellCycl") == 1) {
+	    			objElectrolytes.fSymCellCycl.set(true);
+	    		} else {
+	    			objElectrolytes.fSymCellCycl.set(false);
+	    		}
+	    		    		
+	    		objElectrolytes.theoMaxCap.set(res.getDouble("theoMaxCap"));
 	    		
 	    		objElectrolytes.RefIDmaxSolubility.set(res.getInt("RefIDmaxSolubility"));
 	    		objElectrolytes.RefIDDOx.set(res.getInt("RefIDDOx"));
@@ -148,6 +171,11 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
 	    	AlphaRed.setCellValueFactory(new PropertyValueFactory<ObjElectrolytes, Double>("AlphaRed"));
 	    	degRate.setCellValueFactory(new PropertyValueFactory<ObjElectrolytes, Double>("degRate"));
 	    	f.setCellValueFactory(new PropertyValueFactory<ObjElectrolytes, Double>("f"));
+	    	fEloVol.setCellValueFactory(new PropertyValueFactory<ObjElectrolytes, Double>("fEloVol"));
+	    	fConc.setCellValueFactory(new PropertyValueFactory<ObjElectrolytes, Double>("fConc"));
+	    	note.setCellValueFactory(new PropertyValueFactory<ObjElectrolytes, String>("note"));
+	    	fSymCellCycl.setCellValueFactory(new PropertyValueFactory<ObjElectrolytes, Boolean>("fSymCellCycl"));
+	    	theoMaxCap.setCellValueFactory(new PropertyValueFactory<ObjElectrolytes, Double>("theoMaxCap"));
 	    	editDate.setCellValueFactory(new PropertyValueFactory<ObjElectrolytes, String>("editDate"));
 	    	
 	    	RefIDmaxSolubility.setCellValueFactory(new PropertyValueFactory<ObjElectrolytes, Integer>("RefIDmaxSolubility"));
@@ -231,10 +259,8 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
 		cSalt2.setFont(Font.font(cSalt1.getFont().getStyle(),cSalt1.getFont().getSize()*0.75));
 		Text cSalt3 = new Text(" / mol L");
 		cSalt3.setStyle("-fx-font-weight: bold");
-		Text cSalt4 = new Text("-1");
+		Text cSalt4 = new Text("⁻¹");
 		cSalt4.setStyle("-fx-font-weight: bold");
-		cSalt4.setTranslateY(cSalt1.getFont().getSize() * -0.3);
-		cSalt4.setFont(Font.font(cSalt1.getFont().getStyle(),cSalt1.getFont().getSize()*0.75));
 
     	cSalt_TextFlow.getChildren().addAll(cSalt1,cSalt2,cSalt3,cSalt4);
 
@@ -249,10 +275,8 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
     	maxSolubility1.setStyle("-fx-font-weight: bold");
 		Text maxSolubility2 = new Text(" / mol L");
 		maxSolubility2.setStyle("-fx-font-weight: bold");
-		Text maxSolubility3 = new Text("-1");
+		Text maxSolubility3 = new Text("⁻¹");
 		maxSolubility3.setStyle("-fx-font-weight: bold");
-		maxSolubility3.setTranslateY(maxSolubility1.getFont().getSize() * -0.3);
-		maxSolubility3.setFont(Font.font(maxSolubility2.getFont().getStyle(),maxSolubility2.getFont().getSize()*0.75));
 
 		maxSolubility_TextFlow.getChildren().addAll(maxSolubility1,maxSolubility2,maxSolubility3);
 
@@ -262,16 +286,12 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
     	Dox1.setStyle("-fx-font-style: italic");
 		Text Dox2 = new Text(" / cm");
 		Dox2.setStyle("-fx-font-weight: bold");
-		Text Dox3 = new Text("2");
+		Text Dox3 = new Text("²");
 		Dox3.setStyle("-fx-font-weight: bold");
-		Dox3.setTranslateY(Dox1.getFont().getSize() * -0.3);
-		Dox3.setFont(Font.font(Dox2.getFont().getStyle(),Dox2.getFont().getSize()*0.75));
     	Text Dox4 = new Text(" s");
     	Dox4.setStyle("-fx-font-weight: bold");
-		Text Dox5 = new Text("-1");
+		Text Dox5 = new Text("⁻¹");
 		Dox5.setStyle("-fx-font-weight: bold");
-		Dox5.setTranslateY(Dox1.getFont().getSize() * -0.3);
-		Dox5.setFont(Font.font(Dox2.getFont().getStyle(),Dox2.getFont().getSize()*0.75));
 
     	DOx_TextFlow.getChildren().addAll(Dox1,Dox2,Dox3,Dox4,Dox5);
 
@@ -281,16 +301,12 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
     	Dred1.setStyle("-fx-font-style: italic");
 		Text Dred2 = new Text(" / cm");
 		Dred2.setStyle("-fx-font-weight: bold");
-		Text Dred3 = new Text("2");
+		Text Dred3 = new Text("²");
 		Dred3.setStyle("-fx-font-weight: bold");
-		Dred3.setTranslateY(Dox1.getFont().getSize() * -0.3);
-		Dred3.setFont(Font.font(Dox2.getFont().getStyle(),Dox2.getFont().getSize()*0.75));
     	Text Dred4 = new Text(" s");
     	Dred4.setStyle("-fx-font-weight: bold");
-		Text Dred5 = new Text("-1");
+		Text Dred5 = new Text("⁻¹");
 		Dred5.setStyle("-fx-font-weight: bold");
-		Dred5.setTranslateY(Dred1.getFont().getSize() * -0.3);
-		Dred5.setFont(Font.font(Dred2.getFont().getStyle(),Dred2.getFont().getSize()*0.75));
 
     	DRed_TextFlow.getChildren().addAll(Dred1,Dred2,Dred3,Dred4,Dred5);
 
@@ -302,10 +318,8 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
 		kox2.setStyle("-fx-font-weight: bold");
     	Text kox4 = new Text(" s");
     	kox4.setStyle("-fx-font-weight: bold");
-		Text kox5 = new Text("-1");
+		Text kox5 = new Text("⁻¹");
 		kox5.setStyle("-fx-font-weight: bold");
-		kox5.setTranslateY(kox1.getFont().getSize() * -0.3);
-		kox5.setFont(Font.font(kox2.getFont().getStyle(),kox2.getFont().getSize()*0.75));
 
     	kOx_TextFlow.getChildren().addAll(kox1,kox2,kox4,kox5);
 
@@ -331,19 +345,16 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
 		kred2.setStyle("-fx-font-weight: bold");
     	Text kred4 = new Text(" s");
     	kred4.setStyle("-fx-font-weight: bold");
-		Text kred5 = new Text("-1");
+		Text kred5 = new Text("⁻¹");
 		kred5.setStyle("-fx-font-weight: bold");
-		kred5.setTranslateY(kred1.getFont().getSize() * -0.3);
-		kred5.setFont(Font.font(kred2.getFont().getStyle(),kred2.getFont().getSize()*0.75));
 
     	kRed_TextFlow.getChildren().addAll(kred1,kred2,kred4,kred5);
 
     	//degRate:
     	Text degRate1 = new Text("fade rate / % d");
     	degRate1.setStyle("-fx-font-weight: bold");
-    	Text degRate2 = new Text("-1");
-    	degRate2.setTranslateY(degRate1.getFont().getSize() * -0.3);
-    	degRate2.setFont(Font.font(degRate1.getFont().getStyle(),degRate1.getFont().getSize()*0.75));
+    	Text degRate2 = new Text("⁻¹");
+    	degRate2.setStyle("-fx-font-weight: bold");
 
     	degRate_TextFlow.getChildren().addAll(degRate1, degRate2);
 
@@ -353,12 +364,64 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
     	f1.setStyle("-fx-font-style: italic");
     	Text f2 = new Text("/ Y");
     	f2.setStyle("-fx-font-weight: bold");
-    	Text f3 = new Text("-1");
+    	Text f3 = new Text("⁻¹");
     	f3.setStyle("-fx-font-weight: bold");
-    	f3.setTranslateY(f1.getFont().getSize() * -0.3);
-    	f3.setFont(Font.font(f1.getFont().getStyle(),f1.getFont().getSize()*0.75));
 
     	f_TextFlow.getChildren().addAll(f1, f2, f3);
+    	
+    	//fEloVol:
+    	Text fEloVol1 = new Text("V");
+    	fEloVol1.setStyle("-fx-font-weight: bold");
+    	fEloVol1.setStyle("-fx-font-style: italic");
+    	Text fEloVol2 = new Text("theo., max., cap.");
+    	fEloVol2.setStyle("-fx-font-weight: bold");
+    	fEloVol2.setTranslateY(fEloVol1.getFont().getSize() * 0.3);
+    	fEloVol2.setFont(Font.font(fEloVol1.getFont().getStyle(),fEloVol1.getFont().getSize()*0.75));
+    	Text fEloVol3 = new Text(" / mL");
+    	fEloVol3.setStyle("-fx-font-weight: bold");
+    	
+    	fEloVol_TextFlow.getChildren().addAll(fEloVol1, fEloVol2, fEloVol3);
+    	
+    	//fConc:
+    	Text fConc1 = new Text("c");
+    	fConc1.setStyle("-fx-font-weight: bold");
+    	fConc1.setStyle("-fx-font-style: italic");
+    	Text fConc2 = new Text("theo., max., cap.");
+    	fConc2.setStyle("-fx-font-weight: bold");
+    	fConc2.setTranslateY(fConc1.getFont().getSize() * 0.3);
+    	fConc2.setFont(Font.font(fConc1.getFont().getStyle(),fConc1.getFont().getSize()*0.75));
+    	Text fConc3 = new Text(" / mol L");
+    	fConc3.setStyle("-fx-font-weight: bold");
+    	Text fConc4 = new Text("⁻¹");
+    	fConc4.setStyle("-fx-font-weight: bold");
+    	
+    	fConc_TextFlow.getChildren().addAll(fConc1, fConc2, fConc3, fConc4);
+    	
+    	//note:
+    	Text note1 = new Text("note");
+    	note1.setStyle("-fx-font-weight: bold");
+    	
+    	note_TextFlow.getChildren().addAll(note1);
+    	
+    	//fSymCellCycl:
+    	Text fSymCellCycl1 = new Text("sym. cyclization?");
+    	fSymCellCycl1.setStyle("-fx-font-weight: bold");
+    	
+    	fSymCellCycl_TextFlow.getChildren().addAll(fSymCellCycl1);
+    	
+    	//theoMaxCap:
+    	Text theoMaxCap1 = new Text("q");
+    	theoMaxCap1.setStyle("-fx-font-weight: bold");
+    	theoMaxCap1.setStyle("-fx-font-style: italic");
+    	Text theoMaxCap2 = new Text("max., theo.");
+    	theoMaxCap2.setStyle("-fx-font-weight: bold");
+    	theoMaxCap2.setTranslateY(theoMaxCap1.getFont().getSize() * 0.3);
+    	Text theoMaxCap3 = new Text("/ mAh L");
+    	theoMaxCap3.setStyle("-fx-font-weight: bold");
+    	Text theoMaxCap4 = new Text("⁻¹");
+    	theoMaxCap4.setStyle("-fx-font-weight: bold");
+    	
+    	theoMaxCap_TextFlow.getChildren().addAll(theoMaxCap1, theoMaxCap2, theoMaxCap3, theoMaxCap4);
 
     	//editDate:
 		Text editDate1 = new Text("Date");
@@ -383,6 +446,7 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
 			stage.setScene(new Scene(rootAddElectrolytes));
 			stage.show();
 			stage.setTitle("ReFlowLab - Add electrolyte");
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 			
 			stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -436,6 +500,7 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
 			stage.setScene(new Scene(rootEditElectrolytes));
 			stage.show();
 			stage.setTitle("ReFlowLab - Edit electrolyte");
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 			
 			stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 			

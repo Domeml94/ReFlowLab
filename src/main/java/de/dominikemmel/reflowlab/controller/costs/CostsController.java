@@ -22,6 +22,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -575,7 +576,7 @@ public class CostsController implements javafx.fxml.Initializable {
     	//ComponentCost:
     	Text ComponentCost1 = new Text("Comp. Cost");
     	ComponentCost1.setStyle("-fx-font-weight: bold");
-		Text ComponentCost2 = new Text(" / $");
+		Text ComponentCost2 = new Text("");
 		ComponentCost2.setStyle("-fx-font-weight: bold");
 
 		ComponentCost_TextFlow.getChildren().addAll(ComponentCost1,ComponentCost2);
@@ -618,10 +619,8 @@ public class CostsController implements javafx.fxml.Initializable {
     	MSalt1.setStyle("-fx-font-style: italic");
     	Text MSalt2 = new Text(" / g mol");
     	MSalt2.setStyle("-fx-font-weight: bold");
-    	Text MSalt3 = new Text("-1");
+    	Text MSalt3 = new Text("⁻¹");
     	MSalt3.setStyle("-fx-font-weight: bold");
-    	MSalt3.setTranslateY(MSalt1.getFont().getSize() * -0.3);
-    	MSalt3.setFont(Font.font(MSalt2.getFont().getStyle(),MSalt2.getFont().getSize()*0.75));
 
     	MSalt_TextFlow.getChildren().addAll(MSalt1,MSalt2,MSalt3);
 
@@ -631,10 +630,8 @@ public class CostsController implements javafx.fxml.Initializable {
     	CSalt1.setStyle("-fx-font-style: italic");
 		Text CSalt2 = new Text(" / $ kg");
 		CSalt2.setStyle("-fx-font-weight: bold");
-		Text CSalt3 = new Text("-1");
+		Text CSalt3 = new Text("⁻¹");
 		CSalt3.setStyle("-fx-font-weight: bold");
-		CSalt3.setTranslateY(CSalt1.getFont().getSize() * -0.3);
-		CSalt3.setFont(Font.font(CSalt2.getFont().getStyle(),CSalt2.getFont().getSize()*0.75));
 
 		CSalt_TextFlow.getChildren().addAll(CSalt1,CSalt2,CSalt3);
 
@@ -668,10 +665,8 @@ public class CostsController implements javafx.fxml.Initializable {
     	CSolvent1.setStyle("-fx-font-style: italic");
     	Text CSolvent2 = new Text(" / $ kg");
     	CSolvent2.setStyle("-fx-font-weight: bold");
-    	Text CSolvent3 = new Text("-1");
+    	Text CSolvent3 = new Text("⁻¹");
     	CSolvent3.setStyle("-fx-font-weight: bold");
-    	CSolvent3.setTranslateY(CSolvent1.getFont().getSize() * -0.3);
-    	CSolvent3.setFont(Font.font(CSolvent1.getFont().getStyle(),CSolvent1.getFont().getSize()*0.75));
 
     	CSolvent_TextFlow.getChildren().addAll(CSolvent1,CSolvent2,CSolvent3);
 
@@ -681,10 +676,8 @@ public class CostsController implements javafx.fxml.Initializable {
     	MSolvent1.setStyle("-fx-font-style: italic");
 		Text MSolvent2 = new Text(" / g mol");
 		MSolvent2.setStyle("-fx-font-weight: bold");
-		Text MSolvent3 = new Text("-1");
+		Text MSolvent3 = new Text("⁻¹");
 		MSolvent3.setStyle("-fx-font-weight: bold");
-		MSolvent3.setTranslateY(MSolvent1.getFont().getSize() * -0.3);
-		MSolvent3.setFont(Font.font(MSolvent1.getFont().getStyle(),MSolvent1.getFont().getSize()*0.75));
 
 		MSolvent_TextFlow.getChildren().addAll(MSolvent1,MSolvent2,MSolvent3);
 
@@ -723,10 +716,8 @@ public class CostsController implements javafx.fxml.Initializable {
     	Rasr2.setFont(Font.font(Rasr1.getFont().getStyle(),Rasr1.getFont().getSize()*0.75));
     	Text Rasr3 = new Text(" / Ohm cm");
     	Rasr3.setStyle("-fx-font-weight: bold");
-    	Text Rasr4 = new Text("-2");
+    	Text Rasr4 = new Text("⁻²");
     	Rasr4.setStyle("-fx-font-weight: bold");
-    	Rasr4.setTranslateY(Rasr1.getFont().getSize() * -0.3);
-    	Rasr4.setFont(Font.font(Rasr1.getFont().getStyle(),Rasr1.getFont().getSize()*0.75));
 
     	Rasr_TextFlow.getChildren().addAll(Rasr1, Rasr2, Rasr3, Rasr4);
 
@@ -766,7 +757,7 @@ public class CostsController implements javafx.fxml.Initializable {
     	//ComponentCost:
     	Text ComponentCostPeripherals1 = new Text("Comp. Cost");
     	ComponentCostPeripherals1.setStyle("-fx-font-weight: bold");
-		Text ComponentCostPeripherals2 = new Text(" / $");
+		Text ComponentCostPeripherals2 = new Text("");
 		ComponentCostPeripherals2.setStyle("-fx-font-weight: bold");
 
 		ComponentCostPeripherals_TextFlow.getChildren().addAll(ComponentCostPeripherals1,ComponentCostPeripherals2);
@@ -827,6 +818,7 @@ public class CostsController implements javafx.fxml.Initializable {
 					stage.setScene(new Scene(rootAddStack));
 					stage.show();
 					stage.setTitle("ReFlowLab - Add stack costs");
+					stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 					
 					stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 					
@@ -853,6 +845,7 @@ public class CostsController implements javafx.fxml.Initializable {
 					stage.setScene(new Scene(rootAddSalt));
 					stage.show();
 					stage.setTitle("ReFlowLab - Add salt costs");
+					stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 					
 					stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -878,6 +871,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootAddSolvent));
 				stage.show();
 				stage.setTitle("ReFlowLab - Add solvent costs");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -903,6 +897,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootAddSeparator));
 				stage.show();
 				stage.setTitle("ReFlowLab - Add separator parameters");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -928,6 +923,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootAddPeripherals));
 				stage.show();
 				stage.setTitle("ReFlowLab - Add peripherals costs");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 				
@@ -986,6 +982,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootEditStack));
 				stage.show();
 				stage.setTitle("ReFlowLab - Edit stack costs");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -1037,6 +1034,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootEditSalt));
 				stage.show();
 				stage.setTitle("ReFlowLab - Edit salt costs");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -1088,6 +1086,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootEditSolvent));
 				stage.show();
 				stage.setTitle("ReFlowLab - Edit solvent costs");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -1139,6 +1138,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootEditSeparator));
 				stage.show();
 				stage.setTitle("ReFlowLab - Edit separator parameters");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -1190,6 +1190,7 @@ public class CostsController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootEditPeripherals));
 				stage.show();
 				stage.setTitle("ReFlowLab - Edit peripherals costs");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 

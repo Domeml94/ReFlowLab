@@ -2,21 +2,28 @@ package de.dominikemmel.reflowlab.controller.electrolytes;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import de.dominikemmel.reflowlab.Database;
+import de.dominikemmel.reflowlab.MyConstants;
 import de.dominikemmel.reflowlab.VariousMethods;
 import de.dominikemmel.reflowlab.controller.references.ObjReference;
 import de.dominikemmel.reflowlab.controller.references.ReferencesController;
@@ -57,6 +64,16 @@ public class EditElectrolytesController implements javafx.fxml.Initializable {
 	private TextField inputdegRate;
 	@FXML
 	private TextField inputf;
+	@FXML
+	private TextField inputTheoMaxCap;
+	@FXML
+	private TextField inputNote;
+	@FXML
+	private TextField inputfEloVol;
+	@FXML
+	private TextField inputfConc;
+	@FXML
+	private CheckBox inputfSymCellCycl;
 	
 	@FXML
 	private TextField inputRefDOIMaxSolubility;
@@ -114,6 +131,28 @@ public class EditElectrolytesController implements javafx.fxml.Initializable {
 	@FXML
 	private Button btnInputRefF; 
 	
+	@FXML private TextFlow ActiveMaterial_TextFlow;
+	@FXML private TextFlow Solvent_TextFlow;
+	@FXML private TextFlow Salt_TextFlow;
+	@FXML private TextFlow cSalt_TextFlow;
+	@FXML private TextFlow pH_TextFlow;
+	@FXML private TextFlow maxSolubility_TextFlow;
+	@FXML private TextFlow DOx_TextFlow;
+	@FXML private TextFlow DRed_TextFlow;
+	@FXML private TextFlow kOx_TextFlow;
+	@FXML private TextFlow AlphaOx_TextFlow;
+	@FXML private TextFlow kRed_TextFlow;
+	@FXML private TextFlow AlphaRed_TextFlow;
+	@FXML private TextFlow degRate_TextFlow;
+	@FXML private TextFlow f_TextFlow;
+	@FXML private TextFlow fEloVol_TextFlow;
+	@FXML private TextFlow fConc_TextFlow;
+	@FXML private TextFlow note_TextFlow;
+	@FXML private TextFlow theoMaxCap_TextFlow;
+	
+	@FXML
+	private Button btnCalcQmax; 
+	
 	String table = "electrolyte";
 
 	@Override
@@ -127,7 +166,220 @@ public class EditElectrolytesController implements javafx.fxml.Initializable {
         });
 		
 		
-		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/controller/maincontrol/img/arrowDown.png"));
+    	//ActiveMaterial:
+    	Text ActiveMaterial1 = new Text("Active material");
+    	ActiveMaterial1.setStyle("-fx-font-weight: bold");
+		Text ActiveMaterial2 = new Text(":");
+		ActiveMaterial2.setStyle("-fx-font-weight: bold");
+
+    	ActiveMaterial_TextFlow.getChildren().addAll(ActiveMaterial1,ActiveMaterial2);
+
+    	//Solvent:
+    	Text Solvent1 = new Text("Solvent");
+    	Solvent1.setStyle("-fx-font-weight: bold");
+		Text Solvent2 = new Text(":");
+		Solvent2.setStyle("-fx-font-weight: bold");
+
+    	Solvent_TextFlow.getChildren().addAll(Solvent1,Solvent2);
+
+    	//Salt:
+    	Text Salt1 = new Text("Salt");
+    	Salt1.setStyle("-fx-font-weight: bold");
+		Text Salt2 = new Text(":");
+		Salt2.setStyle("-fx-font-weight: bold");
+
+    	Salt_TextFlow.getChildren().addAll(Salt1,Salt2);
+
+    	//cSalt:
+    	Text cSalt1 = new Text("c");
+    	cSalt1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text cSalt2 = new Text("salt");
+		cSalt2.setStyle("-fx-font-weight: bold");
+		cSalt2.setTranslateY(cSalt1.getFont().getSize() * 0.3);
+		cSalt2.setFont(Font.font(cSalt1.getFont().getStyle(),cSalt1.getFont().getSize()*0.75));
+		Text cSalt3 = new Text(" / mol L");
+		cSalt3.setStyle("-fx-font-weight: bold");
+		Text cSalt4 = new Text("⁻¹");
+		cSalt4.setStyle("-fx-font-weight: bold");
+		Text cSalt5 = new Text(":");
+		cSalt5.setStyle("-fx-font-weight: bold");
+
+    	cSalt_TextFlow.getChildren().addAll(cSalt1,cSalt2,cSalt3,cSalt4,cSalt5);
+
+    	//pH:
+    	Text pH1 = new Text("pH");
+    	pH1.setStyle("-fx-font-weight: bold");
+		Text pH2 = new Text(":");
+		pH2.setStyle("-fx-font-weight: bold");
+
+    	pH_TextFlow.getChildren().addAll(pH1,pH2);
+
+    	//maxSolubility:
+    	Text maxSolubility1 = new Text("solubility");
+    	maxSolubility1.setStyle("-fx-font-weight: bold");
+		Text maxSolubility2 = new Text(" / mol L");
+		maxSolubility2.setStyle("-fx-font-weight: bold");
+		Text maxSolubility3 = new Text("⁻¹");
+		maxSolubility3.setStyle("-fx-font-weight: bold");
+		Text maxSolubility4 = new Text(":");
+		maxSolubility4.setStyle("-fx-font-weight: bold");
+
+		maxSolubility_TextFlow.getChildren().addAll(maxSolubility1,maxSolubility2,maxSolubility3,maxSolubility4);
+
+    	//D ox:
+    	Text Dox1 = new Text("D ox");
+    	Dox1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text Dox2 = new Text(" / cm");
+		Dox2.setStyle("-fx-font-weight: bold");
+		Text Dox3 = new Text("²");
+		Dox3.setStyle("-fx-font-weight: bold");
+    	Text Dox4 = new Text(" s");
+    	Dox4.setStyle("-fx-font-weight: bold");
+		Text Dox5 = new Text("⁻¹");
+		Dox5.setStyle("-fx-font-weight: bold");
+		Text Dox6 = new Text(":");
+		Dox6.setStyle("-fx-font-weight: bold");
+
+    	DOx_TextFlow.getChildren().addAll(Dox1,Dox2,Dox3,Dox4,Dox5,Dox6);
+
+    	//D red:
+    	Text Dred1 = new Text("D red");
+    	Dred1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text Dred2 = new Text(" / cm");
+		Dred2.setStyle("-fx-font-weight: bold");
+		Text Dred3 = new Text("²");
+		Dred3.setStyle("-fx-font-weight: bold");
+    	Text Dred4 = new Text(" s");
+    	Dred4.setStyle("-fx-font-weight: bold");
+		Text Dred5 = new Text("⁻¹");
+		Dred5.setStyle("-fx-font-weight: bold");
+		Text Dred6 = new Text(":");
+		Dred6.setStyle("-fx-font-weight: bold");
+
+    	DRed_TextFlow.getChildren().addAll(Dred1,Dred2,Dred3,Dred4,Dred5,Dred6);
+
+    	//k ox:
+    	Text kox1 = new Text("k ox");
+    	kox1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text kox2 = new Text(" / cm");
+		kox2.setStyle("-fx-font-weight: bold");
+    	Text kox4 = new Text(" s");
+    	kox4.setStyle("-fx-font-weight: bold");
+		Text kox5 = new Text("⁻¹");
+		kox5.setStyle("-fx-font-weight: bold");
+		Text kox6 = new Text(":");
+		kox6.setStyle("-fx-font-weight: bold");
+
+    	kOx_TextFlow.getChildren().addAll(kox1,kox2,kox4,kox5,kox6);
+
+    	//Alpha ox:
+    	Text alphaOx1 = new Text("a ox");
+    	alphaOx1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text alphaOx2 = new Text(":");
+		alphaOx2.setStyle("-fx-font-weight: bold");
+
+    	AlphaOx_TextFlow.getChildren().addAll(alphaOx1,alphaOx2);
+
+    	//Alpha red:
+    	Text alphaRed1 = new Text("a red");
+    	alphaRed1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text alphaRed2 = new Text(":");
+		alphaRed2.setStyle("-fx-font-weight: bold");
+
+    	AlphaRed_TextFlow.getChildren().addAll(alphaRed1,alphaRed2);
+
+    	//k red:
+    	Text kred1 = new Text("k red");
+    	kred1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text kred2 = new Text(" / cm");
+		kred2.setStyle("-fx-font-weight: bold");
+    	Text kred4 = new Text(" s");
+    	kred4.setStyle("-fx-font-weight: bold");
+		Text kred5 = new Text("⁻¹");
+		kred5.setStyle("-fx-font-weight: bold");
+		Text kred6 = new Text(":");
+		kred6.setStyle("-fx-font-weight: bold");
+
+    	kRed_TextFlow.getChildren().addAll(kred1,kred2,kred4,kred5,kred6);
+
+    	//degRate:
+    	Text degRate1 = new Text("fade rate / % d");
+    	degRate1.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+    	Text degRate2 = new Text("⁻¹");
+    	degRate2.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+		Text degRate3 = new Text(":");
+		degRate3.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+
+    	degRate_TextFlow.getChildren().addAll(degRate1, degRate2, degRate3);
+
+    	//f:
+    	Text f1 = new Text("f ");
+    	f1.setStyle("-fx-font-weight: bold; -fx-font-style: italic; -fx-fill: #ffffff");
+    	Text f2 = new Text("/ Y");
+    	f2.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+    	Text f3 = new Text("⁻¹");
+    	f3.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+		Text f4 = new Text(":");
+		f4.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+
+    	f_TextFlow.getChildren().addAll(f1, f2, f3, f4);
+    	
+    	//fEloVol:
+    	Text fEloVol1 = new Text("V");
+    	fEloVol1.setStyle("-fx-font-weight: bold; -fx-font-style: italic; -fx-fill: #ffffff");
+    	Text fEloVol2 = new Text("theo., max., cap.");
+    	fEloVol2.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+    	fEloVol2.setTranslateY(fEloVol1.getFont().getSize() * 0.3);
+    	fEloVol2.setFont(Font.font(fEloVol1.getFont().getStyle(),fEloVol1.getFont().getSize()*0.75));
+    	Text fEloVol3 = new Text(" / mL");
+    	fEloVol3.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+		Text fEloVol4 = new Text(":");
+		fEloVol4.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+    	
+    	fEloVol_TextFlow.getChildren().addAll(fEloVol1, fEloVol2, fEloVol3, fEloVol4);
+    	
+    	//fConc:
+    	Text fConc1 = new Text("c");
+    	fConc1.setStyle("-fx-font-weight: bold; -fx-font-style: italic; -fx-fill: #ffffff");
+    	Text fConc2 = new Text("theo., max., cap.");
+    	fConc2.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+    	fConc2.setTranslateY(fConc1.getFont().getSize() * 0.3);
+    	fConc2.setFont(Font.font(fConc1.getFont().getStyle(),fConc1.getFont().getSize()*0.75));
+    	Text fConc3 = new Text(" / mol L");
+    	fConc3.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+    	Text fConc4 = new Text("⁻¹");
+    	fConc4.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+		Text fConc5 = new Text(":");
+		fConc5.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+    	
+    	fConc_TextFlow.getChildren().addAll(fConc1, fConc2, fConc3, fConc4, fConc5);
+    	
+    	//note:
+    	Text note1 = new Text("note");
+    	note1.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+		Text note2 = new Text(":");
+		note2.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+    	
+    	note_TextFlow.getChildren().addAll(note1, note2);
+    	
+    	//theoMaxCap:
+    	Text theoMaxCap1 = new Text("q");
+    	theoMaxCap1.setStyle("-fx-font-weight: bold; -fx-font-style: italic; -fx-fill: #ffffff");
+    	Text theoMaxCap2 = new Text("max., theo.");
+    	theoMaxCap2.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+    	theoMaxCap2.setTranslateY(theoMaxCap1.getFont().getSize() * 0.3);
+    	Text theoMaxCap3 = new Text("/ mAh L");
+    	theoMaxCap3.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+    	Text theoMaxCap4 = new Text("⁻¹");
+    	theoMaxCap4.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+    	Text theoMaxCap5 = new Text(":");
+    	theoMaxCap5.setStyle("-fx-font-weight: bold; -fx-fill: #ffffff");
+    	
+    	theoMaxCap_TextFlow.getChildren().addAll(theoMaxCap1, theoMaxCap2, theoMaxCap3, theoMaxCap4, theoMaxCap5);
+		
+		
+		
+		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/ArrowDown/0.5x/Asset 2@0.5x.png"));
 		ImageView imgViewBtnInputRefMaxSolubility = new ImageView(img);
 		imgViewBtnInputRefMaxSolubility.setFitHeight(10);
 		imgViewBtnInputRefMaxSolubility.setFitWidth(12);
@@ -330,6 +582,14 @@ public class EditElectrolytesController implements javafx.fxml.Initializable {
 				}
 			}
 		});
+		
+		
+		Image imgCalculator = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/Calculator/calculator.png"));
+		ImageView imgViewBtnInputCalculator = new ImageView(imgCalculator);
+		imgViewBtnInputCalculator.setFitHeight(20);
+		imgViewBtnInputCalculator.setFitWidth(20);
+		
+		btnCalcQmax.setGraphic(imgViewBtnInputCalculator);
 	}
 
 	public void enableBtn(Button btn) {
@@ -422,6 +682,11 @@ public class EditElectrolytesController implements javafx.fxml.Initializable {
 		inputAlphaRed.setText(selection.get(0).AlphaRed.getValue().toString());
 		inputdegRate.setText(selection.get(0).degRate.getValue().toString());
 		inputf.setText(selection.get(0).f.getValue().toString());
+		inputTheoMaxCap.setText(selection.get(0).theoMaxCap.getValue().toString());
+		inputNote.setText(selection.get(0).note.getValue());
+		inputfEloVol.setText(selection.get(0).fEloVol.getValue().toString());
+		inputfConc.setText(selection.get(0).fConc.getValue().toString());
+		inputfSymCellCycl.setSelected(selection.get(0).fSymCellCycl.getValue());
 		
 		ObjReference objReferenceMaxSolubility = ReferencesController.checkRefID(selection.get(0).RefIDmaxSolubility.getValue());
 		
@@ -479,6 +744,48 @@ public class EditElectrolytesController implements javafx.fxml.Initializable {
 	}
 
 
+	
+	@FXML
+	public void btnCalcQmaxEvent(ActionEvent event) {
+		
+		double vol = Double.valueOf(inputfEloVol.getText()) * Math.pow(10, -3); 
+		double conc = Double.valueOf(inputfConc.getText()); 
+		
+		int numberEl = 0;
+		
+		try {
+			
+			ResultSet res = Database.selectData("activeMaterial");
+
+			ObservableList<Integer> dataActiveMaterial = FXCollections.observableArrayList();
+
+			while (res.next()) {
+				String sqlAbbrev = res.getString("ABBREVIATION");
+				
+				if (sqlAbbrev.equals(inputActiveMaterial.getText())) {
+					int dataNumberEl = res.getInt("N");
+					dataActiveMaterial.add(dataNumberEl);
+				}
+			}
+
+			if (!dataActiveMaterial.isEmpty()) {
+				numberEl = dataActiveMaterial.get(0).intValue();
+			}
+ 
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// theo. max. capacity / mAh
+		double maxCap = 0;
+		if (numberEl > 0) {
+			maxCap = MyConstants.F * vol * conc * numberEl * Math.pow(10, 3) / (60 * 60);
+		}
+		
+		inputTheoMaxCap.setText(String.valueOf(maxCap));
+	}
+	
 
 
 	// Event Listener on Button.onAction
@@ -506,6 +813,11 @@ public class EditElectrolytesController implements javafx.fxml.Initializable {
 		Double inputAlphaRed_Value = VariousMethods.getTextFieldInput(inputAlphaRed, "doubleInput");
 		Double inputdegRate_Value = VariousMethods.getTextFieldInput(inputdegRate, "doubleInput");
 		Double inputf_Value = VariousMethods.getTextFieldInput(inputf, "doubleInput");
+		Double inputTheoMaxCap_Value = VariousMethods.getTextFieldInput(inputTheoMaxCap, "doubleInput");
+		String inputNote_Value = VariousMethods.getTextFieldInput(inputNote, "stringInput");
+		Double inputfEloVol_Value = VariousMethods.getTextFieldInput(inputfEloVol, "doubleInput");
+		Double inputfConc_Value = VariousMethods.getTextFieldInput(inputfConc, "doubleInput");
+		Boolean inputfSymCellCycl_Value = inputfSymCellCycl.isSelected();
 
 		objElectrolytes.ActiveMaterial.set(inputActiveMaterial_Value);
 		objElectrolytes.Solvent.set(inputSolvent_Value);
@@ -521,6 +833,18 @@ public class EditElectrolytesController implements javafx.fxml.Initializable {
 		objElectrolytes.AlphaRed.set(inputAlphaRed_Value);
 		objElectrolytes.degRate.set(inputdegRate_Value);
 		objElectrolytes.f.set(inputf_Value);
+		objElectrolytes.theoMaxCap.set(inputTheoMaxCap_Value);
+		objElectrolytes.note.set(inputNote_Value);
+		objElectrolytes.fEloVol.set(inputfEloVol_Value);
+		objElectrolytes.fConc.set(inputfConc_Value);
+		objElectrolytes.fSymCellCycl.set(inputfSymCellCycl_Value);
+		
+		double fSymCellCycl_sql = 0;
+		if (inputfSymCellCycl_Value) {
+			fSymCellCycl_sql = 1;
+		} else {
+			fSymCellCycl_sql = 0;
+		}
 
 		try {
 			Connection con = Database.getConnection("electrolyte");
@@ -539,8 +863,15 @@ public class EditElectrolytesController implements javafx.fxml.Initializable {
 					+", kRed = "+objElectrolytes.kRed.getValue()
 					+", AlphaRed = "+objElectrolytes.AlphaRed.getValue()
 					+", f = "+objElectrolytes.f.getValue()
-					+", degRate = "+objElectrolytes.degRate.getValue()+", editDate = CURRENT_TIMESTAMP"
+					+", theoMaxCap = "+objElectrolytes.theoMaxCap.getValue()
+					+", degRate = "+objElectrolytes.degRate.getValue()
+					+", fEloVol = "+objElectrolytes.fEloVol.getValue()
+					+", fConc = "+objElectrolytes.fConc.getValue()
+					+", note = '"+objElectrolytes.note.getValue()
+					+"', fSymCellCycl = "+fSymCellCycl_sql
+					+", editDate = CURRENT_TIMESTAMP"
 							+ " WHERE ID = "+selection.get(0).ID.getValue()+"");
+
 
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();

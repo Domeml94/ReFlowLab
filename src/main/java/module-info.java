@@ -20,6 +20,9 @@ module reflowlab {
 	requires org.jfree.fxgraphics2d;
 	requires org.jfree.jfreechart;
 	requires javafx.media;
+	requires jlatexmath;
+	requires javafx.web;
+	requires javafx.swing;
 //	requires org.testfx.framework.junit5;
 	
 	

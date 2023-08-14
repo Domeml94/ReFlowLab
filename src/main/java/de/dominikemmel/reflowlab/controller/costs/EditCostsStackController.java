@@ -15,6 +15,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import de.dominikemmel.reflowlab.Database;
 import de.dominikemmel.reflowlab.VariousMethods;
@@ -42,6 +45,9 @@ public class EditCostsStackController implements javafx.fxml.Initializable {
 	private TextField inputRefDOIComponentCost;
 	@FXML
 	private TextField inputRefComponentCost;
+	
+	@FXML
+	private TextFlow Rasr_TextFlow;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -53,6 +59,20 @@ public class EditCostsStackController implements javafx.fxml.Initializable {
             	inputComponentName.requestFocus();
             }
         });
+		
+    	//Rasr:
+    	Text Rasr1 = new Text("R");
+    	Rasr1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+    	Text Rasr2 = new Text("asr");
+    	Rasr2.setStyle("-fx-font-weight: bold");
+    	Rasr2.setTranslateY(Rasr1.getFont().getSize() * 0.3);
+    	Rasr2.setFont(Font.font(Rasr1.getFont().getStyle(),Rasr1.getFont().getSize()*0.75));
+    	Text Rasr3 = new Text(" / Ohm cm");
+    	Rasr3.setStyle("-fx-font-weight: bold");
+    	Text Rasr4 = new Text("⁻²");
+    	Rasr4.setStyle("-fx-font-weight: bold");
+
+    	Rasr_TextFlow.getChildren().addAll(Rasr1, Rasr2, Rasr3, Rasr4);
 		
 		inputComponentType.getItems().add("Separator");
 		inputComponentType.getItems().add("Electrode");

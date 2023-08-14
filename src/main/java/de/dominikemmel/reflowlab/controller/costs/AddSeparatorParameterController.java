@@ -14,6 +14,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import de.dominikemmel.reflowlab.Database;
 import de.dominikemmel.reflowlab.VariousMethods;
@@ -33,6 +36,9 @@ public class AddSeparatorParameterController implements javafx.fxml.Initializabl
 	@FXML
 	private TextField inputRefASR;
 	
+	@FXML
+	private TextFlow Rasr_TextFlow;
+	
 	String table = "separatorParameter";
 	
 	@Override
@@ -44,6 +50,23 @@ public class AddSeparatorParameterController implements javafx.fxml.Initializabl
             	inputSeparator.requestFocus();
             }
         });
+		
+    	//Rasr:
+    	Text Rasr1 = new Text("R");
+    	Rasr1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+    	Text Rasr2 = new Text("asr");
+    	Rasr2.setStyle("-fx-font-weight: bold");
+    	Rasr2.setTranslateY(Rasr1.getFont().getSize() * 0.3);
+    	Rasr2.setFont(Font.font(Rasr1.getFont().getStyle(),Rasr1.getFont().getSize()*0.75));
+    	Text Rasr3 = new Text(" / Ohm cm");
+    	Rasr3.setStyle("-fx-font-weight: bold");
+    	Text Rasr4 = new Text("⁻²");
+    	Rasr4.setStyle("-fx-font-weight: bold");
+		Text Rasr5 = new Text(":");
+		Rasr5.setStyle("-fx-font-weight: bold");
+
+    	Rasr_TextFlow.getChildren().addAll(Rasr1, Rasr2, Rasr3, Rasr4, Rasr5);
+    	
 		
 		inputRefDOIASR.textProperty().addListener((observable, oldValue, newValue) -> {
 			if(newValue == "" || newValue == null) {

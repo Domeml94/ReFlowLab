@@ -10,8 +10,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="addPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.costs.AddCostsSaltController">
+<AnchorPane fx:id="addPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.costs.AddCostsSaltController">
    <children>
       <AnchorPane prefHeight="235.0" prefWidth="871.0" styleClass="standardAchorPane">
          <children>
@@ -35,12 +37,29 @@
                <center>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="standardPaneBackgroundCenter" BorderPane.alignment="CENTER">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="150.0" spacing="11.0">
+                        <VBox minWidth="100.0" prefHeight="200.0" prefWidth="150.0" spacing="11.0">
                            <children>
                               <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" />
-                              <Label minHeight="25.0" prefHeight="25.0" prefWidth="131.0" text="Salt:" />
-                              <Label minHeight="25.0" prefHeight="25.0" prefWidth="131.0" text="M:" />
-                              <Label minHeight="25.0" prefHeight="25.0" prefWidth="131.0" text="Costs:" />
+                              <Label minHeight="25.0" prefHeight="25.0" prefWidth="131.0" text="Salt:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0" prefHeight="25.0" prefWidth="131.0">
+                                 <graphic>
+                                    <TextFlow fx:id="MSalt_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic></Label>
+                              <Label minHeight="25.0" prefHeight="25.0" prefWidth="131.0">
+                                 <graphic>
+                                    <TextFlow fx:id="CSalt_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic></Label>
                            </children>
                            <padding>
                               <Insets bottom="20.0" top="10.0" />
@@ -51,7 +70,7 @@
                               <Label minHeight="25.0" styleClass="txtAddEditPaneHeader2" text="Value" />
                               <TextField fx:id="inputSalt" />
                               <TextField fx:id="inputMSalt" />
-                              <TextField fx:id="inputCSalt" promptText="\$ / kg" />
+                              <TextField fx:id="inputCSalt" />
                            </children>
                            <padding>
                               <Insets bottom="20.0" top="10.0" />

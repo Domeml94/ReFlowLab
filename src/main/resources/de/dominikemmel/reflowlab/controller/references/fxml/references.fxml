@@ -10,15 +10,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="483.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.references.ReferencesController">
+<AnchorPane prefHeight="483.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.references.ReferencesController">
    <children>
       <Pane layoutX="524.0" layoutY="110.0" minWidth="1300.0" prefHeight="483.0" prefWidth="1184.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ScrollPane layoutY="62.0" prefHeight="405.0" prefWidth="1270.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="405.0" prefWidth="1270.0">
-                     <children>
-                        <TableView fx:id="tblReference" prefHeight="405.0" prefWidth="1270.0">
+          <AnchorPane layoutY="62.0" minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="1270.0">
+               <children>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="1270.0">
+                     <content>
+                        <TableView fx:id="tblReference" prefHeight="403.0" prefWidth="1270.0">
                           <columns>
                             <TableColumn fx:id="ID" minWidth="5.0">
                                  <graphic>
@@ -47,7 +47,7 @@
                                     </Label>
                                  </graphic>
                               </TableColumn>
-                              <TableColumn fx:id="Comment" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="290.0">
+                              <TableColumn fx:id="Comment" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="350.0">
                                  <graphic>
                                     <Label>
                                        <graphic>
@@ -56,7 +56,7 @@
                                     </Label>
                                  </graphic>
                               </TableColumn>
-                              <TableColumn fx:id="editDate" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="100.0">
+                              <TableColumn fx:id="editDate" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="100.0" visible="false">
                                  <graphic>
                                     <Label>
                                        <graphic>
@@ -67,10 +67,10 @@
                               </TableColumn>
                           </columns>
                         </TableView>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
             <Button layoutX="1051.0" layoutY="16.0" mnemonicParsing="false" onAction="#addReferences" prefHeight="30.0" prefWidth="100.0" text="add" />
             <Button layoutX="1171.0" layoutY="16.0" mnemonicParsing="false" onAction="#editReferences" prefHeight="30.0" prefWidth="100.0" text="edit" />
             <Label layoutY="17.0" style="-fx-text-fill: White;" text="References:">

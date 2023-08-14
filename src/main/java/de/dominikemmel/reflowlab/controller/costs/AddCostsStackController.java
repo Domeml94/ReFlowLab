@@ -15,6 +15,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import de.dominikemmel.reflowlab.Database;
 import de.dominikemmel.reflowlab.VariousMethods;
@@ -39,6 +42,7 @@ public class AddCostsStackController implements javafx.fxml.Initializable {
 	@FXML
 	private TextField inputRefComponentCost;
 	
+	
 	String table = "costStack";
 
 	@SuppressWarnings("unchecked")
@@ -51,6 +55,7 @@ public class AddCostsStackController implements javafx.fxml.Initializable {
             	inputComponentName.requestFocus();
             }
         });
+		
 		
 		inputComponentType.getItems().add("Separator");
 		inputComponentType.getItems().add("Electrode");

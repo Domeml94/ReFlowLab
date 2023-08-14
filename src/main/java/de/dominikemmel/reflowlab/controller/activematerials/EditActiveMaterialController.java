@@ -15,6 +15,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import de.dominikemmel.reflowlab.Database;
 import de.dominikemmel.reflowlab.VariousMethods;
@@ -55,6 +58,13 @@ public class EditActiveMaterialController implements javafx.fxml.Initializable  
 	@FXML private Button btnInputRefN;
 	@FXML private Button btnInputRefNumberH;
 	@FXML private Button btnInputRefCAM;
+	
+	@FXML private TextFlow M_TextFlow;
+	@FXML private TextFlow N_TextFlow;
+	@FXML private TextFlow NumberH_TextFlow;
+	@FXML private TextFlow CAM_TextFlow;
+	@FXML private TextFlow SaltC_TextFlow;
+	@FXML private TextFlow E_TextFlow;
 
 	String table = "activeMaterial";
 	
@@ -110,7 +120,85 @@ public class EditActiveMaterialController implements javafx.fxml.Initializable  
             }
         });
 		
-		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/ArrowDown/1x/arrowDownmdpi.png"));
+		//M:
+		Text M1 = new Text("M");
+		M1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text M2 = new Text(" / g mol");
+		M2.setStyle("-fx-font-weight: bold");
+		Text M3 = new Text("⁻¹");
+		M3.setStyle("-fx-font-weight: bold");
+		Text M4 = new Text(":");
+		M4.setStyle("-fx-font-weight: bold");
+
+		M_TextFlow.getChildren().addAll(M1,M2,M3,M4);
+		
+		//N:
+		Text N1 = new Text("n");
+		N1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text N2 = new Text("e-");
+		N2.setStyle("-fx-font-weight: bold");
+		N2.setTranslateY(N1.getFont().getSize() * 0.3);
+		N2.setFont(Font.font(N1.getFont().getStyle(),N1.getFont().getSize()*0.75));
+		Text N3 = new Text(":");
+		N3.setStyle("-fx-font-weight: bold");
+
+		N_TextFlow.getChildren().addAll(N1,N2,N3);
+
+		//NumberH:
+		Text NumberH1 = new Text("n");
+		NumberH1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text NumberH2 = new Text("H+");
+		NumberH2.setStyle("-fx-font-weight: bold");
+		NumberH2.setTranslateY(NumberH1.getFont().getSize() * 0.3);
+		NumberH2.setFont(Font.font(NumberH1.getFont().getStyle(),NumberH1.getFont().getSize()*0.75));
+		Text NumberH3 = new Text(":");
+		NumberH3.setStyle("-fx-font-weight: bold");
+
+		NumberH_TextFlow.getChildren().addAll(NumberH1,NumberH2,NumberH3);
+
+		//C_AM:
+		Text C_AM1 = new Text("C");
+		C_AM1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text C_AM2 = new Text("AM");
+		C_AM2.setStyle("-fx-font-weight: bold");
+		C_AM2.setTranslateY(C_AM1.getFont().getSize() * 0.3);
+		C_AM2.setFont(Font.font(C_AM1.getFont().getStyle(),C_AM1.getFont().getSize()*0.75));
+		Text C_AM3 = new Text(" / $ kg");
+		C_AM3.setStyle("-fx-font-weight: bold");
+		Text C_AM4 = new Text("⁻¹");
+		C_AM4.setStyle("-fx-font-weight: bold");
+		Text C_AM5 = new Text(":");
+		C_AM5.setStyle("-fx-font-weight: bold");
+
+		CAM_TextFlow.getChildren().addAll(C_AM1,C_AM2,C_AM3,C_AM4,C_AM5);
+		
+		//Saltc:
+		Text SaltC1 = new Text("c");
+		SaltC1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text SaltC2 = new Text("salt");
+		SaltC2.setStyle("-fx-font-weight: bold");
+		SaltC2.setTranslateY(SaltC1.getFont().getSize() * 0.3);
+		SaltC2.setFont(Font.font(SaltC1.getFont().getStyle(),SaltC1.getFont().getSize()*0.75));
+		Text SaltC3 = new Text(" / mol L");
+		SaltC3.setStyle("-fx-font-weight: bold");
+		Text SaltC4 = new Text("⁻¹");
+		SaltC4.setStyle("-fx-font-weight: bold");
+		Text SaltC5 = new Text(":");
+		SaltC5.setStyle("-fx-font-weight: bold");
+
+		SaltC_TextFlow.getChildren().addAll(SaltC1,SaltC2,SaltC3,SaltC4,SaltC5);
+		
+		//E:
+		Text E1 = new Text("E");
+		E1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text E2 = new Text(" vs NHE / V");
+		E2.setStyle("-fx-font-weight: bold");
+		Text E3 = new Text(":");
+		E3.setStyle("-fx-font-weight: bold");
+
+		E_TextFlow.getChildren().addAll(E1,E2,E3);
+		
+		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/ArrowDown/0.5x/Asset 2@0.5x.png"));
 		ImageView imgViewBtnInputRefN = new ImageView(img);
 		imgViewBtnInputRefN.setFitHeight(10);
 		imgViewBtnInputRefN.setFitWidth(12);

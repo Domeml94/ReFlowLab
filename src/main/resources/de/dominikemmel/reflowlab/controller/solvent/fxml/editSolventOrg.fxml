@@ -10,10 +10,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="editPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.solvent.EditSolventOrgController">
+<AnchorPane fx:id="editPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.solvent.EditSolventOrgController">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefWidth="871.0" styleClass="standardAchorPane">
+      <AnchorPane prefWidth="871.0" styleClass="standardAchorPane">
          <children>
             <StackPane prefHeight="404.0" prefWidth="871.0" styleClass="standardPaneBackgroundTranspColor" />
             <BorderPane prefHeight="242.0" prefWidth="871.0">
@@ -37,16 +39,57 @@
                <center>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="standardPaneBackgroundCenter" BorderPane.alignment="CENTER">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="200.0" spacing="11.0">
+                        <VBox minWidth="150.0" prefHeight="200.0" prefWidth="200.0" spacing="11.0">
                            <children>
                               <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" />
-                              <Label minHeight="25.0" text="Solvent:" />
-                              <Label minHeight="25.0" text="Structural formula:" />
-                              <Label minHeight="25.0" text="density:" />
-                              <Label minHeight="25.0" text="dyn. viscosity:" />
-                              <Label minHeight="25.0" text="kin. viscosity:" />
-                              <Label minHeight="25.0" text="E limit cat:" />
-                              <Label minHeight="25.0" text="E limit an:" />
+                              <Label minHeight="25.0" text="Solvent:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0" text="Structural formula:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0">
+                                 <graphic>
+                                    <TextFlow fx:id="density_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic></Label>
+                              <Label minHeight="25.0">
+                                 <graphic>
+                                    <TextFlow fx:id="dynViscosity_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic></Label>
+                              <Label minHeight="25.0">
+                                 <graphic>
+                                    <TextFlow fx:id="kinViscosity_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic></Label>
+                              <Label minHeight="25.0">
+                                 <graphic>
+                                    <TextFlow fx:id="ElimitCat_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic></Label>
+                              <Label minHeight="25.0">
+                                 <graphic>
+                                    <TextFlow fx:id="ElimitAn_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic></Label>
                            </children>
                            <padding>
                               <Insets bottom="20.0" top="10.0" />

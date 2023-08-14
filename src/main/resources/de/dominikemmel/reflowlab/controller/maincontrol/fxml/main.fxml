@@ -249,7 +249,7 @@
                                                 </Label>
                                              </graphic>
                                           </Button>
-                                          <Label styleClass="textMain3" text="   Version: 1.0.0-SNAPSHOT  " />
+                                          <Label styleClass="textMain3" text="   Version: 1.0.0   " />
                                        </children>
                                        <padding>
                                           <Insets top="15.0" />

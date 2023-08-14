@@ -259,10 +259,8 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
 		cSalt2.setFont(Font.font(cSalt1.getFont().getStyle(),cSalt1.getFont().getSize()*0.75));
 		Text cSalt3 = new Text(" / mol L");
 		cSalt3.setStyle("-fx-font-weight: bold");
-		Text cSalt4 = new Text("-1");
+		Text cSalt4 = new Text("⁻¹");
 		cSalt4.setStyle("-fx-font-weight: bold");
-		cSalt4.setTranslateY(cSalt1.getFont().getSize() * -0.3);
-		cSalt4.setFont(Font.font(cSalt1.getFont().getStyle(),cSalt1.getFont().getSize()*0.75));
 
     	cSalt_TextFlow.getChildren().addAll(cSalt1,cSalt2,cSalt3,cSalt4);
 
@@ -277,10 +275,8 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
     	maxSolubility1.setStyle("-fx-font-weight: bold");
 		Text maxSolubility2 = new Text(" / mol L");
 		maxSolubility2.setStyle("-fx-font-weight: bold");
-		Text maxSolubility3 = new Text("-1");
+		Text maxSolubility3 = new Text("⁻¹");
 		maxSolubility3.setStyle("-fx-font-weight: bold");
-		maxSolubility3.setTranslateY(maxSolubility1.getFont().getSize() * -0.3);
-		maxSolubility3.setFont(Font.font(maxSolubility2.getFont().getStyle(),maxSolubility2.getFont().getSize()*0.75));
 
 		maxSolubility_TextFlow.getChildren().addAll(maxSolubility1,maxSolubility2,maxSolubility3);
 
@@ -290,16 +286,12 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
     	Dox1.setStyle("-fx-font-style: italic");
 		Text Dox2 = new Text(" / cm");
 		Dox2.setStyle("-fx-font-weight: bold");
-		Text Dox3 = new Text("2");
+		Text Dox3 = new Text("²");
 		Dox3.setStyle("-fx-font-weight: bold");
-		Dox3.setTranslateY(Dox1.getFont().getSize() * -0.3);
-		Dox3.setFont(Font.font(Dox2.getFont().getStyle(),Dox2.getFont().getSize()*0.75));
     	Text Dox4 = new Text(" s");
     	Dox4.setStyle("-fx-font-weight: bold");
-		Text Dox5 = new Text("-1");
+		Text Dox5 = new Text("⁻¹");
 		Dox5.setStyle("-fx-font-weight: bold");
-		Dox5.setTranslateY(Dox1.getFont().getSize() * -0.3);
-		Dox5.setFont(Font.font(Dox2.getFont().getStyle(),Dox2.getFont().getSize()*0.75));
 
     	DOx_TextFlow.getChildren().addAll(Dox1,Dox2,Dox3,Dox4,Dox5);
 
@@ -309,16 +301,12 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
     	Dred1.setStyle("-fx-font-style: italic");
 		Text Dred2 = new Text(" / cm");
 		Dred2.setStyle("-fx-font-weight: bold");
-		Text Dred3 = new Text("2");
+		Text Dred3 = new Text("²");
 		Dred3.setStyle("-fx-font-weight: bold");
-		Dred3.setTranslateY(Dox1.getFont().getSize() * -0.3);
-		Dred3.setFont(Font.font(Dox2.getFont().getStyle(),Dox2.getFont().getSize()*0.75));
     	Text Dred4 = new Text(" s");
     	Dred4.setStyle("-fx-font-weight: bold");
-		Text Dred5 = new Text("-1");
+		Text Dred5 = new Text("⁻¹");
 		Dred5.setStyle("-fx-font-weight: bold");
-		Dred5.setTranslateY(Dred1.getFont().getSize() * -0.3);
-		Dred5.setFont(Font.font(Dred2.getFont().getStyle(),Dred2.getFont().getSize()*0.75));
 
     	DRed_TextFlow.getChildren().addAll(Dred1,Dred2,Dred3,Dred4,Dred5);
 
@@ -330,10 +318,8 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
 		kox2.setStyle("-fx-font-weight: bold");
     	Text kox4 = new Text(" s");
     	kox4.setStyle("-fx-font-weight: bold");
-		Text kox5 = new Text("-1");
+		Text kox5 = new Text("⁻¹");
 		kox5.setStyle("-fx-font-weight: bold");
-		kox5.setTranslateY(kox1.getFont().getSize() * -0.3);
-		kox5.setFont(Font.font(kox2.getFont().getStyle(),kox2.getFont().getSize()*0.75));
 
     	kOx_TextFlow.getChildren().addAll(kox1,kox2,kox4,kox5);
 
@@ -361,17 +347,14 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
     	kred4.setStyle("-fx-font-weight: bold");
 		Text kred5 = new Text("⁻¹");
 		kred5.setStyle("-fx-font-weight: bold");
-//		kred5.setTranslateY(kred4.getFont().getSize() * -0.3);
-//		kred5.setFont(Font.font(kred4.getFont().getStyle(),kred4.getFont().getSize()*0.75));
 
     	kRed_TextFlow.getChildren().addAll(kred1,kred2,kred4,kred5);
 
     	//degRate:
     	Text degRate1 = new Text("fade rate / % d");
     	degRate1.setStyle("-fx-font-weight: bold");
-    	Text degRate2 = new Text("-1");
-    	degRate2.setTranslateY(degRate1.getFont().getSize() * -0.3);
-    	degRate2.setFont(Font.font(degRate1.getFont().getStyle(),degRate1.getFont().getSize()*0.75));
+    	Text degRate2 = new Text("⁻¹");
+    	degRate2.setStyle("-fx-font-weight: bold");
 
     	degRate_TextFlow.getChildren().addAll(degRate1, degRate2);
 
@@ -381,10 +364,8 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
     	f1.setStyle("-fx-font-style: italic");
     	Text f2 = new Text("/ Y");
     	f2.setStyle("-fx-font-weight: bold");
-    	Text f3 = new Text("-1");
+    	Text f3 = new Text("⁻¹");
     	f3.setStyle("-fx-font-weight: bold");
-    	f3.setTranslateY(f1.getFont().getSize() * -0.3);
-    	f3.setFont(Font.font(f1.getFont().getStyle(),f1.getFont().getSize()*0.75));
 
     	f_TextFlow.getChildren().addAll(f1, f2, f3);
     	
@@ -411,10 +392,8 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
     	fConc2.setFont(Font.font(fConc1.getFont().getStyle(),fConc1.getFont().getSize()*0.75));
     	Text fConc3 = new Text(" / mol L");
     	fConc3.setStyle("-fx-font-weight: bold");
-    	Text fConc4 = new Text("-1");
+    	Text fConc4 = new Text("⁻¹");
     	fConc4.setStyle("-fx-font-weight: bold");
-    	fConc4.setTranslateY(fConc1.getFont().getSize() * -0.3);
-    	fConc4.setFont(Font.font(fConc1.getFont().getStyle(),fConc1.getFont().getSize()*0.75));
     	
     	fConc_TextFlow.getChildren().addAll(fConc1, fConc2, fConc3, fConc4);
     	
@@ -439,10 +418,8 @@ public class ElectrolytesController implements javafx.fxml.Initializable {
     	theoMaxCap2.setTranslateY(theoMaxCap1.getFont().getSize() * 0.3);
     	Text theoMaxCap3 = new Text("/ mAh L");
     	theoMaxCap3.setStyle("-fx-font-weight: bold");
-    	Text theoMaxCap4 = new Text("-1");
+    	Text theoMaxCap4 = new Text("⁻¹");
     	theoMaxCap4.setStyle("-fx-font-weight: bold");
-    	theoMaxCap4.setTranslateY(theoMaxCap1.getFont().getSize() * -0.3);
-    	theoMaxCap4.setFont(Font.font(theoMaxCap1.getFont().getStyle(),theoMaxCap1.getFont().getSize()*0.75));
     	
     	theoMaxCap_TextFlow.getChildren().addAll(theoMaxCap1, theoMaxCap2, theoMaxCap3, theoMaxCap4);
 

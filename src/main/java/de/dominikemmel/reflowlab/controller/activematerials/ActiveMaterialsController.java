@@ -207,10 +207,8 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 		M1.setStyle("-fx-font-style: italic");
 		Text M2 = new Text(" / g mol");
 		M2.setStyle("-fx-font-weight: bold");
-		Text M3 = new Text("-1");
+		Text M3 = new Text("⁻¹");
 		M3.setStyle("-fx-font-weight: bold");
-		M3.setTranslateY(M1.getFont().getSize() * -0.3);
-		M3.setFont(Font.font(M2.getFont().getStyle(),M2.getFont().getSize()*0.75));
 
 		M_TextFlow.getChildren().addAll(M1,M2,M3);
 
@@ -246,10 +244,8 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 		C_AM2.setFont(Font.font(C_AM1.getFont().getStyle(),C_AM1.getFont().getSize()*0.75));
 		Text C_AM3 = new Text(" / $ kg");
 		C_AM3.setStyle("-fx-font-weight: bold");
-		Text C_AM4 = new Text("-1");
+		Text C_AM4 = new Text("⁻¹");
 		C_AM4.setStyle("-fx-font-weight: bold");
-		C_AM4.setTranslateY(C_AM1.getFont().getSize() * -0.3);
-		C_AM4.setFont(Font.font(C_AM1.getFont().getStyle(),C_AM1.getFont().getSize()*0.75));
 
 		CAM_TextFlow.getChildren().addAll(C_AM1,C_AM2,C_AM3,C_AM4);
 
@@ -275,10 +271,8 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 		SaltC2.setFont(Font.font(SaltC1.getFont().getStyle(),SaltC1.getFont().getSize()*0.75));
 		Text SaltC3 = new Text(" / mol L");
 		SaltC3.setStyle("-fx-font-weight: bold");
-		Text SaltC4 = new Text("-1");
+		Text SaltC4 = new Text("⁻¹");
 		SaltC4.setStyle("-fx-font-weight: bold");
-		SaltC4.setTranslateY(SaltC1.getFont().getSize() * -0.3);
-		SaltC4.setFont(Font.font(SaltC1.getFont().getStyle(),SaltC1.getFont().getSize()*0.75));
 
 		SaltC_TextFlow.getChildren().addAll(SaltC1,SaltC2,SaltC3,SaltC4);
 

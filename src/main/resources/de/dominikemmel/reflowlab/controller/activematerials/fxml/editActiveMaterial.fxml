@@ -10,6 +10,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane fx:id="editPane" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.activematerials.EditActiveMaterialController">
    <children>
@@ -37,22 +39,103 @@
                <center>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="standardPaneBackgroundCenter" BorderPane.alignment="CENTER">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="200.0" spacing="11.0">
+                        <VBox minWidth="150.0" prefHeight="200.0" prefWidth="200.0" spacing="11.0">
                            <children>
                               <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" />
-                              <Label minHeight="25.0" text="Abbreviation:" />
-                              <Label minHeight="25.0" text="Name:" />
-                              <Label minHeight="25.0" text="Structural formula:" />
-                              <Label minHeight="25.0" text="M:" />
-                              <Label minHeight="25.0" text="Category:" />
-                              <Label minHeight="25.0" text="n (e-):" />
-                              <Label minHeight="25.0" text="n (H+):" />
-                              <Label minHeight="25.0" text="C_AM:" />
-                              <Label minHeight="25.0" text="Solvent:" />
-                              <Label minHeight="25.0" text="Salt:" />
-                              <Label minHeight="25.0" text="Salt c:" />
-                              <Label minHeight="25.0" text="pH:" />
-                              <Label minHeight="25.0" text="E:" />
+                              <Label minHeight="25.0" text="Abbreviation:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0" text="Name:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0" text="Structural formula:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0">
+                                 <graphic>
+                                    <TextFlow fx:id="M_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0" text="Category:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0">
+                                 <graphic>
+                                    <TextFlow fx:id="N_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0">
+                                 <graphic>
+                                    <TextFlow fx:id="NumberH_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0">
+                                 <graphic>
+                                    <TextFlow fx:id="CAM_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0" text="Solvent:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0" text="Salt:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0">
+                                 <graphic>
+                                    <TextFlow fx:id="SaltC_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0" text="pH:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0">
+                                 <graphic>
+                                    <TextFlow fx:id="E_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
                            </children>
                            <padding>
                               <Insets bottom="20.0" top="10.0" />

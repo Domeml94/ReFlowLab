@@ -12,10 +12,12 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane fx:id="addPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.electrolytes.AddElectrolytesController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000099" height="224.0" layoutX="-6.0" layoutY="521.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="2.0" width="877.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000099" height="230.0" layoutX="-6.0" layoutY="534.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="2.0" width="877.0" />
       <AnchorPane fx:id="addPane1" prefWidth="871.0" styleClass="standardAchorPane">
          <children>
             <StackPane prefHeight="760.0" prefWidth="871.0" styleClass="standardPaneBackgroundTranspColor" />
@@ -25,8 +27,8 @@
                      <children>
                         <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="871.0" spacing="10.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#addAddElectrolytes" text="add" />
-                              <Button mnemonicParsing="false" onAction="#cancelAddElectrolytes" text="cancel" />
+                              <Button mnemonicParsing="false" onAction="#addAddElectrolytes" styleClass="txtAddEditPane" text="add" />
+                              <Button mnemonicParsing="false" onAction="#cancelAddElectrolytes" styleClass="txtAddEditPane" text="cancel" />
                            </children>
                            <padding>
                               <Insets right="10.0" />
@@ -43,31 +45,131 @@
                      <children>
                         <HBox prefHeight="800.0" prefWidth="861.0" spacing="20.0" styleClass="standardPaneBackgroundCenter">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="200.0" spacing="11.0">
+                              <VBox minWidth="150.0" prefHeight="200.0" prefWidth="200.0" spacing="12.0">
                                  <children>
-                                    <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" />
-                                    <Label minHeight="25.0" text="Active Material:" />
-                                    <Label minHeight="25.0" text="Solvent:" />
-                                    <Label minHeight="25.0" text="Salt:" />
-                                    <Label minHeight="25.0" text="Salt c:" />
-                                    <Label minHeight="25.0" text="pH:" />
-                                    <Label minHeight="25.0" text="Solubility:" />
-                                    <Label minHeight="25.0" text="D ox:" />
-                                    <Label minHeight="25.0" text="D red:" />
-                                    <Label minHeight="25.0" text="k ox:" />
-                                    <Label minHeight="25.0" text="Alpha ox:" />
-                                    <Label minHeight="25.0" text="k red:" />
-                                    <Label minHeight="25.0" text="Alpha red:" />
-                                    <Label minHeight="25.0" text="capacity fade rate:" textFill="WHITE" />
-                                    <Label minHeight="25.0" text="f:" textFill="WHITE" />
-                                    <Label minHeight="25.0" text="q (theo. max.):" textFill="WHITE" />
-                                    <Label minHeight="25.0" text="notes:" textFill="WHITE" />
+                                    <Label minHeight="25.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="ActiveMaterial_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="Solvent_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="Salt_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="cSalt_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="pH_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="maxSolubility_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="DOx_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="DRed_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="kOx_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="AlphaOx_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="kRed_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0">
+                                       <graphic>
+                                          <TextFlow fx:id="AlphaRed_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0" textFill="WHITE">
+                                       <graphic>
+                                          <TextFlow fx:id="degRate_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding>
+                                          </TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0" textFill="WHITE">
+                                       <graphic>
+                                          <TextFlow fx:id="f_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0" textFill="WHITE">
+                                       <graphic>
+                                          <TextFlow fx:id="theoMaxCap_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
+                                    <Label minHeight="25.0" textFill="WHITE">
+                                       <graphic>
+                                          <TextFlow fx:id="note_TextFlow" minHeight="25.0">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding></TextFlow>
+                                       </graphic></Label>
                                  </children>
                                  <padding>
                                     <Insets top="10.0" />
                                  </padding>
                               </VBox>
-                              <VBox prefHeight="417.0" prefWidth="426.0" spacing="11.0">
+                              <VBox prefHeight="417.0" prefWidth="426.0" spacing="12.0">
                                  <children>
                                     <Label minHeight="25.0" styleClass="txtAddEditPaneHeader2" text="Value" />
                                     <TextField fx:id="inputActiveMaterial" />
@@ -91,7 +193,7 @@
                                     <Insets top="10.0" />
                                  </padding>
                               </VBox>
-                              <VBox prefHeight="417.0" prefWidth="426.0" spacing="11.0">
+                              <VBox prefHeight="417.0" prefWidth="426.0" spacing="12.0">
                                  <children>
                                     <Label minHeight="25.0" styleClass="txtAddEditPaneHeader2" text="Reference" />
                                     <TextField fx:id="inputComponentName1" disable="true" visible="false" />
@@ -187,7 +289,10 @@
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" spacing="11.0">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" prefWidth="150.0" text="V (theo. max.) / mL:" textAlignment="CENTER" textFill="WHITE" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" prefWidth="150.0" textAlignment="CENTER" textFill="WHITE">
+                                       <graphic>
+                                          <TextFlow fx:id="fEloVol_TextFlow" />
+                                       </graphic></Label>
                                     <TextField fx:id="inputfEloVol" alignment="CENTER" />
                                  </children>
                                  <HBox.margin>
@@ -196,7 +301,10 @@
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" spacing="11.0">
                                  <children>
-                                    <Label alignment="CENTER" minHeight="25.0" prefHeight="150.0" text="c (theo. max.) / mol L^-1:" textAlignment="CENTER" textFill="WHITE" />
+                                    <Label alignment="CENTER" minHeight="25.0" prefHeight="150.0" textAlignment="CENTER" textFill="WHITE">
+                                       <graphic>
+                                          <TextFlow fx:id="fConc_TextFlow" />
+                                       </graphic></Label>
                                     <TextField fx:id="inputfConc" alignment="CENTER" />
                                  </children>
                                  <HBox.margin>
@@ -205,7 +313,10 @@
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="11.0">
                                  <children>
-                                    <Label minHeight="25.0" text="sym. cyclization?" textAlignment="CENTER" textFill="WHITE" />
+                                    <Label minHeight="25.0" text="sym. cyclization?" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
                                     <CheckBox fx:id="inputfSymCellCycl" mnemonicParsing="false" textAlignment="CENTER" />
                                  </children>
                                  <HBox.margin>

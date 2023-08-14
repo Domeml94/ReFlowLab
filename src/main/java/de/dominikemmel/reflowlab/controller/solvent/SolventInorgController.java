@@ -96,10 +96,8 @@ public class SolventInorgController implements javafx.fxml.Initializable {
 		c1.setStyle("-fx-font-style: italic");
 		Text c2 = new Text(" / mol L");
 		c2.setStyle("-fx-font-weight: bold");
-		Text c3 = new Text("-1");
+		Text c3 = new Text("⁻¹");
 		c3.setStyle("-fx-font-weight: bold");
-		c3.setTranslateY(c1.getFont().getSize() * -0.3);
-		c3.setFont(Font.font(c2.getFont().getStyle(),c2.getFont().getSize()*0.75));
 
 		c_TextFlow.getChildren().addAll(c1,c2,c3);
 
@@ -109,10 +107,8 @@ public class SolventInorgController implements javafx.fxml.Initializable {
 		density1.setStyle("-fx-font-weight: bold");
 		Text density2 = new Text(" / g cm");
 		density2.setStyle("-fx-font-weight: bold");
-		Text density3 = new Text("-3");
+		Text density3 = new Text("⁻³");
 		density3.setStyle("-fx-font-weight: bold");
-		density3.setTranslateY(density1.getFont().getSize() * -0.3);
-		density3.setFont(Font.font(density2.getFont().getStyle(),density2.getFont().getSize()*0.75));
 
 		density_TextFlow.getChildren().addAll(density1,density2,density3);
 
@@ -131,16 +127,12 @@ public class SolventInorgController implements javafx.fxml.Initializable {
 		kinViscosity1.setStyle("-fx-font-weight: bold");
 		Text kinViscosity2 = new Text(" / cm");
 		kinViscosity2.setStyle("-fx-font-weight: bold");
-		Text kinViscosity3 = new Text("2");
+		Text kinViscosity3 = new Text("²");
 		kinViscosity3.setStyle("-fx-font-weight: bold");
-		kinViscosity3.setTranslateY(kinViscosity1.getFont().getSize() * -0.3);
-		kinViscosity3.setFont(Font.font(kinViscosity2.getFont().getStyle(),kinViscosity2.getFont().getSize()*0.75));
 		Text kinViscosity4 = new Text(" s");
 		kinViscosity4.setStyle("-fx-font-weight: bold");
-		Text kinViscosity5 = new Text("-1");
+		Text kinViscosity5 = new Text("⁻¹");
 		kinViscosity5.setStyle("-fx-font-weight: bold");
-		kinViscosity5.setTranslateY(kinViscosity1.getFont().getSize() * -0.3);
-		kinViscosity5.setFont(Font.font(kinViscosity2.getFont().getStyle(),kinViscosity2.getFont().getSize()*0.75));
 
 		kinViscosity_TextFlow.getChildren().addAll(kinViscosity1,kinViscosity2,kinViscosity3,kinViscosity4,kinViscosity5);
 

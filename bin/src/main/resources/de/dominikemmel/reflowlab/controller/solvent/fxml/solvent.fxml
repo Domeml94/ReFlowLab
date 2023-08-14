@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane minWidth="1300.0" prefHeight="483.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.solvent.SolventController">
+   <children>
+      <Button fx:id="btnAddSolvent" layoutX="1051.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnAddSolvent" prefHeight="30.0" prefWidth="100.0" text="add" />
+      <Button fx:id="btnEditSolvent" layoutX="1171.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnEditSolvent" prefHeight="30.0" prefWidth="100.0" text="edit" />
+      <Button fx:id="btnInorganicSolvents" layoutY="17.0" mnemonicParsing="false" onAction="#btnInorganicSolvents" prefHeight="30.0" prefWidth="140.0" text="Inorganic Solvents" />
+      <Button fx:id="btnOrganicSolvents" layoutX="160.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnOrganicSolvents" prefHeight="30.0" prefWidth="140.0" text="Organic Solvents" />
+      <Pane fx:id="tblSolventPane" layoutY="62.0" prefHeight="405.0" prefWidth="1270.0" />
+   </children>
+</AnchorPane>

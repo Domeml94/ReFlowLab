@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="addPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.solvent.AddSolventOrgController">
+   <children>
+      <AnchorPane prefWidth="871.0" styleClass="standardAchorPane">
+         <children>
+            <StackPane prefHeight="404.0" prefWidth="871.0" styleClass="standardPaneBackgroundTranspColor" />
+            <BorderPane prefHeight="242.0" prefWidth="871.0">
+               <bottom>
+                  <AnchorPane maxHeight="40.0" prefHeight="40.0" prefWidth="500.0" styleClass="standardPaneBackgroundOutwards" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="871.0" spacing="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addAddSolventOrg" text="add" />
+                              <Button mnemonicParsing="false" onAction="#cancelAddSolventOrg" text="cancel" />
+                           </children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </bottom>
+               <center>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="standardPaneBackgroundCenter" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="200.0" spacing="11.0">
+                           <children>
+                              <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" />
+                              <Label minHeight="25.0" text="Solvent:" />
+                              <Label minHeight="25.0" text="Structural formula:" />
+                              <Label minHeight="25.0" text="density:" />
+                              <Label minHeight="25.0" text="dyn. viscosity:" />
+                              <Label minHeight="25.0" text="kin. viscosity:" />
+                              <Label minHeight="25.0" text="E limit cat:" />
+                              <Label minHeight="25.0" text="E limit an:" />
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="417.0" prefWidth="426.0" spacing="11.0">
+                           <children>
+                              <Label minHeight="25.0" styleClass="txtAddEditPaneHeader2" text="Value" />
+                              <TextField fx:id="inputSolvent" />
+                              <TextField fx:id="inputStructuralFormula" />
+                              <TextField fx:id="inputDensity" />
+                              <TextField fx:id="inputdynViscosity" />
+                              <TextField fx:id="inputkinViscosity" />
+                              <TextField fx:id="inputElimitCat" />
+                              <TextField fx:id="inputElimitAn" />
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="417.0" prefWidth="426.0" spacing="11.0">
+                           <children>
+                              <Label minHeight="25.0" styleClass="txtAddEditPaneHeader2" text="Reference" />
+                              <TextField fx:id="inputComponentName1" disable="true" visible="false" />
+                              <TextField fx:id="inputCostUnit1" disable="true" editable="false" visible="false" />
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="inputRefDOIDensity" prefWidth="100.0" promptText="DOI" />
+                                    <TextField fx:id="inputRefDensity" prefWidth="250.0" promptText="Reference" />
+                                    <Button fx:id="btnInputRefDensity" disable="true" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefDensityEvent" prefHeight="25.0" prefWidth="25.0" visible="false" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="inputRefDOIdynViscosity" prefWidth="100.0" promptText="DOI" />
+                                    <TextField fx:id="inputRefdynViscosity" prefWidth="250.0" promptText="Reference" />
+                                    <Button fx:id="btnInputRefdynViscosity" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefdynViscosityEvent" visible="false" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="inputRefDOIkinViscosity" prefWidth="100.0" promptText="DOI" />
+                                    <TextField fx:id="inputRefkinViscosity" prefWidth="250.0" promptText="Reference" />
+                                    <Button disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" visible="false" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="inputRefDOIElimitCat" prefWidth="100.0" promptText="DOI" />
+                                    <TextField fx:id="inputRefElimitCat" prefWidth="250.0" promptText="Reference" />
+                                    <Button fx:id="btnInputRefElimitCat" disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnInputRefElimitCatEvent" visible="false" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="inputRefDOIElimitAn" prefWidth="100.0" promptText="DOI" />
+                                    <TextField fx:id="inputRefElimitAn" prefWidth="250.0" promptText="Reference" />
+                                    <Button disable="true" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" visible="false" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="11.0" />
+                     </children>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <padding>
+                        <Insets left="15.0" right="15.0" />
+                     </padding>
+                  </HBox>
+               </center>
+               <right>
+                  <Pane prefHeight="200.0" prefWidth="5.0" styleClass="standardPaneBackgroundOutwards" BorderPane.alignment="CENTER" />
+               </right>
+               <left>
+                  <Pane prefHeight="200.0" prefWidth="5.0" styleClass="standardPaneBackgroundOutwards" BorderPane.alignment="CENTER" />
+               </left>
+               <top>
+                  <Pane prefHeight="50.0" prefWidth="200.0" styleClass="standardPaneBackgroundOutwards" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="14.0" prefHeight="50.0" styleClass="txtAddEditPaneHeader" text="Add Organic Solvent:" textAlignment="CENTER" />
+                     </children>
+                  </Pane>
+               </top>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

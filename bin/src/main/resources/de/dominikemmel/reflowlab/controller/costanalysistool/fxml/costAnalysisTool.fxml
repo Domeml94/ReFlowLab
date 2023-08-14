@@ -1,0 +1,1380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane fx:id="AnchorPane1" prefHeight="780.0" prefWidth="1524.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.costanalysistool.CostAnalysisToolController">
+   <children>
+      <Pane prefHeight="780.0" prefWidth="1520.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="6.0">
+         <children>
+            <Pane fx:id="pane3" layoutX="-8.0" layoutY="-8.0" prefHeight="60.0" prefWidth="1524.0">
+               <children>
+                  <Label fx:id="header2" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="4.0" text="Cost Analysis" textAlignment="CENTER" />
+               </children>
+            </Pane>
+            <AnchorPane layoutX="-8.0" layoutY="59.0" prefHeight="274.0" prefWidth="855.0" style="-fx-border-color: #000000;">
+               <children>
+                  <CheckBox fx:id="checkStandard" layoutX="320.0" layoutY="157.0" mnemonicParsing="false" onAction="#uncheckFullCell" styleClass="txtInputPaneSelection" text="Active material vs Standard" />
+                  <CheckBox fx:id="checkFullCell" layoutX="320.0" layoutY="182.0" mnemonicParsing="false" onAction="#uncheckStandard" styleClass="txtInputPaneSelection" text="Anolyte vs Catholyte" />
+                  <Button fx:id="btnCalculate" layoutX="524.0" layoutY="225.0" mnemonicParsing="false" onAction="#btnCalculate" prefHeight="30.0" prefWidth="300.0" style="-fx-font-weight: bold;" text="Calculate" />
+                  <Label fx:id="txtInputPane" layoutX="35.0" layoutY="37.0" prefHeight="26.0" style="-fx-font-weight: bold;" text="Acitve Material:" />
+                  <Label fx:id="txtInputPane" layoutX="35.0" layoutY="79.0" prefHeight="26.0" style="-fx-font-weight: bold;" text="Solvent:" />
+                  <Label fx:id="labelLeft" layoutX="148.0" layoutY="2.0" style="-fx-font-weight: bold;" styleClass="txtInputPaneHeader" text="Anolyte" />
+                  <Label fx:id="labelRight" layoutX="320.0" layoutY="2.0" style="-fx-font-weight: bold;" styleClass="txtInputPaneHeader" text="Catholyte" />
+                  <ComboBox fx:id="comboLeftActiveMaterial" layoutX="148.0" layoutY="37.0" onAction="#populateComboLeftSolvent" prefHeight="26.0" prefWidth="150.0" />
+                  <ComboBox fx:id="comboLeftSolvent" layoutX="148.0" layoutY="79.0" onAction="#populateComboLeftSalt" prefHeight="26.0" prefWidth="150.0" />
+                  <ComboBox fx:id="comboRightActiveMaterial" layoutX="320.0" layoutY="37.0" onAction="#populateComboRightSolvent" prefHeight="26.0" prefWidth="150.0" />
+                  <ComboBox fx:id="comboRightSolvent" layoutX="320.0" layoutY="79.0" onAction="#populateComboRightSalt" prefHeight="26.0" prefWidth="150.0" />
+                  <ComboBox fx:id="comboRightSalt" layoutX="320.0" layoutY="121.0" onAction="#selectComboRightSalt" prefHeight="26.0" prefWidth="150.0" />
+                  <ComboBox fx:id="comboLeftSalt" layoutX="148.0" layoutY="121.0" onAction="#selectComboLeftSalt" prefHeight="26.0" prefWidth="150.0" />
+                  <Label fx:id="txtInputPane" layoutX="35.0" layoutY="121.0" prefHeight="26.0" style="-fx-font-weight: bold;" text="Salt:" />
+                  <ComboBox fx:id="comboStack" accessibleText="0.06m2_Nafion&#10;0.06m2_SizeSelective&#10;2.76m2_Nafion&#10;2.76m2_SizeSelective" layoutX="148.0" layoutY="167.0" onAction="#selectComboStack" prefHeight="26.0" prefWidth="108.0" />
+                  <Label fx:id="txtInputPane" layoutX="35.0" layoutY="167.0" prefHeight="26.0" style="-fx-font-weight: bold;" text="Stack:" />
+                  <Pane layoutX="614.0" layoutY="9.0" prefHeight="145.0" prefWidth="210.0" style="-fx-border-color: #ffffff;">
+                     <children>
+                        <TextField fx:id="voltageEfficiencyInput" layoutX="121.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                        <CheckBox fx:id="checkVoltageEfficiency" layoutX="13.0" layoutY="49.0" mnemonicParsing="false" />
+                        <TextField fx:id="currentDensityInput" layoutX="121.0" layoutY="78.0" prefHeight="26.0" prefWidth="75.0" />
+                        <CheckBox fx:id="checkCurrentDensity" layoutX="13.0" layoutY="82.0" mnemonicParsing="false" />
+                        <Label layoutX="44.0" layoutY="49.0">
+                           <graphic>
+                              <TextFlow prefWidth="50.0">
+                                 <children>
+                                    <Text fx:id="voltageEfficiencyInputText1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="voltageEfficiencyInputText2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="voltageEfficiencyInputText3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="voltageEfficiencyInputText4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="voltageEfficiencyInputText5" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                 </children>
+                              </TextFlow>
+                           </graphic>
+                        </Label>
+                        <Label layoutX="40.0" layoutY="82.0" prefWidth="70.0">
+                           <graphic>
+                              <TextFlow>
+                                 <children>
+                                    <Text fx:id="currentDensityInputText1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="currentDensityInputText2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="currentDensityInputText3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="currentDensityInputText4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="currentDensityInputText5" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                 </children>
+                              </TextFlow>
+                           </graphic>
+                        </Label>
+                        <CheckBox fx:id="checkPeakPower" layoutX="13.0" layoutY="17.0" mnemonicParsing="false" text="peakPower" textFill="WHITE" />
+                        <TextField fx:id="peakPowerInput" layoutX="121.0" layoutY="13.0" prefHeight="26.0" prefWidth="75.0" />
+                        <TextField fx:id="specPowerInput" layoutX="121.0" layoutY="111.0" prefHeight="26.0" prefWidth="75.0" />
+                        <CheckBox fx:id="checkSpecPower" layoutX="13.0" layoutY="111.0" mnemonicParsing="false" />
+                        <Label layoutX="40.0" layoutY="111.0" prefWidth="70.0">
+                           <graphic>
+                              <TextFlow>
+                                 <children>
+                                    <Text fx:id="specPowerInputText1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="specPowerInputText2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="specPowerInputText3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="specPowerInputText4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="specPowerInputText5" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                 </children>
+                              </TextFlow>
+                           </graphic>
+                        </Label>
+                        <TextFlow layoutX="-4.0" layoutY="30.0">
+                           <children>
+                              <Text fx:id="currentDensityInputText11" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="currentDensityInputText21" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="currentDensityInputText31" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="currentDensityInputText41" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="currentDensityInputText51" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </Pane>
+                  <CheckBox fx:id="checkOhmicMode" layoutX="628.0" layoutY="170.0" mnemonicParsing="false" textFill="WHITE" />
+                  <CheckBox fx:id="checkChargeTransferMode" layoutX="700.0" layoutY="170.0" mnemonicParsing="false" textFill="WHITE" />
+                  <Label layoutX="521.0" layoutY="17.0" text="working point:" textFill="WHITE" />
+                  <Label layoutX="526.0" layoutY="170.0" text="polarization:" textFill="WHITE" />
+                  <Label layoutX="650.0" layoutY="170.0" prefWidth="30.0">
+                     <graphic>
+                        <TextFlow>
+                           <children>
+                              <Text fx:id="checkOhmicModeText1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="checkOhmicModeText2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </TextFlow>
+                     </graphic>
+                  </Label>
+                  <Label layoutX="722.0" layoutY="170.0" prefWidth="30.0">
+                     <graphic>
+                        <TextFlow>
+                           <children>
+                              <Text fx:id="checkChargeTransferModeText1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="checkChargeTransferModeText2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </TextFlow>
+                     </graphic>
+                  </Label>
+                  <Label layoutX="789.0" layoutY="170.0" prefWidth="30.0">
+                     <graphic>
+                        <TextFlow>
+                           <children>
+                              <Text fx:id="checkTransportationLimitationModeText1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="checkTransportationLimitationModeText2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </TextFlow>
+                     </graphic>
+                  </Label>
+                  <CheckBox fx:id="checkTransportationLimitationMode" layoutX="767.0" layoutY="170.0" mnemonicParsing="false" textFill="WHITE" />
+                  <TextField fx:id="txtfbTimeDischarge" layoutX="35.0" layoutY="238.0" prefHeight="26.0" prefWidth="116.0" />
+                  <TextField fx:id="txtfbPowerDischarge" layoutX="166.0" layoutY="238.0" prefHeight="26.0" prefWidth="116.0" />
+                  <TextField fx:id="txtfbEnergyCapacity" layoutX="297.0" layoutY="238.0" prefHeight="26.0" prefWidth="116.0" />
+                  <Label layoutX="35.0" layoutY="210.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                     <graphic>
+                        <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                           <children>
+                              <Text fx:id="timeDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="timeDischarge2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="timeDischarge3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </TextFlow>
+                     </graphic>
+                  </Label>
+                  <Label layoutX="166.0" layoutY="210.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                     <graphic>
+                        <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                           <children>
+                              <Text fx:id="powerDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="powerDischarge2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="powerDischarge3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </TextFlow>
+                     </graphic>
+                  </Label>
+                  <Label layoutX="297.0" layoutY="210.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                     <graphic>
+                        <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                           <children>
+                              <Text fx:id="energyCapacity1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="energyCapacity2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="energyCapacity3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </TextFlow>
+                     </graphic>
+                  </Label>
+                  <Button fx:id="btnStackSelection" layoutX="262.0" layoutY="168.0" mnemonicParsing="false" onAction="#btnStackSelection" text="Edit" />
+               </children>
+            </AnchorPane>
+            <TabPane layoutX="-8.0" layoutY="340.0" prefHeight="380.0" prefWidth="855.0" style="-fx-border-color: #000000;" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="electrolyte">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="339.0" prefWidth="855.0">
+                           <children>
+                              <Label fx:id="labelFlowAnolyteActMatCost" layoutX="20.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow fx:id="textFlowAnolyteActMatCost" maxHeight="26.0" maxWidth="116.0" minHeight="26.0" minWidth="116.0" prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteActMatCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteActMatCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteActMatCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteActMatCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children>
+                                    </TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolyteActMatCost" layoutX="20.0" layoutY="45.0" maxHeight="26.0" maxWidth="116.0" minHeight="26.0" minWidth="116.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="151.0" layoutY="18.0" maxHeight="26.0" maxWidth="25.0" minHeight="26.0" minWidth="25.0" prefHeight="26.0" prefWidth="25.0" style="-fx-font-weight: bold;" styleClass="txtInputValues" textAlignment="CENTER">
+                                 <graphic>
+                                    <TextFlow maxHeight="26.0" maxWidth="31.0" minHeight="26.0" minWidth="31.0" prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteActMatCoeff1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteActMatCoeff2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolyteActMatCoeff" editable="false" layoutX="151.0" layoutY="45.0" prefHeight="26.0" prefWidth="31.0" styleClass="txtDiabled" />
+                              <Label layoutX="197.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow maxHeight="26.0" maxWidth="116.0" minHeight="26.0" minWidth="116.0" prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteActMatMolMass1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteActMatMolMass2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteActMatMolMass3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteActMatMolMass4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolyteActMatMolMass" layoutX="197.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="328.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow fx:id="textFlowAnolyteSocRange" prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteSocRange1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteSocRange2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children>
+                                    </TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolyteSocRange" layoutX="328.0" layoutY="45.0" prefHeight="26.0" prefWidth="31.0" />
+                              <Label layoutX="374.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteActMatNumberElectron1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteActMatNumberElectron2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolyteActMatNumberElectron" layoutX="374.0" layoutY="45.0" prefHeight="26.0" prefWidth="31.0" />
+                              <Label layoutX="420.0" layoutY="18.0" prefHeight="26.0" prefWidth="31.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteActMatNumberProton1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteActMatNumberProton2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolyteActMatNumberProton" layoutX="420.0" layoutY="45.0" prefHeight="26.0" prefWidth="31.0" />
+                              <Label layoutX="466.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="75.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteActMatSol1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteActMatSol2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteActMatSol3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteActMatSol4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolyteActMatSol" editable="false" layoutX="466.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" styleClass="txtDiabled" />
+                              <Label layoutX="556.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="90.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteSaltMolMass1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteSaltMolMass2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteSaltMolMass3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteSaltMolMass4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolyteSaltMolMass" layoutX="556.0" layoutY="45.0" prefHeight="26.0" prefWidth="90.0" />
+                              <Label layoutX="661.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="85.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteSaltSol1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteSaltSol2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteSaltSol3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteSaltSol4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolyteSaltSol" editable="false" layoutX="661.0" layoutY="45.0" prefHeight="26.0" prefWidth="85.0" styleClass="txtDiabled" />
+                              <Label layoutX="761.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="75.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolytePotential1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolytePotential2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolytePotential3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolytePotential" layoutX="761.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                              <Label layoutX="20.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteActMatCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteActMatCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteActMatCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteActMatCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholyteActMatCost" layoutX="20.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="151.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteActMatCoeff1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteActMatCoeff2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholyteActMatCoeff" editable="false" layoutX="151.0" layoutY="112.0" prefHeight="26.0" prefWidth="31.0" styleClass="txtDiabled" />
+                              <Label layoutX="197.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteActMatMolMass1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteActMatMolMass2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteActMatMolMass3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteActMatMolMass4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholyteActMatMolMass" layoutX="197.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="328.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteSocRange1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteSocRange2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholyteSocRange" layoutX="328.0" layoutY="112.0" prefHeight="26.0" prefWidth="31.0" />
+                              <Label layoutX="374.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteActMatNumberElectron1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteActMatNumberElectron2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholyteActMatNumberElectron" layoutX="374.0" layoutY="112.0" prefHeight="26.0" prefWidth="31.0" />
+                              <Label layoutX="420.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="31.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteActMatNumberProton1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteActMatNumberProton2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholyteActMatNumberProton" layoutX="420.0" layoutY="112.0" prefHeight="26.0" prefWidth="31.0" />
+                              <Label layoutX="466.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="75.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteActMatSol1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteActMatSol2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteActMatSol3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteActMatSol4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholyteActMatSol" editable="false" layoutX="466.0" layoutY="112.0" prefHeight="26.0" prefWidth="75.0" styleClass="txtDiabled" />
+                              <Label layoutX="556.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="90.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteSaltMolMass1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteSaltMolMass2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteSaltMolMass3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteSaltMolMass4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children>
+                                    </TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholyteSaltMolMass" layoutX="556.0" layoutY="112.0" prefHeight="26.0" prefWidth="90.0" />
+                              <Label layoutX="661.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="85.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteSaltSol1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteSaltSol2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteSaltSol3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteSaltSol4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholyteSaltSol" editable="false" layoutX="661.0" layoutY="112.0" prefHeight="26.0" prefWidth="85.0" styleClass="txtDiabled" />
+                              <Label layoutX="761.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="75.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholytePotential1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholytePotential2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholytePotential3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholytePotential" layoutX="761.0" layoutY="112.0" prefHeight="26.0" prefWidth="75.0" />
+                              <Label layoutX="20.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="standardCellVoltageEl1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="standardCellVoltageEl2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="standardCellVoltageEl3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdReversibleCellVoltageEl" editable="false" layoutX="20.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="151.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="ravg1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="ravg2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="ravg3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="ravg4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdRavg" editable="false" layoutX="151.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="282.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="bavg1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="bavg2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="bavg3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="bavg4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdBavg" editable="false" layoutX="282.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="413.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="efficiencySysDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="efficiencySysDischarge2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdEfficiencySysDischarge" layoutX="413.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="544.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="efficiencyVoltDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="efficiencyVoltDischarge2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdEfficiencyVoltDischarge" layoutX="544.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="675.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="efficiencyCoulombicRoundTrip1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="efficiencyCoulombicRoundTrip2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdEfficiencyCoulombicRoundTrip" layoutX="675.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="20.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="saltCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="saltCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="saltCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="saltCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdSaltCost" layoutX="20.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="151.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="solventCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="solventCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="solventCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="solventCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdSolventCost" layoutX="151.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="282.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0">
+                                       <children>
+                                          <Text fx:id="solventDensity1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="solventDensity2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="solventDensity3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdSolventDensity" layoutX="282.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="413.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="temp1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="temp2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdTemp" layoutX="413.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="544.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="pH1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdPH" layoutX="544.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="20.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteTankCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteTankCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteTankCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteTankCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolyteTankCost" layoutX="20.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="151.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteTankCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteTankCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteTankCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteTankCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholyteTankCost" layoutX="151.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="282.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="tankFillLevel1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="tankFillLevel2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="tankFillLevel3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdTankFillLevel" layoutX="282.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="413.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="tankCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="tankCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="tankCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="tankCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdTankCost" editable="false" layoutX="413.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="power">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="stackCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="stackCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="stackCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="stackCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdStackCost" layoutX="20.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                              <Label layoutX="90.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="ASR1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="ASR2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="ASR3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbASR" layoutX="110.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                              <Label layoutX="180.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="socDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbSocDischarge" layoutX="200.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                              <Label layoutX="584.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="currentDensityDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="currentDensityDischarge2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="currentDensityDischarge3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="currentDensityDischarge4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbCurrentDensityDischarge" layoutX="584.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="715.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="voltageDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="voltageDischarge2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="voltageDischarge3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbVoltageDischarge" editable="false" layoutX="715.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="20.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="standardCellVoltagePow1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="standardCellVoltagePow2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="standardCellVoltagePow3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdStandardCellVoltagePow" editable="false" layoutX="20.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="151.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="reversibleVoltage1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="reversibleVoltage2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="reversibleVoltage3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbReversibleVoltage" editable="false" layoutX="151.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="282.0" layoutY="86.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="chargeTranserOverPotDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="chargeTranserOverPotDischarge2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="chargeTranserOverPotDischarge3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbChargeTranserOverPotDischarge" editable="false" layoutX="282.0" layoutY="113.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="412.0" layoutY="87.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="ohmicOverPotDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="ohmicOverPotDischarge2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="ohmicOverPotDischarge3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbOhmicOverPotDischarge" editable="false" layoutX="412.0" layoutY="114.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="20.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteReactionRate1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteReactionRate2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteReactionRate3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteReactionRate4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbAnolyteReactionRate" layoutX="20.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="151.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="54.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteTransferCoeff1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteTransferCoeff2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbAnolyteTransferCoeff" layoutX="151.0" layoutY="179.0" prefHeight="26.0" prefWidth="54.0" />
+                              <Label layoutX="220.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteReactionRate1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteReactionRate2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteReactionRate3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteReactionRate4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbCatholyteReactionRate" layoutX="220.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="351.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="54.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteTransferCoeff1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteTransferCoeff2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbCatholyteTransferCoeff" layoutX="351.0" layoutY="179.0" prefHeight="26.0" prefWidth="46.0" />
+                              <Label layoutX="412.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteExchangeCurrentDensity1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteExchangeCurrentDensity2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteExchangeCurrentDensity3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteExchangeCurrentDensity4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbAnolyteExchangeCurrentDensity" editable="false" layoutX="412.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="543.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteExchangeCurrentDensity1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteExchangeCurrentDensity2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteExchangeCurrentDensity3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteExchangeCurrentDensity4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbCatholyteExchangeCurrentDensity" editable="false" layoutX="543.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="674.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="66.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteChargeTranserOverPotDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteChargeTranserOverPotDischarge2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteChargeTranserOverPotDischarge3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbAnolyteChargeTranserOverPotDischarge" editable="false" layoutX="674.0" layoutY="179.0" prefHeight="26.0" prefWidth="66.0" styleClass="txtDiabled" />
+                              <Label layoutX="755.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="66.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteChargeTranserOverPotDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteChargeTranserOverPotDischarge2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteChargeTranserOverPotDischarge3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbCatholyteChargeTranserOverPotDischarge" editable="false" layoutX="755.0" layoutY="179.0" prefHeight="26.0" prefWidth="62.0" styleClass="txtDiabled" />
+                              <Label layoutX="20.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="cellArea1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cellArea2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cellArea3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="cellArea4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCellArea" layoutX="20.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="151.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="totalArea1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="totalArea2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="totalArea3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="totalArea4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdTotalArea" editable="false" layoutX="151.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="282.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="numberCellsPerStack1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="numberCellsPerStack2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdNumberCellsPerStack" layoutX="282.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="413.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="numberCells1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="numberCells2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdNumberCells" layoutX="413.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="544.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="numberStacks1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="numberStacks2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdNumberStacks" layoutX="544.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="675.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="reactorCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="reactorCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="reactorCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdReactorCost" layoutX="675.0" layoutY="313.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="270.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="costBOP1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="costBOP2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="costBOP3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="costBOP4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbCostBOP" layoutX="290.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                              <Label layoutX="360.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="costAdd1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="costAdd2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="costAdd3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="costAdd4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbCostAdd" layoutX="380.0" layoutY="45.0" prefHeight="26.0" prefWidth="75.0" />
+                              <TextField fx:id="txtfbConcentrationOverPotDischarge" editable="false" layoutX="544.0" layoutY="114.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="544.0" layoutY="87.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="concentrationOverPotDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="concentrationOverPotDischarge2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="concentrationOverPotDischarge3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children>
+                                    </TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfbDiaFiber" layoutX="20.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfbFlowVelocity" layoutX="151.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfbAnolyteDiffusionCoeff" layoutX="282.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfbCatholyteDiffusionCoeff" layoutX="412.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <TextField fx:id="txtfbAnolyteConcentrationOverPotDischarge" editable="false" layoutX="544.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <TextField fx:id="txtfbCatholyteConcentrationOverPotDischarge" editable="false" layoutX="675.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="20.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="diaFiber1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="diaFiber2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="diaFiber3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children>
+                                    </TextFlow>
+                                 </graphic>
+                              </Label>
+                              <Label layoutX="151.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="flowVelocity1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="flowVelocity2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="flowVelocity3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children>
+                                    </TextFlow>
+                                 </graphic>
+                              </Label>
+                              <Label layoutX="282.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteDiffusionCoeff1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteDiffusionCoeff2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteDiffusionCoeff3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteDiffusionCoeff4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteDiffusionCoeff5" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteDiffusionCoeff6" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children>
+                                    </TextFlow>
+                                 </graphic>
+                              </Label>
+                              <Label layoutX="412.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteDiffusionCoeff1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteDiffusionCoeff2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteDiffusionCoeff3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteDiffusionCoeff4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteDiffusionCoeff5" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteDiffusionCoeff6" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children>
+                                    </TextFlow>
+                                 </graphic>
+                              </Label>
+                              <Label layoutX="544.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteConcentrationOverPotDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteConcentrationOverPotDischarge2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteConcentrationOverPotDischarge3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children>
+                                    </TextFlow>
+                                 </graphic>
+                              </Label>
+                              <Label layoutX="675.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteConcentrationOverPotDischarge1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteConcentrationOverPotDischarge2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteConcentrationOverPotDischarge3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children>
+                                    </TextFlow>
+                                 </graphic>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="maintenance">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="20.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="operationalLifetime1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="operationalLifetime2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdOperationalLifetime" layoutX="20.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="151.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="45.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="interestRate1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdInterestRate" layoutX="151.0" layoutY="45.0" prefHeight="26.0" prefWidth="45.0" />
+                              <Label layoutX="211.0" layoutY="15.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteReplacementFraction1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteReplacementFraction2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteReplacementFraction3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteReplacementFraction4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolyteReplacementFraction" layoutX="211.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="342.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteReplacementFraction1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteReplacementFraction2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteReplacementFraction3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteReplacementFraction4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholyteReplacementFraction" layoutX="342.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="473.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="maxReplacementFraction1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="maxReplacementFraction2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="maxReplacementFraction3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="maxReplacementFraction4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdMaxReplacementFraction" editable="false" layoutX="473.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="604.0" layoutY="14.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="electrolyteDegradationNPVCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="electrolyteDegradationNPVCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="electrolyteDegradationNPVCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="electrolyteDegradationNPVCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdElectrolyteDegradationNPVCost" editable="false" layoutX="604.0" layoutY="45.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="20.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteReplacementCostMass1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteReplacementCostMass2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteReplacementCostMass3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteReplacementCostMass4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolyteReplacementCostMass" layoutX="20.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="151.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="150.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="anolyteReplacementCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteReplacementCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteReplacementCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="anolyteReplacementCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children>
+                                    </TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdAnolyteReplacementCost" layoutX="151.0" layoutY="112.0" prefHeight="26.0" prefWidth="150.0" />
+                              <Label layoutX="316.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteReplacementCostMass1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteReplacementCostMass2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteReplacementCostMass3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteReplacementCostMass4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholyteReplacementCostMass" layoutX="316.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="447.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="150.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="catholyteReplacementCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteReplacementCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteReplacementCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="catholyteReplacementCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdCatholyteReplacementCost" layoutX="447.0" layoutY="112.0" prefHeight="26.0" prefWidth="150.0" />
+                              <Label layoutX="612.0" layoutY="85.0" prefWidth="116.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="electrolyteOperationalTime1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="electrolyteOperationalTime2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="electrolyteOperationalTime3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdElectrolyteOperationalTime" editable="false" layoutX="612.0" layoutY="112.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="743.0" layoutY="85.0" prefWidth="45.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="threshold1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdThreshold" layoutX="743.0" layoutY="112.0" prefHeight="26.0" prefWidth="45.0" />
+                              <Label layoutX="20.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="replacementNPVCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="replacementNPVCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="replacementNPVCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="replacementNPVCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdReplacementNPVCost" editable="false" layoutX="20.0" layoutY="179.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="20.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="stackExchangeCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="stackExchangeCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="stackExchangeCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="stackExchangeCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdStackExchangeCost" editable="false" layoutX="20.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                              <Label layoutX="151.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="stackOperationalTime1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="stackOperationalTime2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="stackOperationalTime3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdStackOperationalTime" layoutX="151.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" />
+                              <Label layoutX="282.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtInputValues">
+                                 <graphic>
+                                    <TextFlow prefHeight="26.0" prefWidth="116.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fx:id="stackExchangeNPVCost1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="stackExchangeNPVCost2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="stackExchangeNPVCost3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <Text fx:id="stackExchangeNPVCost4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children></TextFlow>
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="txtfdStackExchangeNPVCost" editable="false" layoutX="282.0" layoutY="246.0" prefHeight="26.0" prefWidth="116.0" styleClass="txtDiabled" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                <Tab text="results">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane prefHeight="348.0" prefWidth="855.0">
+                                 <children>
+                                    <Label layoutX="20.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+                                       <graphic>
+                                          <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                                             <children>
+                                                <Text fx:id="anolyteCostTotal1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="anolyteCostTotal2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="anolyteCostTotal3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="anolyteCostTotal4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                             </children></TextFlow>
+                                       </graphic>
+                                    </Label>
+                                    <TextField fx:id="txtfdAnolyteCostTotal" editable="false" layoutX="20.0" layoutY="45.0" prefHeight="26.0" prefWidth="149.0" styleClass="txtDiabled" />
+                                    <Label layoutX="184.0" layoutY="18.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+                                       <graphic>
+                                          <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                                             <children>
+                                                <Text fx:id="anolyteCostTotalKAh1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="anolyteCostTotalKAh2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="anolyteCostTotalKAh3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="anolyteCostTotalKAh4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                             </children></TextFlow>
+                                       </graphic>
+                                    </Label>
+                                    <TextField fx:id="txtfdAnolyteCostTotalKAh" editable="false" layoutX="184.0" layoutY="45.0" maxWidth="149.0" prefHeight="26.0" styleClass="txtDiabled" />
+                                    <Label layoutX="20.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+                                       <graphic>
+                                          <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                                             <children>
+                                                <Text fx:id="catholyteCostTotal1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="catholyteCostTotal2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="catholyteCostTotal3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="catholyteCostTotal4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                             </children></TextFlow>
+                                       </graphic>
+                                    </Label>
+                                    <TextField fx:id="txtfdCatholyteCostTotal" editable="false" layoutX="20.0" layoutY="112.0" prefHeight="26.0" prefWidth="149.0" styleClass="txtDiabled" />
+                                    <Label layoutX="184.0" layoutY="85.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+                                       <graphic>
+                                          <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                                             <children>
+                                                <Text fx:id="catholyteCostTotalKAh1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="catholyteCostTotalKAh2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="catholyteCostTotalKAh3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="catholyteCostTotalKAh4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                             </children></TextFlow>
+                                       </graphic>
+                                    </Label>
+                                    <TextField fx:id="txtfdCatholyteCostTotalKAh" editable="false" layoutX="184.0" layoutY="112.0" prefHeight="26.0" prefWidth="149.0" styleClass="txtDiabled" />
+                                    <Label layoutX="20.0" layoutY="152.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+                                       <graphic>
+                                          <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                                             <children>
+                                                <Text fx:id="energyDensity1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="energyDensity2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="energyDensity3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                             </children></TextFlow>
+                                       </graphic>
+                                    </Label>
+                                    <TextField fx:id="txtfdEnergyDensity" editable="false" layoutX="20.0" layoutY="179.0" prefHeight="26.0" prefWidth="149.0" styleClass="txtDiabled" />
+                                    <Label layoutX="20.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+                                       <graphic>
+                                          <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                                             <children>
+                                                <Text fx:id="costElectrolyte1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costElectrolyte2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costElectrolyte3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costElectrolyte4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                             </children></TextFlow>
+                                       </graphic>
+                                    </Label>
+                                    <TextField fx:id="txtfdCostElectrolyte" editable="false" layoutX="20.0" layoutY="246.0" prefHeight="26.0" prefWidth="149.0" styleClass="txtDiabled" />
+                                    <Label layoutX="184.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+                                       <graphic>
+                                          <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                                             <children>
+                                                <Text fx:id="costElectrolyteKWh1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costElectrolyteKWh2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costElectrolyteKWh3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costElectrolyteKWh4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                             </children></TextFlow>
+                                       </graphic>
+                                    </Label>
+                                    <TextField fx:id="txtfdCostElectrolyteKWh" editable="false" layoutX="184.0" layoutY="246.0" prefHeight="26.0" prefWidth="149.0" styleClass="txtDiabled" />
+                                    <Label layoutX="348.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+                                       <graphic>
+                                          <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                                             <children>
+                                                <Text fx:id="costPower1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costPower2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costPower3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costPower4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                             </children></TextFlow>
+                                       </graphic>
+                                    </Label>
+                                    <TextField fx:id="txtfdCostPower" editable="false" layoutX="348.0" layoutY="246.0" prefHeight="26.0" prefWidth="149.0" styleClass="txtDiabled" />
+                                    <Label layoutX="512.0" layoutY="219.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+                                       <graphic>
+                                          <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                                             <children>
+                                                <Text fx:id="costMaintenance1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costMaintenance2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costMaintenance3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costMaintenance4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                             </children></TextFlow>
+                                       </graphic>
+                                    </Label>
+                                    <TextField fx:id="txtfdCostMaintenance" editable="false" layoutX="512.0" layoutY="246.0" prefHeight="26.0" prefWidth="149.0" styleClass="txtDiabled" />
+                                    <Label layoutX="20.0" layoutY="286.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+                                       <graphic>
+                                          <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                                             <children>
+                                                <Text fx:id="costCapital1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costCapital2" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costCapital3" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text fx:id="costCapital4" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                             </children></TextFlow>
+                                       </graphic>
+                                    </Label>
+                                    <TextField fx:id="txtfdCostCapital" editable="false" layoutX="20.0" layoutY="313.0" prefHeight="26.0" prefWidth="149.0" styleClass="txtDiabled" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <TabPane layoutX="859.0" layoutY="59.0" prefHeight="600.0" prefWidth="642.0" styleClass="shadow" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                  <Tab text="Radar chart">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="555.0" prefWidth="626.0">
+                           <children>
+                              <Pane fx:id="paneSpiderWeb" prefHeight="585.0" prefWidth="642.0" styleClass="plotPane" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                <Tab text="Ud vs SOC">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="319.0" prefWidth="534.0">
+                           <children>
+                              <Pane fx:id="paneUdvsSOC" prefHeight="585.0" prefWidth="642.0" styleClass="plotPane" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Ud vs id">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Pane fx:id="paneUdvsId" prefHeight="585.0" prefWidth="642.0" styleClass="plotPane" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Pd vs id">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Pane fx:id="panePdvsId" prefHeight="585.0" prefWidth="642.0" styleClass="plotPane" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <Pane layoutX="-8.0" layoutY="727.0" prefHeight="44.0" prefWidth="1521.0" style="-fx-border-color: #000000; -fx-background-color: #E4E4E6;" styleClass="shadow">
+               <children>
+                  <Label disable="true" layoutX="963.0" layoutY="15.0" text="Export:" visible="false" />
+                  <ComboBox fx:id="comboExportSelection" disable="true" layoutX="1027.0" layoutY="10.0" prefWidth="150.0" visible="false" />
+                  <Button fx:id="btnExport" disable="true" layoutX="1196.0" layoutY="10.0" mnemonicParsing="false" onAction="#export" text="Button" visible="false" />
+                  <Button fx:id="btnSA" disable="true" layoutX="1298.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnSA" text="SA" visible="false" />
+                  <Label layoutX="14.0" layoutY="15.0" opacity="0.34" text="View:" />
+                  <Button fx:id="btnView" layoutX="51.0" layoutY="10.0" mnemonicParsing="false" opacity="0.42" prefHeight="25.0" prefWidth="77.0" textAlignment="CENTER" />
+               </children>
+            </Pane>
+            <TextField fx:id="txtfdCostElectrolyteKWh1" editable="false" layoutX="859.0" layoutY="692.0" prefHeight="26.0" prefWidth="149.0" style="-fx-font-weight: bold;" styleClass="txtDiabled" />
+            <TextField fx:id="txtfdCostPower1" editable="false" layoutX="1023.0" layoutY="692.0" prefHeight="26.0" prefWidth="149.0" style="-fx-font-weight: bold;" styleClass="txtDiabled" />
+            <TextField fx:id="txtfdCostMaintenance1" editable="false" layoutX="1187.0" layoutY="692.0" prefHeight="26.0" prefWidth="149.0" style="-fx-font-weight: bold;" styleClass="txtDiabled" />
+            <TextField fx:id="txtfdCostCapital1" editable="false" layoutX="1351.0" layoutY="690.0" prefHeight="26.0" prefWidth="149.0" style="-fx-font-weight: bold; -fx-border-color: #000000; -fx-border-width: 2;" styleClass="txtDiabled" />
+            <Label layoutX="1351.0" layoutY="669.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+               <graphic>
+                  <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="costCapital11" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text fx:id="costCapital21" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text fx:id="costCapital31" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text fx:id="costCapital41" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </children>
+                  </TextFlow>
+               </graphic>
+            </Label>
+            <Label layoutX="859.0" layoutY="669.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+               <graphic>
+                  <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="costElectrolyteKWh11" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text fx:id="costElectrolyteKWh21" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text fx:id="costElectrolyteKWh31" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text fx:id="costElectrolyteKWh41" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </children>
+                  </TextFlow>
+               </graphic>
+            </Label>
+            <Label layoutX="1023.0" layoutY="666.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+               <graphic>
+                  <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="costPower11" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text fx:id="costPower21" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text fx:id="costPower31" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text fx:id="costPower41" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </children>
+                  </TextFlow>
+               </graphic>
+            </Label>
+            <Label layoutX="1187.0" layoutY="669.0" style="-fx-font-weight: bold;" styleClass="txtOutputValues">
+               <graphic>
+                  <TextFlow prefHeight="26.0" prefWidth="149.0" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="costMaintenance11" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text fx:id="costMaintenance21" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text fx:id="costMaintenance31" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text fx:id="costMaintenance41" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </children>
+                  </TextFlow>
+               </graphic>
+            </Label>
+         </children></Pane>
+   </children>
+</AnchorPane>

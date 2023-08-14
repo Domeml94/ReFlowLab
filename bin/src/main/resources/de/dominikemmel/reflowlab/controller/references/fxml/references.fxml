@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane prefHeight="483.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.references.ReferencesController">
+   <children>
+      <Pane layoutX="524.0" layoutY="110.0" minWidth="1300.0" prefHeight="483.0" prefWidth="1184.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ScrollPane layoutY="62.0" prefHeight="405.0" prefWidth="1270.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="405.0" prefWidth="1270.0">
+                     <children>
+                        <TableView fx:id="tblReference" prefHeight="405.0" prefWidth="1270.0">
+                          <columns>
+                            <TableColumn fx:id="ID" minWidth="5.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="ID_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="DOI" prefWidth="300.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="DOI_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                            <TableColumn fx:id="Reference" maxWidth="600.0" prefWidth="1000.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="Reference_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="Comment" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="290.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="Comment_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="editDate" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="100.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="editDate_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <Button layoutX="1051.0" layoutY="16.0" mnemonicParsing="false" onAction="#addReferences" prefHeight="30.0" prefWidth="100.0" text="add" />
+            <Button layoutX="1171.0" layoutY="16.0" mnemonicParsing="false" onAction="#editReferences" prefHeight="30.0" prefWidth="100.0" text="edit" />
+            <Label layoutY="17.0" style="-fx-text-fill: White;" text="References:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

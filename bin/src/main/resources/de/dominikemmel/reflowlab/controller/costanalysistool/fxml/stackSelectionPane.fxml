@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane fx:id="AnchorPane1" prefHeight="775.0" prefWidth="1270.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.costanalysistool.StackSelectionPaneController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="311.0" layoutX="32.0" layoutY="380.0" stroke="BLACK" strokeType="INSIDE" width="1210.0" />
+      <Rectangle fx:id="rectangle1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="141.0" layoutY="435.0" stroke="WHITE" strokeType="INSIDE" width="1100.0" />
+      <HBox alignment="TOP_CENTER" layoutX="234.0" layoutY="394.0" spacing="35.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+               <children>
+                  <Label fx:id="labelSeparator" styleClass="txtStackPaneHeader2" text="Separator" />
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                     <children>
+                        <Label style="-fx-font-weight: bold;">
+                           <graphic>
+                              <TextFlow>
+                                 <children>
+                                    <Text fx:id="separator1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="separator2" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                 </children>
+                              </TextFlow>
+                           </graphic>
+                        </Label>
+                        <TextField fx:id="txfSeparatorStackNumber" editable="false" prefHeight="26.0" prefWidth="61.0" styleClass="txtDiabled" />
+                     </children>
+                  </VBox>
+                  <ComboBox fx:id="cbSeparator" onAction="#cbSeparatorEvent" prefHeight="26.0" prefWidth="127.0" />
+                  <TextField fx:id="txfSeparatorCost" editable="false" prefHeight="26.0" prefWidth="82.0" />
+                  <TextField fx:id="txfSeparatorStackCost" editable="false" prefHeight="26.0" prefWidth="82.0" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+               <children>
+                  <Label styleClass="txtStackPaneHeader2" text="Electrode" />
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                     <children>
+                        <Label style="-fx-font-weight: bold;">
+                           <graphic>
+                              <TextFlow>
+                                 <children>
+                                    <Text fx:id="electrode1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="electrode2" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                 </children>
+                              </TextFlow>
+                           </graphic>
+                        </Label>
+                        <TextField fx:id="txfElectrodeStackNumber" editable="false" prefHeight="26.0" prefWidth="61.0" styleClass="txtDiabled" />
+                     </children>
+                  </VBox>
+                  <ComboBox fx:id="cbElectrode" onAction="#cbElectrodeEvent" prefHeight="26.0" prefWidth="127.0" />
+                  <TextField fx:id="txfElectrodeCost" editable="false" prefHeight="26.0" prefWidth="82.0" />
+                  <TextField fx:id="txfElectrodeStackCost" editable="false" prefHeight="26.0" prefWidth="82.0" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+               <children>
+                  <Label styleClass="txtStackPaneHeader2" text="Bipolar plate" />
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                     <children>
+                        <Label style="-fx-font-weight: bold;">
+                           <graphic>
+                              <TextFlow>
+                                 <children>
+                                    <Text fx:id="bipolarplate1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="bipolarplate2" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="bipolarplate3" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="bipolarplate4" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                 </children>
+                              </TextFlow>
+                           </graphic>
+                        </Label>
+                        <TextField fx:id="txfBipolarPlateStackNumber" editable="false" prefHeight="26.0" prefWidth="61.0" styleClass="txtDiabled" />
+                     </children>
+                  </VBox>
+                  <ComboBox fx:id="cbBipolarPlate" onAction="#cbBipolarPlateEvent" prefHeight="26.0" prefWidth="127.0" />
+                  <TextField fx:id="txfBipolarPlateCost" editable="false" prefHeight="26.0" prefWidth="82.0" />
+                  <TextField fx:id="txfBipolarPlateStackCost" editable="false" prefHeight="26.0" prefWidth="82.0" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" spacing="30.0">
+               <children>
+                  <Label styleClass="txtStackPaneHeader2" text="Cell frames &amp; seals" />
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                     <children>
+                        <Label style="-fx-font-weight: bold;">
+                           <graphic>
+                              <TextFlow>
+                                 <children>
+                                    <Text fx:id="cellframes1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="cellframes2" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                 </children>
+                              </TextFlow>
+                           </graphic>
+                        </Label>
+                        <TextField fx:id="txfCellFramesSealsStackNumber" editable="false" maxWidth="100.0" prefHeight="26.0" prefWidth="61.0" styleClass="txtDiabled" />
+                     </children>
+                  </VBox>
+                  <ComboBox fx:id="cbCellFramesSeals" maxWidth="100.0" onAction="#cbCellFramesSealsEvent" prefHeight="26.0" prefWidth="127.0" />
+                  <TextField fx:id="txfCellFramesSealsCost" editable="false" maxWidth="100.0" prefHeight="26.0" prefWidth="82.0" />
+                  <TextField fx:id="txfCellFramesSealsStackCost" editable="false" maxWidth="100.0" prefHeight="26.0" prefWidth="82.0" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" spacing="30.0">
+               <children>
+                  <Label styleClass="txtStackPaneHeader2" text="Current collector" />
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                     <children>
+                        <Label style="-fx-font-weight: bold;">
+                           <graphic>
+                              <TextFlow>
+                                 <children>
+                                    <Text fx:id="currentcollector1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="currentcollector2" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                 </children>
+                              </TextFlow>
+                           </graphic>
+                        </Label>
+                        <TextField fx:id="txfCurrentCollectorStackNumber" editable="false" maxWidth="100.0" prefHeight="26.0" prefWidth="61.0" styleClass="txtDiabled" />
+                     </children>
+                  </VBox>
+                  <ComboBox fx:id="cbCurrentCollector" maxWidth="100.0" onAction="#cbCurrentCollectorEvent" prefHeight="26.0" prefWidth="127.0" />
+                  <TextField fx:id="txfCurrentCollectorCost" editable="false" maxWidth="100.0" prefHeight="26.0" prefWidth="82.0" />
+                  <TextField fx:id="txfCurrentCollectorStackCost" editable="false" maxWidth="100.0" prefHeight="26.0" prefWidth="82.0" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+               <children>
+                  <Label styleClass="txtStackPaneHeader2" text="Stack frame" />
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                     <children>
+                        <Label style="-fx-font-weight: bold;">
+                           <graphic>
+                              <TextFlow>
+                                 <children>
+                                    <Text fx:id="stackframe1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="stackframe2" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                 </children>
+                              </TextFlow>
+                           </graphic>
+                        </Label>
+                        <TextField fx:id="txfStackFrameStackNumber" editable="false" prefHeight="26.0" prefWidth="61.0" styleClass="txtDiabled" />
+                     </children>
+                  </VBox>
+                  <ComboBox fx:id="cbStackFrame" onAction="#cbStackFrameEvent" prefHeight="26.0" prefWidth="127.0" />
+                  <TextField fx:id="txfStackFrameCost" editable="false" prefHeight="26.0" prefWidth="82.0" />
+                  <TextField fx:id="txfStackFrameStackCost" editable="false" prefHeight="26.0" prefWidth="82.0" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+               <children>
+                  <Label styleClass="txtStackPaneHeader2" text="Assembly" />
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                     <children>
+                        <Label />
+                        <TextField fx:id="txfComponentsNumber" editable="false" prefHeight="26.0" prefWidth="61.0" styleClass="txtDiabled" />
+                     </children>
+                  </VBox>
+                  <ComboBox fx:id="cbAssembly" onAction="#cbAssemblyEvent" prefHeight="26.0" prefWidth="127.0" />
+                  <TextField fx:id="txfAssemblyCost" editable="false" prefHeight="26.0" prefWidth="82.0" />
+                  <TextField fx:id="txfAssemblyStackCost" editable="false" prefHeight="26.0" prefWidth="82.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="200.0" layoutX="32.0" layoutY="90.0" stroke="BLACK" strokeType="INSIDE" width="617.0" />
+      <Button layoutX="1208.0" layoutY="720.0" mnemonicParsing="false" onAction="#okEvent" text="OK" />
+      <Button disable="true" focusTraversable="false" layoutX="1142.0" layoutY="720.0" mnemonicParsing="false" text="cancel" visible="false" />
+      <Label layoutX="56.0" layoutY="119.0" styleClass="txtStackPaneHeader2" text="Preselection:" />
+      <Label fx:id="header2" layoutX="17.0" layoutY="14.0" text="Stack setup" />
+      <Label layoutX="56.0" layoutY="394.0" styleClass="txtStackPaneHeader" text="Component:" />
+      <Label layoutX="56.0" layoutY="203.0" styleClass="txtStackPaneHeader2" text="Single cell area:" />
+      <Label layoutX="56.0" layoutY="246.0" styleClass="txtStackPaneHeader2" text="number cells per Stack (n total):" />
+      <TextField fx:id="cellAreaInput" layoutX="361.0" layoutY="203.0" />
+      <TextField fx:id="numberCellsPerStackInput" layoutX="361.0" layoutY="246.0" />
+      <Label layoutX="164.0" layoutY="451.0" prefHeight="50.0" prefWidth="65.0" style="-fx-font-weight: bold; -fx-underline: true;" text="Number per stack:" wrapText="true" />
+      <TextField fx:id="txfStackCostTotal" editable="false" layoutX="1037.0" layoutY="720.0" prefHeight="26.0" prefWidth="82.0" />
+      <Label layoutX="914.0" layoutY="720.0" styleClass="txtStackPaneHeader3" text="Stack cost / $:" />
+      <Label layoutX="56.0" layoutY="596.0" styleClass="txtStackPaneHeader2">
+         <graphic>
+            <TextFlow styleClass="txtStackPaneHeader2">
+               <children>
+                  <Text fx:id="stackcost1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txtStackPaneHeader2" />
+                  <Text fx:id="stackcost2" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txtStackPaneHeader2" />
+                  <Text fx:id="stackcost3" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txtStackPaneHeader2" />
+               </children>
+            </TextFlow>
+         </graphic></Label>
+      <MediaView fx:id="stackAnimation" fitHeight="350.0" fitWidth="575.0" layoutX="670.0" layoutY="17.0" />
+      <Label layoutX="56.0" layoutY="542.0" styleClass="txtStackPaneHeader2" text="Selection:" />
+      <ComboBox fx:id="cbPreselection" layoutX="230.0" layoutY="119.0" onAction="#cbPreselectionEvent" prefHeight="25.0" prefWidth="287.0" />
+      <Button fx:id="btnSavePreselection" disable="true" layoutX="527.0" layoutY="119.0" mnemonicParsing="false" onAction="#btnSavePreselectionEvent" opacity="0.5" text="save" />
+      <Button fx:id="btnDeletePreselection" disable="true" layoutX="577.0" layoutY="119.0" mnemonicParsing="false" onAction="#btnDeletePreselectionEvent" opacity="0.5" text="delete" />
+      <ComboBox fx:id="cbASR" layoutX="111.0" layoutY="720.0" onAction="#cbASREvent" prefHeight="26.0" prefWidth="100.0" />
+      <TextField fx:id="txfASR" editable="false" layoutX="234.0" layoutY="720.0" prefHeight="26.0" prefWidth="100.0" />
+      <Label layoutX="56.0" layoutY="720.0" styleClass="txtStackPaneHeader2" text="ASR:" />
+      <Label layoutX="114.0" layoutY="596.0" style="-fx-font-weight: bold; -fx-underline: true;" text="Component cost:" />
+      <Label layoutX="114.0" layoutY="651.0" style="-fx-font-weight: bold; -fx-underline: true;" text="per stack cost:" />
+      <TextField fx:id="txfStackCost" editable="false" layoutX="772.0" layoutY="720.0" prefHeight="26.0" prefWidth="82.0" />
+      <Label layoutX="608.0" layoutY="721.0" styleClass="txtStackPaneHeader3" text="Stack cost / $ m-2:" />
+   </children>
+</AnchorPane>

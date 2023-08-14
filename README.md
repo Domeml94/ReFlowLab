@@ -1,6 +1,6 @@
 # ReFlowLab
 
-=================
+
 
 
 
@@ -22,13 +22,17 @@ ReFlowLab is a toolkit for the calculation of capital costs of redox flow batter
 - Future updates and bug fixes are planned
 
 
-
+___
 
 **Installation**
 
-This project is setup as Maven project. All dependencies are setup by the provided pom file. A compiled version is available on request.
+This project is setup as Maven project. All dependencies are setup by the provided pom file. 
 
+**Releases**
 
+[v1.0.0](https://github.com/Domeml94/ReFlowLab/releases/tag/v1.0.0)
+
+___
 
 **Documentation**
 
@@ -36,7 +40,7 @@ This tool is part of a publication currently undergoing submission process.
 
 
 
-
+___
 
 **License**
 

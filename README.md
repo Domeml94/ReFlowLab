@@ -36,7 +36,7 @@ ___
 
 **Documentation**
 
-This tool is part of a publication currently undergoing submission process. Publication applying this tool is based on v.1.0.0 archived under following identifier: DOI: 10.5281/zenodo.8363030
+This tool is part of a publication: https://doi.org/10.1038/s41467-023-42450-9. The publication applying this tool is based on v.1.0.0 archived under following identifier: DOI: 10.5281/zenodo.8363030
 
 
 

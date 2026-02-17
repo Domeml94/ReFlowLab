@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane prefHeight="483.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.costs.CostsController">
+   <children>
+      <Pane layoutX="392.0" layoutY="48.0" minWidth="1300.0" prefHeight="483.0" prefWidth="1184.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="1051.0" layoutY="16.0" mnemonicParsing="false" onAction="#addCosts" prefHeight="30.0" prefWidth="100.0" text="add" />
+            <Button layoutX="1171.0" layoutY="16.0" mnemonicParsing="false" onAction="#editCosts" prefHeight="30.0" prefWidth="100.0" text="edit" />
+            <Label layoutY="17.0" style="-fx-text-fill: White;" text="Data Costs:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutY="62.0" prefHeight="419.0" prefWidth="1270.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <TableView fx:id="tblStackCosts" layoutY="30.0" onMouseClicked="#tblStackCostsSelected" prefHeight="405.0" prefWidth="680.0">
+                           <columns>
+                              <TableColumn fx:id="ID1" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="ID1_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="ComponentName" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="ComponentName_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="ComponentType" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="ComponentType_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="ComponentCost" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="ComponentCost_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="CostUnit" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="CostUnit_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="editDate1" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="editDate1_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="RefIDComponentCost" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="RefIDComponentCost_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TableView fx:id="tblCostsSalt" layoutX="705.0" layoutY="30.0" onMouseClicked="#tblCostsSaltSelected" prefHeight="405.0" prefWidth="270.0">
+                          <columns>
+                            <TableColumn fx:id="ID2" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="ID2_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                            <TableColumn fx:id="Salt" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="Salt_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="MSalt" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="MSalt_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="CSalt" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="CSalt_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="editDate2" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="editDate2_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="RefIDMSalt" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="editDate2_TextFlow1" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="RefIDCSalt" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="editDate2_TextFlow11" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TableView fx:id="tblCostsSolvent" layoutX="1000.0" layoutY="30.0" onMouseClicked="#tblCostsSolventSelected" prefHeight="405.0" prefWidth="270.0">
+                          <columns>
+                            <TableColumn fx:id="ID3" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="ID3_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                            <TableColumn fx:id="Solvent" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="Solvent_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="MSolvent" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="MSolvent_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="CSolvent" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="CSolvent_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="editDate3" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="editDate3_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="RefIDMSolvent" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="editDate3_TextFlow1" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="RefIDCSolvent" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="editDate3_TextFlow2" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TableView fx:id="tblSeparatorParameter" layoutX="1290.0" layoutY="30.0" onMouseClicked="#tblSeparatorParameterSelected" prefHeight="405.0" prefWidth="270.0">
+                           <columns>
+                              <TableColumn fx:id="ID4" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="ID4_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="SeparatorName" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="SeparatorName_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="Rasr" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="Rasr_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="editDate4" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="editDate4_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="RefIDRasr" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="editDate4_TextFlow1" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TableView fx:id="tblPeripheralCosts" layoutX="1585.0" layoutY="30.0" onMouseClicked="#tblPeripheralCostsSelected" prefHeight="405.0" prefWidth="680.0">
+                           <columns>
+                              <TableColumn fx:id="ID5" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="ID5_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="ComponentNamePeripherals" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="ComponentNamePeripherals_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="ComponentTypePeripherals" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="ComponentTypePeripherals_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="ComponentCostPeripherals" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="ComponentCostPeripherals_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="CostUnitPeripherals" prefWidth="75.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="CostUnitPeripherals_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="editDatePeripherals" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="editDatePeripherals_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn fx:id="RefIDComponentCostPeripherals" maxWidth="0.0" minWidth="0.0" prefWidth="0.0">
+                                 <graphic>
+                                    <Label>
+                                       <graphic>
+                                          <TextFlow fx:id="RefIDComponentCostPeripherals_TextFlow" />
+                                       </graphic>
+                                    </Label>
+                                 </graphic>
+                              </TableColumn>
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Label layoutX="5.0" layoutY="5.0" style="-fx-text-fill: Black;" text="Stack Costs:" underline="true">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="710.0" layoutY="5.0" style="-fx-text-fill: Black;" text="Salt Costs:" underline="true">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="1005.0" layoutY="5.0" style="-fx-text-fill: Black;" text="Solvent Costs:" underline="true">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="1295.0" layoutY="5.0" style="-fx-text-fill: Black;" text="Separator Parameter:" underline="true">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="1590.0" layoutY="5.0" style="-fx-text-fill: Black;" text="Peripheral Costs" underline="true">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

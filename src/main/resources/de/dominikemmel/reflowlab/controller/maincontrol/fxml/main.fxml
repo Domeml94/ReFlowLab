@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -8,6 +7,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -21,279 +21,277 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.maincontrol.MainController">
-   <children>
-      <VBox prefHeight="200.0" prefWidth="100.0">
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.maincontrol.MainController">
+   <content>
+      <AnchorPane>
          <children>
-            <MenuBar opacity="0.8">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                        <Menu mnemonicParsing="false" text="Data base">
-                          <items>
-                            <MenuItem mnemonicParsing="false" text="Selected" />
-                          <MenuItem mnemonicParsing="false" text="Import" />
-                              <MenuItem mnemonicParsing="false" text="Export" />
-                          </items>
-                        </Menu>
-                        <MenuItem mnemonicParsing="false" text="Preferences" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Close">
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="CANCEL" control="UP" meta="UP" shift="UP" shortcut="ANY" />
-                           </accelerator>
-                        </MenuItem>
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="View">
-                  <items>
-                        <RadioMenuItem mnemonicParsing="false" text="Pumpkin">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="view" />
-                           </toggleGroup>
-                        </RadioMenuItem>
-                        <RadioMenuItem mnemonicParsing="false" text="Mint" toggleGroup="$view" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-            <BorderPane fx:id="mainPane" prefHeight="800.0" prefWidth="1200.0" styleClass="standardPaneBackground">
-               <left>
-                  <VBox prefHeight="424.0" prefWidth="224.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Button fx:id="btnActiveMaterial" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="44.0" maxHeight="63.2" minHeight="75.0" mnemonicParsing="false" onAction="#loadActiveMaterial" styleClass="button1" text="Actives" wrapText="true">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <graphic>
-                              <HBox alignment="CENTER" prefWidth="60.0">
-                                 <children>
-                                    <ImageView fx:id="moleculeIcon" fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/MoleculeIcon.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                           </graphic>
-                           <VBox.margin>
-                              <Insets bottom="20.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button fx:id="btnSolvent" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="41.0" maxHeight="63.2" minHeight="75.0" mnemonicParsing="false" onAction="#loadSolvent" styleClass="button1" text="Solvent" wrapText="true">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <VBox.margin>
-                              <Insets bottom="20.0" />
-                           </VBox.margin>
-                           <graphic>
-                              <HBox alignment="CENTER" prefWidth="60.0">
-                                 <children>
-                                    <ImageView fx:id="solventIcon" fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/SolventIcon.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="btnElectrolyte" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="12.0" maxHeight="63.2" minHeight="75.0" mnemonicParsing="false" onAction="#loadElectrolytes" styleClass="button1" text="Electrolyte" wrapText="true">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <VBox.margin>
-                              <Insets bottom="20.0" />
-                           </VBox.margin>
-                           <graphic>
-                              <HBox alignment="CENTER" prefWidth="60.0">
-                                 <children>
-                                    <ImageView fx:id="electrolyteIcon" fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/Electrolytecon.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="btnCosts" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="61.0" maxHeight="63.2" minHeight="75.0" mnemonicParsing="false" onAction="#loadCosts" styleClass="button1" text="Costs" wrapText="true">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <VBox.margin>
-                              <Insets bottom="20.0" />
-                           </VBox.margin>
-                           <graphic>
-                              <HBox alignment="CENTER" prefWidth="60.0">
-                                 <children>
-                                    <ImageView fx:id="costAnalysisIcon" fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/CostIcon.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="btnReference" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="18.0" maxHeight="63.2" minHeight="75.0" mnemonicParsing="false" onAction="#loadReferences" styleClass="button1" text="Reference" wrapText="true">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <VBox.margin>
-                              <Insets bottom="20.0" />
-                           </VBox.margin>
-                           <graphic>
-                              <HBox alignment="CENTER" prefWidth="60.0">
-                                 <children>
-                                    <ImageView fx:id="referenceIcon" fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/ReferenceIcon.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                           </graphic>
-                        </Button>
-                     </children>
-                     <BorderPane.margin>
-                        <Insets top="10.0" />
-                     </BorderPane.margin>
-                  </VBox>
-               </left>
-               <top>
-                  <AnchorPane styleClass="standardPaneBackground1" BorderPane.alignment="CENTER">
-                     <children>
-                        <VBox>
+            <VBox prefHeight="723.0" prefWidth="1532.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <MenuBar opacity="0.8">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                              <Menu mnemonicParsing="false" text="Data base (coming soon)">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Selected" />
+                                <MenuItem mnemonicParsing="false" text="Import" />
+                                    <MenuItem mnemonicParsing="false" text="Export" />
+                                </items>
+                              </Menu>
+                              <MenuItem mnemonicParsing="false" text="Preferences (coming soon)" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" text="Close">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="CANCEL" control="UP" meta="UP" shift="UP" shortcut="ANY" />
+                                 </accelerator>
+                              </MenuItem>
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="View">
+                        <items>
+                              <RadioMenuItem mnemonicParsing="false" text="Pumpkin (current)">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="view" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="About (coming soon)" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <BorderPane fx:id="mainPane" prefHeight="800.0" prefWidth="1200.0" styleClass="standardPaneBackground">
+                     <left>
+                        <VBox prefHeight="424.0" prefWidth="224.0" BorderPane.alignment="CENTER">
                            <children>
-                              <HBox alignment="CENTER_LEFT">
-                                 <children>
-                                    <Button fx:id="btnHome" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="55.0" maxHeight="63.2" minHeight="75.0" mnemonicParsing="false" onAction="#loadHome" styleClass="button1" text="Home" wrapText="true">
-                                       <opaqueInsets>
-                                          <Insets />
-                                       </opaqueInsets>
-                                       <HBox.margin>
-                                          <Insets bottom="10.0" top="20.0" />
-                                       </HBox.margin>
-                                       <graphic>
-                                          <HBox alignment="CENTER" prefWidth="60.0">
-                                             <children>
-                                                <ImageView fx:id="homeIcon" fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../img/HomeIcon.png" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </HBox>                             
-                                       </graphic>
-                                    </Button>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="1300.0" text="ReFlowLab">
-                                       <styleClass>
-                                          <String fx:value="shadow" />
-                                          <String fx:value="header1" />
-                                       </styleClass>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </top>
-               <bottom>
-                  <VBox prefHeight="100.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Pane minWidth="1300.0" prefHeight="161.0" prefWidth="1400.0" styleClass="standardPaneBackground1">
-                           <children>
-                              <Label layoutX="25.0" layoutY="35.0" style="-fx-text-fill: White;" text="AG Prof. Dr.-Ing. Daniel Schröder">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font>
-                              </Label>
-                              <HBox alignment="CENTER" layoutX="511.0" layoutY="1.0" prefHeight="100.0" spacing="25.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#imageInES" style="-fx-background-color: none;">
-                                       <graphic>
-                                          <ImageView fx:id="img_PCI" fitHeight="80.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/INES_Logo_RGB_dt.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#imageTUBS" style="-fx-background-color: none;">
-                                       <graphic>
-                                          <ImageView fx:id="img_JLU" fitHeight="90.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/TUBraunschweig_CO_140vH_300dpi.jpg" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                              <VBox alignment="CENTER_RIGHT" layoutX="1304.0" layoutY="1.0" prefHeight="100.0" prefWidth="206.0" spacing="5.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#emailToMe" style="-fx-background-color: none;">
-                                       <graphic>
-                                          <Label layoutX="1250.0" style="-fx-text-fill: White;" text="created by: Dominik Emmel">
-                                             <font>
-                                                <Font name="System Bold Italic" size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </graphic>
-                                    </Button>
-                                    <Label style="-fx-text-fill: White;" text="   Version: 1.0.0-SNAPSHOT  ">
-                                       <font>
-                                          <Font name="System Bold Italic" size="12.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                                 <padding>
-                                    <Insets top="15.0" />
-                                 </padding>
-                              </VBox>
-                              <VBox layoutX="1122.0" layoutY="1.0" prefHeight="85.0" prefWidth="155.0" spacing="10.0">
-                                 <children>
-                                    <Pane prefHeight="200.0" prefWidth="200.0">
+                              <Button fx:id="btnActiveMaterial" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="44.0" maxHeight="63.2" minHeight="75.0" mnemonicParsing="false" onAction="#loadActiveMaterial" styleClass="button1" text="Actives" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <graphic>
+                                    <HBox alignment="CENTER" cache="true" cacheHint="QUALITY" prefWidth="60.0">
                                        <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="155.0" spacing="40.0">
-                                             <children>
-                                                <Label style="-fx-text-fill: White;" text="Status:">
-                                                   <font>
-                                                      <Font name="System Bold Italic" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Button fx:id="btnDB" alignment="TOP_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#btnDB" styleClass="standardBotton1" text="DB" />
-                                             </children>
+                                          <ImageView fx:id="moleculeIcon" cacheHint="QUALITY" fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../img/MoleculeIcon/0.75x/MoleculeIconldpi.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </graphic>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="btnSolvent" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="41.0" maxHeight="63.2" minHeight="75.0" mnemonicParsing="false" onAction="#loadSolvent" styleClass="button1" text="Solvent" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                                 <graphic>
+                                    <HBox alignment="CENTER" prefWidth="60.0">
+                                       <children>
+                                          <ImageView fx:id="solventIcon" cacheHint="QUALITY" fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../img/SolventIcon/0.75x/SolventIconldpi.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btnElectrolyte" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="12.0" maxHeight="63.2" minHeight="75.0" mnemonicParsing="false" onAction="#loadElectrolytes" styleClass="button1" text="Electrolyte" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                                 <graphic>
+                                    <HBox alignment="CENTER" prefWidth="60.0">
+                                       <children>
+                                          <ImageView fx:id="electrolyteIcon" cacheHint="QUALITY" fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../img/ElectrolyteIcon/0.75x/Electrolyteconldpi.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btnCosts" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="61.0" maxHeight="63.2" minHeight="75.0" mnemonicParsing="false" onAction="#loadCosts" styleClass="button1" text="Costs" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                                 <graphic>
+                                    <HBox alignment="CENTER" prefWidth="60.0">
+                                       <children>
+                                          <ImageView fx:id="costAnalysisIcon" cacheHint="QUALITY" fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../img/CostIcon/0.25x/CostIconldpi.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btnReference" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="18.0" maxHeight="63.2" minHeight="75.0" mnemonicParsing="false" onAction="#loadReferences" styleClass="button1" text="Reference" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                                 <graphic>
+                                    <HBox alignment="CENTER" prefWidth="60.0">
+                                       <children>
+                                          <ImageView fx:id="referenceIcon" cacheHint="QUALITY" fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../img/ReferenceIcon/0.75x/ReferenceIconldpi.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <BorderPane.margin>
+                              <Insets top="10.0" />
+                           </BorderPane.margin>
+                        </VBox>
+                     </left>
+                     <top>
+                        <AnchorPane styleClass="standardPaneBackground1" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefWidth="1524.0">
+                                       <children>
+                                          <Button fx:id="btnHome" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="55.0" maxHeight="63.2" minHeight="75.0" mnemonicParsing="false" onAction="#loadHome" styleClass="button1" text="Home" wrapText="true">
                                              <opaqueInsets>
                                                 <Insets />
                                              </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" top="20.0" />
+                                             </HBox.margin>
+                                             <graphic>
+                                                <HBox alignment="CENTER" prefWidth="60.0">
+                                                   <children>
+                                                      <ImageView fx:id="homeIcon" cacheHint="QUALITY" fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../../img/HomeIcon/0.75x/HomeIconldpi.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>                             
+                                             </graphic>
+                                          </Button>
+                                          <HBox alignment="CENTER" prefWidth="1324.0" spacing="40.0">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" styleClass="headerMain" text="ReFlowLab" />
+                                             </children>
                                           </HBox>
                                        </children>
-                                    </Pane>
-                                    <TextField editable="false" onMouseClicked="#openConsole" prefHeight="34.0" prefWidth="133.0" />
+                                    </HBox>
                                  </children>
-                                 <padding>
-                                    <Insets top="15.0" />
-                                 </padding>
                               </VBox>
                            </children>
-                        </Pane>
-                     </children>
-                  </VBox>
-               </bottom>
-               <center>
-                  <Pane maxHeight="483.0" maxWidth="1300.0" minHeight="483.0" minWidth="1300.0" BorderPane.alignment="CENTER" />
-               </center>
-            </BorderPane>
+                        </AnchorPane>
+                     </top>
+                     <bottom>
+                        <VBox prefHeight="100.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Pane minWidth="1300.0" prefHeight="161.0" prefWidth="1400.0" styleClass="standardPaneBackground1">
+                                 <children>
+                                    <Label layoutX="24.0" layoutY="40.0" styleClass="textMain1" text="WG Prof. Dr.-Ing. Daniel Schröder">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER" layoutX="511.0" layoutY="1.0" prefHeight="100.0" spacing="25.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#imageInES" style="-fx-background-color: none;" styleClass="buttonIcon">
+                                             <graphic>
+                                                <ImageView fx:id="img_PCI" fitHeight="90.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../img/InES_logo/1x/INES_Logo_RGB_englmdpi.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#imageTUBS" style="-fx-background-color: none;" styleClass="buttonIcon">
+                                             <graphic>
+                                                <ImageView fx:id="img_JLU" fitHeight="90.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../img/TUBSIcon/1.5x/TUBraunschweig_CO_140vH_300dpihdpi.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="CENTER_RIGHT" layoutX="1304.0" layoutY="1.0" prefHeight="100.0" prefWidth="206.0" spacing="5.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#emailToMe" style="-fx-background-color: none;" styleClass="buttonMail">
+                                             <graphic>
+                                                <Label layoutX="1250.0" styleClass="textMain2" text="created by: Dominik Emmel">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </graphic>
+                                          </Button>
+                                          <Label styleClass="textMain3" text="   Version: 1.0.0   " />
+                                       </children>
+                                       <padding>
+                                          <Insets top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox layoutX="1122.0" layoutY="1.0" prefHeight="85.0" prefWidth="155.0" spacing="10.0">
+                                       <children>
+                                          <Pane prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="155.0" spacing="40.0">
+                                                   <children>
+                                                      <Label styleClass="textMain1" text="Status:">
+                                                         <font>
+                                                            <Font name="System Bold Italic" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Button fx:id="btnDB" alignment="TOP_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#btnDB" styleClass="standardBotton1" text="DB" />
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                </HBox>
+                                             </children>
+                                          </Pane>
+                                          <TextField editable="false" onMouseClicked="#openConsole" prefHeight="34.0" prefWidth="133.0" styleClass="standardTextField1" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </bottom>
+                     <center>
+                        <Pane maxHeight="483.0" minHeight="483.0" minWidth="1300.0" prefHeight="483.0" BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+               </children>
+            </VBox>
          </children>
-      </VBox>
-   </children>
-</AnchorPane>
+      </AnchorPane>
+   </content>
+</ScrollPane>

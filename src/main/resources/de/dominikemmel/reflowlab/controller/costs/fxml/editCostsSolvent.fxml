@@ -10,8 +10,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="editPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.costs.EditCostsSolventController">
+<AnchorPane fx:id="editPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dominikemmel.reflowlab.controller.costs.EditCostsSolventController">
    <children>
       <AnchorPane prefHeight="235.0" prefWidth="871.0" styleClass="standardAchorPane">
          <children>
@@ -40,9 +42,26 @@
                         <VBox prefHeight="200.0" prefWidth="150.0" spacing="11.0">
                            <children>
                               <Label maxHeight="25.0" minHeight="25.0" prefHeight="25.0" />
-                              <Label minHeight="25.0" prefHeight="25.0" prefWidth="131.0" text="Solvent:" />
-                              <Label minHeight="25.0" prefHeight="25.0" prefWidth="131.0" text="M:" />
-                              <Label minHeight="25.0" prefHeight="25.0" prefWidth="131.0" text="Costs:" />
+                              <Label minHeight="25.0" prefHeight="25.0" prefWidth="131.0" text="Solvent:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label minHeight="25.0" prefHeight="25.0" prefWidth="131.0">
+                                 <graphic>
+                                    <TextFlow fx:id="MSolvent_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic></Label>
+                              <Label minHeight="25.0" minWidth="100.0" prefHeight="25.0" prefWidth="131.0">
+                                 <graphic>
+                                    <TextFlow fx:id="CSolvent_TextFlow" maxHeight="25.0" minHeight="25.0">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </graphic></Label>
                            </children>
                            <padding>
                               <Insets bottom="20.0" top="10.0" />
@@ -53,7 +72,7 @@
                               <Label minHeight="25.0" styleClass="txtAddEditPaneHeader2" text="Value" />
                               <TextField fx:id="inputSolvent" />
                               <TextField fx:id="inputMSolvent" />
-                              <TextField fx:id="inputCSolvent" promptText="\$ / kg" />
+                              <TextField fx:id="inputCSolvent" />
                            </children>
                            <padding>
                               <Insets bottom="20.0" top="10.0" />

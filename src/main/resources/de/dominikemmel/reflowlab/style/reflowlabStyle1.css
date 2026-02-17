@@ -1,206 +1,38 @@
 
-.button1{
-	-fx-font-size: 20;
-	-fx-background-color: #F2911B;
-	-fx-pref-width: 200px;
-	-fx-pref-height: 75px;
-    -fx-font-weight: bold;
-    -fx-text-fill: White;
-    -fx-effect: dropshadow( gaussian , Black , 10,0,5,5 );
+
+@font-face {
+    src: url("font/Roboto-Thin.ttf");
+}
+@font-face {
+    src: url("font/Roboto-Black.ttf");
+}
+@font-face {
+    src: url("font/Roboto-BlackItalic.ttf");
+}
+@font-face {
+    src: url("font/Roboto-Regular.ttf");
+}
+@font-face {
+    src: url("font/Roboto-Medium.ttf");
+}
+@font-face {
+    src: url("font/Roboto-MediumItalic.ttf");
+}
+@font-face {
+    src: url("font/Roboto-Italic.ttf");
+}
+@font-face {
+    src: url("font/Roboto-Bold.ttf");
 }
 
-.button1:hover{
-     -fx-effect: dropshadow( gaussian , Black , 0,0,0,0 );
-}
 
 
-.buttonSelected{
-	-fx-font-size: 20;
-	-fx-background-color: #D7D7D9;
-	-fx-pref-width: 200px;
-	-fx-pref-height: 75px;
-    -fx-font-weight: bold;
-    -fx-text-fill: Black;
-}
-
-
-.header1.label .text {
-	-fx-font-weight: bold;
-	-fx-font-size: 55;
-	-fx-alignment: center;
-	-fx-fill: #F2911B;
-	-fx-stroke: #000000;
-    -fx-stroke-width: 2px;
-    -fx-stroke-type: outside;
-    }
-
-.outline1.label .text {
-
-    -fx-stroke: #000000;
-    -fx-stroke-width: 2px;
-}
 .shadow {
 	-fx-effect: dropshadow( gaussian , Black , 0,0,3,3 );
 }
 
-#pane1 {
-   -fx-background-image: url('../controller/maincontrol/img/Block.png');
-   -fx-background-size: 1520 100;
-   -fx-background-position: center,center;
-   
-}
-
-#pane2 {
-	-fx-background-image: url('../controller/maincontrol/img/Block2.png');
-	-fx-background-size: 1520 115;
-    -fx-background-position: center,center;
-    -fx-border-color: black;
-    -fx-border-width: 4;
-}
-
-#pane3 {
-	-fx-background-image: url('../controller/maincontrol/img/Block2.png');
-	-fx-background-size: 1520 60;
-    -fx-background-position: top,center;
-    -fx-border-color: black;
-    -fx-border-width: 4;
-}
-
-.chart-plot-background {
-    -fx-background-color: transparent;
-}
-
-
-#AnchorPane1 {
-	-fx-background-color:  #585859;
-	-fx-border-width:  2;
-	-fx-border-color:  black;
-}
-
-#rectangle1 {
-	-fx-fill:  #ffffff;
-	-fx-stroke-width:  2;
-	-fx-stroke:  black;
-	-fx-opacity: 1;
-	-fx-effect: dropshadow( gaussian , Black , 0,0,1,1 );
-} 
-
-
-#header1.label .text {
-	-fx-font-weight: bold;
-	-fx-font-size: 55;
-	-fx-alignment: center;
-	-fx-fill: #F2911B;
-	-fx-stroke: #000000;
-    -fx-stroke-width: 2px;
-    -fx-stroke-type: outside;
-    -fx-effect: dropshadow( gaussian , Black , 0,0,3,3 );
-}
-
-#header2.label .text {
-	-fx-font-weight: bold;
-	-fx-font-size: 36;
-	-fx-alignment: center;
-	-fx-fill: #F2911B;
-	-fx-stroke: #000000;
-    -fx-stroke-width: 2px;
-    -fx-stroke-type: outside;
-}
-
-#txtInputPane .text {
-	-fx-font-weight: bold;
-	-fx-fill: #F2911B;
-}
-#txtInputPane {
-	-fx-font-size: 12;
-}
-
-.txtInputPaneHeader .text {
-	-fx-font-weight: bold;
-	-fx-fill: #F2911B;
-
-}
-.txtInputPaneHeader {
-	-fx-font-size: 18;
-}
-
-.txtInputPaneSelection .text {
-	-fx-font-weight: bold;
-	-fx-fill: #F2911B;
-}
-.txtInputPaneSelection {
-	-fx-font-size: 12;
-}
-
-.plotPane {
-	-fx-background-color:  #E4E4E6;
-}
-
-.txtInputValues {
-	-fx-font-weight: bold;
-	-fx-text-fill: #f8f8ff;
-}
-.txtOutputValues {
-	-fx-font-weight: bold;
-	-fx-text-fill: #f8f8ff;
-}
-
-.txtDiabled {
-	-fx-background-color:  #CDCDCD;
-}
-
-.txtStackPaneHeader .text {
-	-fx-font-weight: bold;
-	-fx-fill: #F2911B;
-	-fx-font-size: 22;
-	-fx-stroke: #000000;
-	-fx-stroke-width: 1px;
-    -fx-stroke-type: outside;
-}
-
-.txtStackPaneHeader2 .text {
-	-fx-font-weight: bold;
-	-fx-fill: #ffffff;
-	-fx-font-size: 16;
-	-fx-stroke: #000000;
-    -fx-stroke-width: 0.5px;
-    -fx-stroke-type: outside;
-}
-
-.txtStackPaneHeader3 .text {
-	-fx-font-weight: bold;
-	-fx-fill: #ffffff;
-	-fx-font-size: 16;
-	-fx-stroke: #000000;
-    -fx-stroke-width: 0.5px;
-    -fx-stroke-type: outside;
-}
-
-.txtAddEditPaneHeader .text {
-	-fx-font-weight: bold;
-	-fx-fill: #ffffff;
-	-fx-font-size: 20;
-	-fx-stroke: #000000;
-    -fx-stroke-width: 0.5px;
-    -fx-stroke-type: outside;
-}
-
-.txtAddEditPaneHeader2 .text {
-	-fx-font-weight: bold;
-	-fx-fill: #ffffff;
-	-fx-font-size: 16;
-}
-
-.txtAddEditPaneHeader3 .text {
-	-fx-font-weight: bold;
-	-fx-fill: black;
-	-fx-font-size: 16;
-}
-
-.txtAddEditPane .text {
-	-fx-font-weight: bold;
-	-fx-fill: black;
-	-fx-font-size: 12;
+.textStyleDefault {
+	-fx-font-family: "Roboto Medium";
 }
 
 .standardPaneBackground {
@@ -216,11 +48,25 @@
 
 }
 
+.standardPaneBackground1_Outline {
+	-fx-background-color:   #5C5863;
+	-fx-border-width:  2;
+	-fx-border-color:  black;
+	-fx-border-color:  #000000;
+
+}
+
 .standardPaneBackground2 {
 	-fx-background-color:   #5C5863;
 	-fx-border-width:  2;
 	-fx-border-color:  black;
 	-fx-opacity: 0.8;
+}
+
+.standardPaneBackground3_Outline {
+	-fx-effect: dropshadow( gaussian , Black , 0,0,3,3 );
+	-fx-border-color: #000000;
+	-fx-background-color: #E4E4E6;
 }
 
 .standardPaneBackgroundCenter {
@@ -239,12 +85,324 @@
 }
 
 .standardBotton1 {
+	-fx-font-family: "Roboto Medium";
 	-fx-background-color:   #232226;
 	-fx-border-color:  #5C5863;
 	-fx-font-size: 12;
 	-fx-text-fill: #F2911B;
 }
 
+.standardTextField1 {
+	-fx-font-family: "Roboto Medium";
+	-fx-font-size: 12;
+}
+
+.txtDiabled {
+	-fx-font-family: "Roboto Medium";
+	-fx-font-size: 12;
+	-fx-background-color:  #CDCDCD;
+}
+
 .standardAchorPane {
 	-fx-background-color: transparent;
 }
+
+#header2.label .text {
+	-fx-font-family: "Roboto Medium";
+	-fx-font-size: 40;
+	-fx-alignment: center;
+	-fx-fill: #F2911B;
+	-fx-stroke: #000000;
+    -fx-stroke-width: 1px;
+    -fx-stroke-type: outside;
+}
+
+.standardTabTxt {
+	-fx-font-family: "Roboto Medium";
+	-fx-font-size: 12;
+}
+
+.outline1.label .text {
+
+    -fx-stroke: #000000;
+    -fx-stroke-width: 2px;
+}
+
+.outline2 {
+	-fx-border-color:  #ffffff;
+}
+
+
+
+
+/* MainPain */
+
+.headerMain.label .text {
+	-fx-font-family: "Roboto Medium";
+	-fx-font-size: 75;
+	-fx-alignment: center;
+	-fx-fill: #232226;
+	-fx-stroke: #F2911B;
+	
+    -fx-stroke-width: 2px;
+    -fx-stroke-type: outside;
+    
+    }
+
+.button1{
+	-fx-font-family: "Roboto Medium";
+	-fx-font-size: 20;
+    -fx-text-fill: White;
+	-fx-background-color: #F2911B;
+	-fx-pref-width: 200px;
+	-fx-pref-height: 75px;
+    -fx-effect: dropshadow( gaussian , Black , 10,0,5,5 );
+}
+
+.button1:hover{
+     -fx-effect: dropshadow( gaussian , White , 1,1,0,0);
+}
+
+.textMain1{
+	-fx-font-family: "Roboto Bold";
+	-fx-text-fill: White;
+	-fx-font-size: 18;
+}
+.textMain2{
+	-fx-font-family: "Roboto Medium";
+	-fx-text-fill: White;
+	-fx-font-size: 14;
+	-fx-font-style: normal;
+
+}
+.textMain3{
+	-fx-font-family: "Roboto Medium";
+	-fx-text-fill: White;
+	-fx-font-size: 12;
+	-fx-font-style: italic;
+}
+
+.buttonIcon:hover{
+	-fx-effect: dropshadow( gaussian , White , 1,1,0,0);
+}
+
+.buttonMail:hover{
+	-fx-effect: dropshadow( gaussian , Black , 1,1,0,0);
+}
+
+
+
+/*SelectedPanes */
+
+.buttonSelected{
+	-fx-font-family: "Roboto Medium";
+	-fx-font-size: 20;
+	-fx-background-color: #D7D7D9;
+	-fx-pref-width: 200px;
+	-fx-pref-height: 75px;
+    -fx-text-fill: Black;
+}
+
+
+
+/*MainPain */
+
+.btnMainHome{
+	-fx-font-family: "Roboto Medium";
+	-fx-background-color: #F2911B;
+	-fx-font-size: 28;
+	-fx-text-fill: White;
+	-fx-border-width: 4;
+	-fx-border-color: Black;
+}
+
+.btnMainHome:hover{
+	-fx-effect: dropshadow( gaussian , White , 1,1,0,0);
+}
+
+.btnHome {
+	-fx-font-family: "Roboto Medium";
+	-fx-font-size: 14;
+	-fx-background-color: White;
+}
+
+.btnHome:hover{
+	-fx-effect: dropshadow( gaussian , White , 1,1,0,0);
+}
+
+.txtHomePane {
+	-fx-font-family: "Roboto Medium";
+	-fx-fill: White;
+	-fx-font-size: 16;
+}
+
+
+
+/*CostCalculationPane */
+
+#btnCalculate {
+	-fx-font-family: "Roboto Medium";
+	-fx-font-size: 16;
+	-fx-background-color: White;
+	-fx-font-style: normal;
+}
+
+.plotPane {
+	-fx-background-color:  White;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+
+
+
+/*
+#pane1 {
+   -fx-background-image: url('../img/Block.png');
+   -fx-background-size: 1520 100;
+   -fx-background-position: center,center;
+   
+}
+
+#pane2 {
+	-fx-background-image: url('../img/Block2.png');
+	-fx-background-size: 1520 115;
+    -fx-background-position: center,center;
+    -fx-border-color: black;
+    -fx-border-width: 4;
+}
+
+#pane3 {
+	-fx-background-image: url('../img/Block2.png');
+	-fx-background-size: 1520 60;
+    -fx-background-position: top,center;
+    -fx-border-color: black;
+    -fx-border-width: 4;
+}
+*/
+
+
+
+
+
+
+/*AddEditPane */
+
+.txtAddEditPaneHeader .text {
+	-fx-font-family: "Roboto Bold";
+	-fx-fill: #ffffff;
+	-fx-font-size: 20;
+	-fx-stroke: #000000;
+    -fx-stroke-width: 0.5px;
+    -fx-stroke-type: outside;
+}
+
+.txtAddEditPaneHeader2 .text {
+	-fx-font-family: "Roboto Bold";
+	-fx-fill: #ffffff;
+	-fx-font-size: 16;
+}
+
+.txtAddEditPaneHeader3 .text {
+	-fx-font-family: "Roboto Bold";
+	-fx-fill: black;
+	-fx-font-size: 16;
+}
+
+.txtAddEditPane .text {
+	-fx-font-family: "Roboto Bold";
+	-fx-fill: black;
+	-fx-font-size: 12;
+}
+
+.txtAddEditPane2 {
+	-fx-font-family: "Roboto";
+}
+
+
+
+
+/*StackPane */
+
+.txtStackPaneHeader .text {
+	-fx-font-family: "Roboto Bold";
+	-fx-fill: #F2911B;
+	-fx-font-size: 24;
+	-fx-stroke: #000000;
+	-fx-stroke-width: 1px;
+    -fx-stroke-type: outside;
+}
+
+.txtStackPaneHeader2 .text {
+	-fx-font-family: "Roboto Bold";
+	-fx-fill: #ffffff;
+	-fx-font-size: 16;
+	-fx-stroke: #000000;
+    -fx-stroke-width: 0.5px;
+    -fx-stroke-type: outside;
+}
+
+.txtStackPaneHeader3 .text {
+	-fx-font-family: "Roboto Bold";
+	-fx-fill: #ffffff;
+	-fx-font-size: 16;
+	-fx-stroke: #000000;
+    -fx-stroke-width: 0.5px;
+    -fx-stroke-type: outside;
+}
+
+
+
+.txtInputPane .text {
+	-fx-font-family: "Roboto Medium";
+	-fx-fill: #F2911B;
+	-fx-font-size: 12;
+}
+
+.txtInputPaneHeader .text {
+	-fx-font-family: "Roboto Medium";
+	-fx-fill: #F2911B;
+	-fx-font-size: 20;
+}
+
+.txtInputPaneSelection .text {
+	-fx-font-family: "Roboto Medium";
+	-fx-fill: #F2911B;
+	-fx-font-size: 13;
+}
+
+
+
+
+#AnchorPane1 {
+	-fx-background-color:  #232226;
+	-fx-border-width:  2;
+	-fx-border-color:  black;
+}
+
+#rectangle1 {
+	-fx-fill:  #ffffff;
+	-fx-stroke-width:  2;
+	-fx-stroke:  black;
+	-fx-opacity: 1;
+	-fx-effect: dropshadow( gaussian , Black , 0,0,1,1 );
+} 
+
+.txtInputValues {
+	-fx-font-family: "Roboto Bold";
+	-fx-text-fill: #f8f8ff;
+}
+.txtOutputValues {
+	-fx-font-family: "Roboto Bold";
+	-fx-text-fill: #f8f8ff;
+}
+
+.txtSmallInputPane .text {
+	-fx-font-family: "Roboto Medium";
+	-fx-fill: White;
+	-fx-font-size: 12;
+}
+
+

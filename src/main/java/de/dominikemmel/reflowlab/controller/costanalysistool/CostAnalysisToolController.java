@@ -4,6 +4,8 @@ import static de.dominikemmel.reflowlab.MyConstants.*;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -20,6 +22,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
@@ -30,6 +33,9 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import org.scilab.forge.jlatexmath.TeXConstants;
+import org.scilab.forge.jlatexmath.TeXFormula;
+import org.scilab.forge.jlatexmath.TeXIcon;
 import org.jfree.chart.ui.*;
 
 import javafx.beans.property.DoubleProperty;
@@ -38,6 +44,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,11 +53,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import de.dominikemmel.reflowlab.Database;
 import de.dominikemmel.reflowlab.FxmlLoader;
@@ -182,6 +195,15 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	private Text anolyteActMatNumberProton1;
 	@FXML
 	private Text anolyteActMatNumberProton2;
+	
+	@FXML
+	private Text anolyteActMatConc1;
+	@FXML
+	private Text anolyteActMatConc2;
+	@FXML
+	private Text anolyteActMatConc3;
+	@FXML
+	private Text anolyteActMatConc4;
 
 	@FXML
 	private Text anolyteActMatSol1;
@@ -200,6 +222,15 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	private Text anolyteSaltMolMass3;
 	@FXML
 	private Text anolyteSaltMolMass4;
+	
+	@FXML
+	private Text anolyteSaltConc1;
+	@FXML
+	private Text anolyteSaltConc2;
+	@FXML
+	private Text anolyteSaltConc3;
+	@FXML
+	private Text anolyteSaltConc4;
 
 	@FXML
 	private Text anolyteSaltSol1;
@@ -257,6 +288,15 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	private Text catholyteActMatNumberProton2;
 
 	@FXML
+	private Text catholyteActMatConc1;
+	@FXML
+	private Text catholyteActMatConc2;
+	@FXML
+	private Text catholyteActMatConc3;
+	@FXML
+	private Text catholyteActMatConc4;
+	
+	@FXML
 	private Text catholyteActMatSol1;
 	@FXML
 	private Text catholyteActMatSol2;
@@ -273,6 +313,15 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	private Text catholyteSaltMolMass3;
 	@FXML
 	private Text catholyteSaltMolMass4;
+	
+	@FXML
+	private Text catholyteSaltConc1;
+	@FXML
+	private Text catholyteSaltConc2;
+	@FXML
+	private Text catholyteSaltConc3;
+	@FXML
+	private Text catholyteSaltConc4;
 
 	@FXML
 	private Text catholyteSaltSol1;
@@ -364,6 +413,38 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 
 	@FXML
 	private Text pH1;
+	
+	@FXML
+	private Text anolyteSolventDensity1;
+	@FXML
+	private Text anolyteSolventDensity2;
+	@FXML
+	private Text anolyteSolventDensity3;
+	@FXML
+	private Text anolyteSolventDensity4;
+	
+	@FXML
+	private Text catholyteSolventDensity1;
+	@FXML
+	private Text catholyteSolventDensity2;
+	@FXML
+	private Text catholyteSolventDensity3;
+	@FXML
+	private Text catholyteSolventDensity4;
+	
+	@FXML
+	private Text anolyteSolventViscosity1;
+	@FXML
+	private Text anolyteSolventViscosity2;
+	@FXML
+	private Text anolyteSolventViscosity3;
+	
+	@FXML
+	private Text catholyteSolventViscosity1;
+	@FXML
+	private Text catholyteSolventViscosity2;
+	@FXML
+	private Text catholyteSolventViscosity3;
 
 	@FXML
 	private Text anolyteTankCost1;
@@ -603,6 +684,81 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	private Text catholyteConcentrationOverPotDischarge2;
 	@FXML
 	private Text catholyteConcentrationOverPotDischarge3;
+	
+	@FXML
+	private Text anolyteReynoldsNumber1;
+	@FXML
+	private Text anolyteReynoldsNumber2;
+	@FXML
+	private Text anolyteReynoldsNumber3;
+	
+	@FXML
+	private Text anolyteSchmidtNumber1;
+	@FXML
+	private Text anolyteSchmidtNumber2;
+	@FXML
+	private Text anolyteSchmidtNumber3;
+	
+	@FXML
+	private Text anolyteSherwoodNumber1;
+	@FXML
+	private Text anolyteSherwoodNumber2;
+	@FXML
+	private Text anolyteSherwoodNumber3;
+	
+	@FXML
+	private Text anolyteDiffLayerThickness1;
+	@FXML
+	private Text anolyteDiffLayerThickness2;
+	@FXML
+	private Text anolyteDiffLayerThickness3;
+	
+	@FXML
+	private Text ilimitAnolyte1;
+	@FXML
+	private Text ilimitAnolyte2;
+	@FXML
+	private Text ilimitAnolyte3;
+	@FXML
+	private Text ilimitAnolyte4;
+	
+	@FXML
+	private Text catholyteReynoldsNumber1;
+	@FXML
+	private Text catholyteReynoldsNumber2;
+	@FXML
+	private Text catholyteReynoldsNumber3;
+	
+	@FXML
+	private Text catholyteSchmidtNumber1;
+	@FXML
+	private Text catholyteSchmidtNumber2;
+	@FXML
+	private Text catholyteSchmidtNumber3;
+	
+	@FXML
+	private Text catholyteSherwoodNumber1;
+	@FXML
+	private Text catholyteSherwoodNumber2;
+	@FXML
+	private Text catholyteSherwoodNumber3;
+	
+	@FXML
+	private Text catholyteDiffLayerThickness1;
+	@FXML
+	private Text catholyteDiffLayerThickness2;
+	@FXML
+	private Text catholyteDiffLayerThickness3;
+	
+	@FXML
+	private Text ilimitCatholyte1;
+	@FXML
+	private Text ilimitCatholyte2;
+	@FXML
+	private Text ilimitCatholyte3;
+	@FXML
+	private Text ilimitCatholyte4;
+	
 
 	@FXML
 	private Text cellArea1;
@@ -818,13 +974,45 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	private Text catholyteCostTotalKAh3;
 	@FXML
 	private Text catholyteCostTotalKAh4;
+	
 
 	@FXML
-	private Text energyDensity1;
+	private Text anolyteEnergyDensity1;
 	@FXML
-	private Text energyDensity2;
+	private Text anolyteEnergyDensity2;
 	@FXML
-	private Text energyDensity3;
+	private Text anolyteEnergyDensity3;
+	@FXML
+	private Text anolyteEnergyDensity4;
+	
+	@FXML
+	private Text catholyteEnergyDensity1;
+	@FXML
+	private Text catholyteEnergyDensity2;
+	@FXML
+	private Text catholyteEnergyDensity3;
+	@FXML
+	private Text catholyteEnergyDensity4;
+	
+	@FXML
+	private Text anolyteEnergyDensityKg1;
+	@FXML
+	private Text anolyteEnergyDensityKg2;
+	@FXML
+	private Text anolyteEnergyDensityKg3;
+	@FXML
+	private Text anolyteEnergyDensityKg4;
+	
+	@FXML
+	private Text catholyteEnergyDensityKg1;
+	@FXML
+	private Text catholyteEnergyDensityKg2;
+	@FXML
+	private Text catholyteEnergyDensityKg3;
+	@FXML
+	private Text catholyteEnergyDensityKg4;
+	
+	
 
 	@FXML
 	private Text costElectrolyte1;
@@ -978,9 +1166,13 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	@FXML
 	private TextField txtfdAnolyteActMatNumberProton;
 	@FXML
+	private TextField txtfdAnolyteActMatConc;
+	@FXML
 	private TextField txtfdAnolyteActMatSol;
 	@FXML
 	private TextField txtfdAnolyteSaltMolMass;
+	@FXML
+	private TextField txtfdAnolyteSaltConc;
 	@FXML
 	private TextField txtfdAnolyteSaltSol;
 	@FXML
@@ -999,9 +1191,13 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	@FXML
 	private TextField txtfdCatholyteActMatNumberProton;
 	@FXML
+	private TextField txtfdCatholyteActMatConc;
+	@FXML
 	private TextField txtfdCatholyteActMatSol;
 	@FXML
 	private TextField txtfdCatholyteSaltMolMass;
+	@FXML
+	private TextField txtfdCatholyteSaltConc;
 	@FXML
 	private TextField txtfdCatholyteSaltSol;
 	@FXML
@@ -1025,11 +1221,17 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	@FXML
 	private TextField txtfdSolventCost;
 	@FXML
-	private TextField txtfdSolventDensity;
-	@FXML
 	private TextField txtfdTemp;
 	@FXML
 	private TextField txtfdPH;
+	@FXML
+	private TextField txtfdAnolyteSolventDensity;
+	@FXML
+	private TextField txtfdCatholyteSolventDensity;
+	@FXML
+	private TextField txtfdAnolyteSolventViscosity;
+	@FXML
+	private TextField txtfdCatholyteSolventViscosity;
 
 	@FXML
 	private TextField txtfdAnolyteTankCost;
@@ -1097,6 +1299,26 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	private TextField txtfbAnolyteConcentrationOverPotDischarge;
 	@FXML
 	private TextField txtfbCatholyteConcentrationOverPotDischarge;
+	@FXML
+	private TextField txtfbAnolyteReynoldsNumber;
+	@FXML
+	private TextField txtfbAnolyteSchmidtNumber;
+	@FXML
+	private TextField txtfbAnolyteSherwoodNumber;
+	@FXML
+	private TextField txtfbAnolyteDiffLayerThickness;
+	@FXML
+	private TextField txtfbIlimitAnolyte;
+	@FXML
+	private TextField txtfbCatholyteReynoldsNumber;
+	@FXML
+	private TextField txtfbCatholyteSchmidtNumber;
+	@FXML
+	private TextField txtfbCatholyteSherwoodNumber;
+	@FXML
+	private TextField txtfbCatholyteDiffLayerThickness;
+	@FXML
+	private TextField txtfbIlimitCatholyte;
 
 	@FXML
 	private TextField txtfdCellArea;
@@ -1161,7 +1383,13 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	private TextField txtfdCatholyteCostTotalKAh;
 
 	@FXML
-	private TextField txtfdEnergyDensity;
+	private TextField txtfdAnolyteEnergyDensity;
+	@FXML
+	private TextField txtfdCatholyteEnergyDensity;
+	@FXML
+	private TextField txtfdAnolyteEnergyDensityKg;
+	@FXML
+	private TextField txtfdCatholyteEnergyDensityKg;
 
 	@FXML
 	private TextField txtfdCostElectrolyte;
@@ -1238,6 +1466,9 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	Boolean chargeTransferMode = true;
 	Boolean transportationLimitationMode = true;
 	Boolean materialSelected = false;
+	
+	int selectionModeLeft = 0;
+	int selectionModeRight = 0;
 
 	//variables for ComboBox selection:
 	String inputLeftActiveMaterial;
@@ -1346,8 +1577,8 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	double temp = rT;
 
 	double reversibleCellVoltageEl = 0;
-	double catholyteReversiblePotential = 0;
-	double anolyteReversiblePotential = 0;
+	double catholyteReversiblePotential = 42;
+	double anolyteReversiblePotential = 42;
 //	double catholyteReversiblePotentialPh0 = 0;
 //	double anolyteReversiblePotentialPh0 = 0;
 	double diffActMatElmitanodeCatholyte = 0;
@@ -1362,7 +1593,7 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 
 	double saltCost = 0;
 	double solventCost = 0;
-	double solventDensity = 0;
+//	double solventDensity = 0;
 
 	double anolyteTankCost = 0;
 	double catholyteTankCost = 0;
@@ -1442,6 +1673,17 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	double catholyteConcentrationOverPotDischarge = 0;
 	double anolyteConcentrationOverPotDischarge = 0;
 	double concentrationOverPotDischarge = 0;
+	
+	double anolyteReynoldsNumber = 0;
+	double anolyteSchmidtNumber = 0;
+	double anolyteSherwoodNumber = 0;
+	double anolyteDiffLayerThickness = 0;
+	double ilimitAnolyte = 0;
+	double catholyteReynoldsNumber = 0;
+	double catholyteSchmidtNumber = 0;
+	double catholyteSherwoodNumber = 0;
+	double catholyteDiffLayerThickness = 0;
+	double ilimitCatholyte = 0;
 
 	double cellArea = 0;
 	double totalArea = 0;
@@ -1481,6 +1723,8 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	double catholyteCostTotalKAh = 0;
 
 	double energyDensity = 0;
+	double anolyteEnergyDensity = 0;
+	double catholyteEnergyDensity = 0;
 	double anolyteEnergyDensityKg = 0;
 	double catholyteEnergyDensityKg = 0;
 	double energyDensityKg = 0;
@@ -1635,6 +1879,22 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		anolyteActMatNumberProton2.setTranslateY(anolyteActMatNumberProton1.getFont().getSize() * 0.3);
 
 
+		//anolyteActMatConc:
+		anolyteActMatConc1.setText("c");
+		anolyteActMatConc1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
+
+		anolyteActMatConc2.setText("a");
+		anolyteActMatConc2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		anolyteActMatConc2.setTranslateY(anolyteActMatConc1.getFont().getSize() * 0.3);
+
+		anolyteActMatConc3.setText(" / mol L");
+		anolyteActMatConc3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+
+		anolyteActMatConc4.setText("-1");
+		anolyteActMatConc4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		anolyteActMatConc4.setTranslateY(anolyteActMatConc1.getFont().getSize() * -0.3);
+		
+		
 		//anolyteActMatSol:
 		anolyteActMatSol1.setText("L");
 		anolyteActMatSol1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
@@ -1665,6 +1925,22 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		anolyteSaltMolMass4.setText("-1");
 		anolyteSaltMolMass4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
 		anolyteSaltMolMass4.setTranslateY(anolyteSaltMolMass1.getFont().getSize() * -0.3);
+		
+		
+		//anolyteSaltConc:
+		anolyteSaltConc1.setText("c");
+		anolyteSaltConc1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
+
+		anolyteSaltConc2.setText("salt, a");
+		anolyteSaltConc2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		anolyteSaltConc2.setTranslateY(anolyteSaltConc1.getFont().getSize() * 0.3);
+
+		anolyteSaltConc3.setText(" / mol L");
+		anolyteSaltConc3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+
+		anolyteSaltConc4.setText("-1");
+		anolyteSaltConc4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		anolyteSaltConc4.setTranslateY(anolyteSaltConc1.getFont().getSize() * -0.3);
 
 
 		//anolyteSaltSol:
@@ -1750,7 +2026,7 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		catholyteActMatNumberElectron1.setText("n");
 		catholyteActMatNumberElectron1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
 
-		catholyteActMatNumberElectron2.setText("e, a");
+		catholyteActMatNumberElectron2.setText("e, c");
 		catholyteActMatNumberElectron2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
 		catholyteActMatNumberElectron2.setTranslateY(catholyteActMatNumberElectron1.getFont().getSize() * 0.3);
 
@@ -1764,6 +2040,22 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		catholyteActMatNumberProton2.setTranslateY(catholyteActMatNumberProton1.getFont().getSize() * 0.3);
 
 
+		//catholyteActMatConc:
+		catholyteActMatConc1.setText("c");
+		catholyteActMatConc1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
+
+		catholyteActMatConc2.setText("c");
+		catholyteActMatConc2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		catholyteActMatConc2.setTranslateY(catholyteActMatConc1.getFont().getSize() * 0.3);
+
+		catholyteActMatConc3.setText(" / mol L");
+		catholyteActMatConc3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+
+		catholyteActMatConc4.setText("-1");
+		catholyteActMatConc4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		catholyteActMatConc4.setTranslateY(catholyteActMatConc1.getFont().getSize() * -0.3);
+		
+		
 		//catholyteActMatSol:
 		catholyteActMatSol1.setText("L");
 		catholyteActMatSol1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
@@ -1796,6 +2088,22 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		catholyteSaltMolMass4.setTranslateY(catholyteSaltMolMass1.getFont().getSize() * -0.3);
 
 
+		//catholyteSaltConc:
+		catholyteSaltConc1.setText("c");
+		catholyteSaltConc1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
+
+		catholyteSaltConc2.setText("salt, c");
+		catholyteSaltConc2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		catholyteSaltConc2.setTranslateY(catholyteSaltConc1.getFont().getSize() * 0.3);
+
+		catholyteSaltConc3.setText(" / mol L");
+		catholyteSaltConc3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+
+		catholyteSaltConc4.setText("-1");
+		catholyteSaltConc4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		catholyteSaltConc4.setTranslateY(catholyteSaltConc1.getFont().getSize() * -0.3);
+		
+		
 		//catholyteSaltSol:
 		catholyteSaltSol1.setText("L");
 		catholyteSaltSol1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
@@ -1923,17 +2231,6 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		solventCost4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
 		solventCost4.setTranslateY(solventCost1.getFont().getSize() * -0.3);
 
-		//solventDensity:
-		solventDensity1.setText("density");
-		solventDensity1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
-
-		solventDensity2.setText(" / g cm");
-		solventDensity2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
-
-		solventDensity3.setText("-3");
-		solventDensity3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
-		solventDensity3.setTranslateY(solventDensity1.getFont().getSize() * -0.3);
-
 		//temp:
 		temp1.setText("T");
 		temp1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
@@ -1944,6 +2241,58 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		//pH:
 		pH1.setText("pH");
 		pH1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+
+		//anolyteSolventDensity:
+		anolyteSolventDensity1.setText("density");
+		anolyteSolventDensity1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		
+		anolyteSolventDensity2.setText("a");
+		anolyteSolventDensity2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		anolyteSolventDensity2.setTranslateY(anolyteSolventDensity1.getFont().getSize() * 0.3);
+
+		anolyteSolventDensity3.setText(" / g cm");
+		anolyteSolventDensity3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+
+		anolyteSolventDensity4.setText("-3");
+		anolyteSolventDensity4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		anolyteSolventDensity4.setTranslateY(anolyteSolventDensity1.getFont().getSize() * -0.3);
+		
+		//catholyteSolventDensity:
+		catholyteSolventDensity1.setText("density");
+		catholyteSolventDensity1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+
+		catholyteSolventDensity2.setText("c");
+		catholyteSolventDensity2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		catholyteSolventDensity2.setTranslateY(catholyteSolventDensity1.getFont().getSize() * 0.3);
+
+		catholyteSolventDensity3.setText(" / g cm");
+		catholyteSolventDensity3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+
+		catholyteSolventDensity4.setText("-3");
+		catholyteSolventDensity4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		catholyteSolventDensity4.setTranslateY(catholyteSolventDensity1.getFont().getSize() * -0.3);
+
+		//anolyteSolventViscosity:
+		anolyteSolventViscosity1.setText("dyn. viscosity");
+		anolyteSolventViscosity1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+
+		anolyteSolventViscosity2.setText("a");
+		anolyteSolventViscosity2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		anolyteSolventViscosity2.setTranslateY(anolyteSolventViscosity1.getFont().getSize() * 0.3);
+
+		anolyteSolventViscosity3.setText(" / Pa s");
+		anolyteSolventViscosity3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		
+		//catholyteSolventViscosity:
+		catholyteSolventViscosity1.setText("dyn. viscosity");
+		catholyteSolventViscosity1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+
+		catholyteSolventViscosity2.setText("c");
+		catholyteSolventViscosity2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		catholyteSolventViscosity2.setTranslateY(catholyteSolventViscosity1.getFont().getSize() * 0.3);
+
+		catholyteSolventViscosity3.setText(" / Pa s");
+		catholyteSolventViscosity3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
 
 
 
@@ -2374,7 +2723,126 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 
 		catholyteConcentrationOverPotDischarge3.setText(" / V");
 		catholyteConcentrationOverPotDischarge3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		
+		//anolyteReynoldsNumber:
+		anolyteReynoldsNumber1.setText("Re");
+		anolyteReynoldsNumber1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
 
+		anolyteReynoldsNumber2.setText("a");
+		anolyteReynoldsNumber2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		anolyteReynoldsNumber2.setTranslateY(anolyteReynoldsNumber1.getFont().getSize() * 0.3);
+
+		anolyteReynoldsNumber3.setText("");
+		anolyteReynoldsNumber3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		
+		//anolyteSchmidtNumber:
+		anolyteSchmidtNumber1.setText("Sc");
+		anolyteSchmidtNumber1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
+		
+		anolyteSchmidtNumber2.setText("a, red");
+		anolyteSchmidtNumber2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		anolyteSchmidtNumber2.setTranslateY(anolyteSchmidtNumber1.getFont().getSize() * 0.3);
+		
+		anolyteSchmidtNumber3.setText("");
+		anolyteSchmidtNumber3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		
+		//anolyteSherwoodNumber:
+		anolyteSherwoodNumber1.setText("Sh");
+		anolyteSherwoodNumber1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
+		
+		anolyteSherwoodNumber2.setText("a, red");
+		anolyteSherwoodNumber2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		anolyteSherwoodNumber2.setTranslateY(anolyteSherwoodNumber1.getFont().getSize() * 0.3);
+		
+		anolyteSherwoodNumber3.setText("");
+		anolyteSherwoodNumber3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		
+		//anolyteDiffLayerThickness:
+		anolyteDiffLayerThickness1.setText("δ");
+		anolyteDiffLayerThickness1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
+		
+		anolyteDiffLayerThickness2.setText("a, red");
+		anolyteDiffLayerThickness2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		anolyteDiffLayerThickness2.setTranslateY(anolyteDiffLayerThickness1.getFont().getSize() * 0.3);
+		
+		anolyteDiffLayerThickness3.setText(" / m");
+		anolyteDiffLayerThickness3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		
+		//ilimitAnolyte:
+		ilimitAnolyte1.setText("i");
+		ilimitAnolyte1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
+		
+		ilimitAnolyte2.setText("limit | a, red");
+		ilimitAnolyte2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		ilimitAnolyte2.setTranslateY(ilimitAnolyte1.getFont().getSize() * 0.3);
+		
+		ilimitAnolyte3.setText(" / A m");
+		ilimitAnolyte3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		
+		ilimitAnolyte4.setText("-2");
+		ilimitAnolyte4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		ilimitAnolyte4.setTranslateY(ilimitAnolyte1.getFont().getSize() * -0.3);
+		
+		
+		//catholyteReynoldsNumber:
+		catholyteReynoldsNumber1.setText("Re");
+		catholyteReynoldsNumber1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
+
+		catholyteReynoldsNumber2.setText("c");
+		catholyteReynoldsNumber2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		catholyteReynoldsNumber2.setTranslateY(catholyteReynoldsNumber1.getFont().getSize() * 0.3);
+
+		catholyteReynoldsNumber3.setText("");
+		catholyteReynoldsNumber3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		
+		//catholyteSchmidtNumber:
+		catholyteSchmidtNumber1.setText("Sc");
+		catholyteSchmidtNumber1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
+		
+		catholyteSchmidtNumber2.setText("c, ox");
+		catholyteSchmidtNumber2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		catholyteSchmidtNumber2.setTranslateY(catholyteSchmidtNumber1.getFont().getSize() * 0.3);
+		
+		catholyteSchmidtNumber3.setText("");
+		catholyteSchmidtNumber3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		
+		//catholyteSherwoodNumber:
+		catholyteSherwoodNumber1.setText("Sh");
+		catholyteSherwoodNumber1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
+		
+		catholyteSherwoodNumber2.setText("c, ox");
+		catholyteSherwoodNumber2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		catholyteSherwoodNumber2.setTranslateY(catholyteSherwoodNumber1.getFont().getSize() * 0.3);
+		
+		catholyteSherwoodNumber3.setText("");
+		catholyteSherwoodNumber3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		
+		//catholyteDiffLayerThickness:
+		catholyteDiffLayerThickness1.setText("δ");
+		catholyteDiffLayerThickness1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
+		
+		catholyteDiffLayerThickness2.setText("c, ox");
+		catholyteDiffLayerThickness2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		catholyteDiffLayerThickness2.setTranslateY(catholyteDiffLayerThickness1.getFont().getSize() * 0.3);
+		
+		catholyteDiffLayerThickness3.setText(" / m");
+		catholyteDiffLayerThickness3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		
+		//ilimitCatholyte:
+		ilimitCatholyte1.setText("i");
+		ilimitCatholyte1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-style: italic");
+		
+		ilimitCatholyte2.setText("limit | c, ox");
+		ilimitCatholyte2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		ilimitCatholyte2.setTranslateY(ilimitCatholyte1.getFont().getSize() * 0.3);
+		
+		ilimitCatholyte3.setText(" / A m");
+		ilimitCatholyte3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		
+		ilimitCatholyte4.setText("-2");
+		ilimitCatholyte4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold;  -fx-font-size: 9");
+		ilimitCatholyte4.setTranslateY(ilimitCatholyte1.getFont().getSize() * -0.3);
+		
 
 
 
@@ -2740,18 +3208,71 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		catholyteCostTotalKAh4.setTranslateY(catholyteCostTotalKAh1.getFont().getSize() * -0.3);
 
 
+		
+		
+		//anolyteEnergyDensity:
+		anolyteEnergyDensity1.setText("energy density");
+		anolyteEnergyDensity1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		
+		anolyteEnergyDensity2.setText("a");
+		anolyteEnergyDensity2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		anolyteEnergyDensity2.setTranslateY(anolyteEnergyDensity1.getFont().getSize() * 0.3);
 
+		anolyteEnergyDensity3.setText(" / Wh L");
+		anolyteEnergyDensity3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
 
-		//energyDensity:
-		energyDensity1.setText("energy density");
-		energyDensity1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		anolyteEnergyDensity4.setText("-1");
+		anolyteEnergyDensity4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		anolyteEnergyDensity4.setTranslateY(anolyteEnergyDensity1.getFont().getSize() * -0.3);
+		
+		
+		//catholyteEnergyDensity:
+		catholyteEnergyDensity1.setText("energy density");
+		catholyteEnergyDensity1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		
+		catholyteEnergyDensity2.setText("c");
+		catholyteEnergyDensity2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		catholyteEnergyDensity2.setTranslateY(catholyteEnergyDensity1.getFont().getSize() * 0.3);
 
-		energyDensity2.setText(" / Wh L");
-		energyDensity2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		catholyteEnergyDensity3.setText(" / Wh L");
+		catholyteEnergyDensity3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
 
-		energyDensity3.setText("-1");
-		energyDensity3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
-		energyDensity3.setTranslateY(energyDensity1.getFont().getSize() * -0.3);
+		catholyteEnergyDensity4.setText("-1");
+		catholyteEnergyDensity4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		catholyteEnergyDensity4.setTranslateY(catholyteEnergyDensity1.getFont().getSize() * -0.3);
+		
+		
+		//anolyteEnergyDensityKg:
+		anolyteEnergyDensityKg1.setText("energy density");
+		anolyteEnergyDensityKg1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		
+		anolyteEnergyDensityKg2.setText("a");
+		anolyteEnergyDensityKg2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		anolyteEnergyDensityKg2.setTranslateY(anolyteEnergyDensityKg1.getFont().getSize() * 0.3);
+
+		anolyteEnergyDensityKg3.setText(" / Wh kg");
+		anolyteEnergyDensityKg3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+
+		anolyteEnergyDensityKg4.setText("-1");
+		anolyteEnergyDensityKg4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		anolyteEnergyDensityKg4.setTranslateY(anolyteEnergyDensityKg1.getFont().getSize() * -0.3);
+
+		
+		//catholyteEnergyDensityKg:
+		catholyteEnergyDensityKg1.setText("energy density");
+		catholyteEnergyDensityKg1.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+		
+		catholyteEnergyDensityKg2.setText("c");
+		catholyteEnergyDensityKg2.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		catholyteEnergyDensityKg2.setTranslateY(catholyteEnergyDensityKg1.getFont().getSize() * 0.3);
+
+		catholyteEnergyDensityKg3.setText(" / Wh kg");
+		catholyteEnergyDensityKg3.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold");
+
+		catholyteEnergyDensityKg4.setText("-1");
+		catholyteEnergyDensityKg4.setStyle("-fx-fill: "+colorTxtInput+"; -fx-font-weight: bold; -fx-font-size: 9");
+		catholyteEnergyDensityKg4.setTranslateY(catholyteEnergyDensityKg1.getFont().getSize() * -0.3);
+		
 
 
 
@@ -3297,7 +3818,6 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 
 
 	private void populateComboLeftActiveMaterial() {
-		CostAnalysisToolController.this.checkSelection();
 		comboLeftActiveMaterial.setEditable(true);
 		try {
 			ResultSet res = Database.selectData("activeMaterial");
@@ -3315,7 +3835,6 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 
 
 	private void populateComboRightActiveMaterial() {
-		CostAnalysisToolController.this.checkSelection();
 		comboRightActiveMaterial.setEditable(true);
 		try {
 			ResultSet res = Database.selectData("activeMaterial");
@@ -3334,12 +3853,20 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 
 	@FXML
 	public void populateComboLeftSolvent(ActionEvent event) {
-		CostAnalysisToolController.this.checkSelection();
+		
+		selectionModeLeft = 0;
+		
+		comboLeftActiveMaterial.setStyle("-fx-background-color: White");
+		
 		try {
 
 			CostAnalysisToolController.this.clearValues();
 
-			comboLeftSolvent.getSelectionModel().clearSelection();
+//			comboLeftSolvent.getSelectionModel().clearSelection();
+//			comboLeftSalt.getSelectionModel().clearSelection();
+			
+			comboLeftSolvent.getItems().clear();
+			comboLeftSalt.getItems().clear();
 
 			ResultSet res = Database.selectData("activeMaterial");
 
@@ -3359,18 +3886,28 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
+		
+		selectionModeLeft = 1;
 	}
 
 
 	@FXML
 	public void populateComboRightSolvent(ActionEvent event) {
-		CostAnalysisToolController.this.checkSelection();
+		
+		selectionModeRight = 0;
+		
+		comboRightActiveMaterial.setStyle("-fx-background-color: White");
+		
 		try {
 
 			CostAnalysisToolController.this.clearValues();
 
-			comboRightSolvent.getSelectionModel().clearSelection();
+//			comboRightSolvent.getSelectionModel().clearSelection();
+//			comboRightSalt.getSelectionModel().clearSelection();
 
+			comboRightSolvent.getItems().clear();
+			comboRightSalt.getItems().clear();
+			
 			ResultSet res = Database.selectData("activeMaterial");
 
 			ObservableList<String> dataSolvent = FXCollections.observableArrayList();
@@ -3389,64 +3926,82 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
+		
+		selectionModeRight = 1;
 	}
 
 
 	@FXML
 	public void populateComboLeftSalt (ActionEvent event) {
-		CostAnalysisToolController.this.checkSelection();
+		
+		comboLeftSolvent.setStyle("-fx-background-color: White");
+		
+		if (selectionModeLeft == 1) {
+			try {
+				
+//				comboLeftSalt.getSelectionModel().clearSelection();
+				comboLeftSalt.getItems().clear();
 
-		try {
-			comboLeftSalt.getSelectionModel().clearSelection();
+				ResultSet res = Database.selectData("activeMaterial");
 
-			ResultSet res = Database.selectData("activeMaterial");
+				ObservableList<String> dataSalt = FXCollections.observableArrayList();
 
-			ObservableList<String> dataSalt = FXCollections.observableArrayList();
+				String leftActiveMaterialSelection = comboLeftActiveMaterial.getSelectionModel().getSelectedItem().toString();
+				String leftSolventSelection = comboLeftSolvent.getSelectionModel().getSelectedItem().toString();
 
-			String leftActiveMaterialSelection = comboLeftActiveMaterial.getSelectionModel().getSelectedItem().toString();
-			String leftSolventSelection = comboLeftSolvent.getSelectionModel().getSelectedItem().toString();
-
-			while (res.next()) {
-				if (res.getString("ABBREVIATION") == leftActiveMaterialSelection &&  res.getString("Solvent") == leftSolventSelection) {
-					String dataSaltCombination =  res.getString("Salt") +", "+ res.getString("Saltc").toString() +"M";
-					dataSalt.add(dataSaltCombination);
+				while (res.next()) {
+					if (res.getString("ABBREVIATION") == leftActiveMaterialSelection &&  res.getString("Solvent") == leftSolventSelection) {
+						String dataSaltCombination =  res.getString("Salt") +", "+ res.getString("Saltc").toString() +"M";
+						dataSalt.add(dataSaltCombination);
+					}
 				}
+
+				comboLeftSalt.setItems(dataSalt);
+
+			} catch (ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
 			}
-
-			comboLeftSalt.setItems(dataSalt);
-
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+			selectionModeLeft = 2;
 		}
+		
+
 	}
 
 
 	@FXML
 	public void populateComboRightSalt (ActionEvent event) {
-		CostAnalysisToolController.this.checkSelection();
+		
+		comboRightSolvent.setStyle("-fx-background-color: White");
+		
+		if (selectionModeRight == 1) {
+			try {
+				
+//				comboRightSalt.getSelectionModel().clearSelection();
+				comboRightSalt.getItems().clear();
 
-		try {
-			comboRightSalt.getSelectionModel().clearSelection();
+				ResultSet res = Database.selectData("activeMaterial");
 
-			ResultSet res = Database.selectData("activeMaterial");
+				ObservableList<String> dataSalt = FXCollections.observableArrayList();
 
-			ObservableList<String> dataSalt = FXCollections.observableArrayList();
+				String rightActiveMaterialSelection = comboRightActiveMaterial.getSelectionModel().getSelectedItem().toString();
+				String rightSolventSelection = comboRightSolvent.getSelectionModel().getSelectedItem().toString();
 
-			String rightActiveMaterialSelection = comboRightActiveMaterial.getSelectionModel().getSelectedItem().toString();
-			String rightSolventSelection = comboRightSolvent.getSelectionModel().getSelectedItem().toString();
-
-			while (res.next()) {
-				if (res.getString("ABBREVIATION") == rightActiveMaterialSelection &&  res.getString("Solvent") == rightSolventSelection) {
-					String dataSaltCombination =  res.getString("Salt") +", "+ res.getString("Saltc").toString() +"M";
-					dataSalt.add(dataSaltCombination);
+				while (res.next()) {
+					if (res.getString("ABBREVIATION") == rightActiveMaterialSelection &&  res.getString("Solvent") == rightSolventSelection) {
+						String dataSaltCombination =  res.getString("Salt") +", "+ res.getString("Saltc").toString() +"M";
+						dataSalt.add(dataSaltCombination);
+					}
 				}
+
+				comboRightSalt.setItems(dataSalt);
+
+			} catch (ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
 			}
-
-			comboRightSalt.setItems(dataSalt);
-
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+			
+			selectionModeRight = 2;
 		}
+		
 	}
 
 
@@ -3468,7 +4023,10 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 
 	@FXML
 	public void selectComboStack(ActionEvent event) {
-		if(!comboLeftActiveMaterial.getValue().equals("custom")) {
+		
+		comboStack.setStyle("-fx-background-color: White");
+		
+		if(!comboLeftActiveMaterial.getValue().equals("custom") && selectionModeLeft == 2 && !comboStack.getValue().equals("custom") && !comboStack.getValue().equals("")) {
 			CostAnalysisToolController.this.checkSelection();
 			CostAnalysisToolController.this.clearValues();
 			CostAnalysisToolController.this.clearStackValues();
@@ -3478,7 +4036,10 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	}
 	@FXML
 	public void selectComboLeftSalt(ActionEvent event) {
-		if(!comboLeftActiveMaterial.getValue().equals("custom")) {
+		
+		comboLeftSalt.setStyle("-fx-background-color: White");
+		
+		if(!comboLeftActiveMaterial.getValue().equals("custom") && selectionModeLeft == 2 && !comboStack.getValue().equals("custom") && !comboStack.getValue().equals("")) {
 			CostAnalysisToolController.this.checkSelection();
 			CostAnalysisToolController.this.clearValues();
 			CostAnalysisToolController.this.loadSQL();
@@ -3486,11 +4047,52 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	}
 	@FXML
 	public void selectComboRightSalt(ActionEvent event) {
-		if(!comboLeftActiveMaterial.getValue().equals("custom")) {
+		
+		comboRightSalt.setStyle("-fx-background-color: White");
+		
+		if(!comboLeftActiveMaterial.getValue().equals("custom") && selectionModeRight == 2 && !comboStack.getValue().equals("custom") && !comboStack.getValue().equals("")) {
 			CostAnalysisToolController.this.checkSelection();
 			CostAnalysisToolController.this.clearValues();
 			CostAnalysisToolController.this.loadSQL();
 		}
+	}
+	
+	
+	public void checkComboInput() {
+		
+		if (!comboLeftActiveMaterial.getValue().equals("custom")) {
+			
+			if (comboLeftActiveMaterial.getValue().equals("")) {
+				comboLeftActiveMaterial.setStyle("-fx-background-color: Red");
+			}
+			if (comboLeftSolvent.getValue().equals("")) {
+				comboLeftSolvent.setStyle("-fx-background-color: Red");
+			}
+			if (comboLeftSalt.getValue().equals("")) {
+				comboLeftSalt.setStyle("-fx-background-color: Red");
+			}
+			if (comboStack.getValue().equals("")) {
+				comboStack.setStyle("-fx-background-color: Red");
+			}
+			
+			
+			if (!standardSelected) {
+				
+				if (comboRightActiveMaterial.getValue().equals("")) {
+					comboRightActiveMaterial.setStyle("-fx-background-color: Red");
+				}
+				if (comboRightSolvent.getValue().equals("")) {
+					comboRightSolvent.setStyle("-fx-background-color: Red");
+				}
+				if (comboRightSalt.getValue().equals("")) {
+					comboRightSalt.setStyle("-fx-background-color: Red");
+				}
+
+			}
+		}
+		
+
+		
 	}
 	
 
@@ -3528,7 +4130,7 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 	}
 	
 
-//	TODO: cell potential, c solv / mol L^-1, Fixed textFields on pane for results, Potential value for each active material
+//	TODO: cell potential, Potential value for each active material
 	public void reloadValues () {
 		txtfbTimeDischarge.textProperty().addListener((observable, oldValue, newValue) -> {
 			if (!calculationCombo) {
@@ -3606,6 +4208,13 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 				CostAnalysisToolController.this.uncheckCombo();
 			}
 		});
+		txtfdAnolyteActMatConc .textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				anolyteActMatConc = Double.valueOf(newValue);
+				anolyteActMatSol = 0;
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
 		txtfdAnolyteActMatSol.textProperty().addListener((observable, oldValue, newValue) -> {
 			if (!calculationCombo) {
 				anolyteActMatSol = Double.valueOf(newValue);
@@ -3616,6 +4225,13 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 			if (!calculationCombo) {
 				anolyteSaltMolMass = Double.valueOf(newValue);
 			    CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfdAnolyteSaltConc.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				anolyteSaltConc = Double.valueOf(newValue);
+				anolyteSaltSol = 0;
+				CostAnalysisToolController.this.uncheckCombo();
 			}
 		});
 		txtfdAnolyteSaltSol.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -3667,6 +4283,13 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 				CostAnalysisToolController.this.uncheckCombo();
 			}
 		});
+		txtfdCatholyteActMatConc.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				catholyteActMatConc = Double.valueOf(newValue);
+				catholyteActMatSol = 0;
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
 		txtfdCatholyteActMatSol.textProperty().addListener((observable, oldValue, newValue) -> {
 			if (!calculationCombo) {
 				catholyteActMatSol = Double.valueOf(newValue);
@@ -3676,6 +4299,13 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		txtfdCatholyteSaltMolMass.textProperty().addListener((observable, oldValue, newValue) -> {
 			if (!calculationCombo) {
 				catholyteSaltMolMass = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfdCatholyteSaltConc.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				catholyteSaltConc = Double.valueOf(newValue);
+				catholyteSaltSol = 0;
 				CostAnalysisToolController.this.uncheckCombo();
 			}
 		});
@@ -3743,12 +4373,6 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 				CostAnalysisToolController.this.uncheckCombo();
 			}
 		});
-		txtfdSolventDensity.textProperty().addListener((observable, oldValue, newValue) -> {
-			if (!calculationCombo) {
-				solventDensity = Double.valueOf(newValue);
-				CostAnalysisToolController.this.uncheckCombo();
-			}
-		});
 		txtfdTemp.textProperty().addListener((observable, oldValue, newValue) -> {
 			if (!calculationCombo) {
 				temp = Double.valueOf(newValue);
@@ -3761,6 +4385,30 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 				reversibleVoltage = 0;
 				catholyteReversiblePotential = 0;
 				anolyteReversiblePotential = 0;
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfdAnolyteSolventDensity.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				anolyteSolventDensity = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfdCatholyteSolventDensity.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				catholyteSolventDensity = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfdAnolyteSolventViscosity.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				anolyteSolventViscosity = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfdCatholyteSolventViscosity.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				catholyteSolventViscosity = Double.valueOf(newValue);
 				CostAnalysisToolController.this.uncheckCombo();
 			}
 		});
@@ -3925,7 +4573,6 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 				CostAnalysisToolController.this.uncheckCombo();
 			}
 		});
-//		TODO: Add solvent density & viscosity (for catholyte and anolyte side) for custom mode --> currently those parameters are set by the previously selected system 
 		txtfbCatholyteDiffusionCoeff.textProperty().addListener((observable, oldValue, newValue) -> {
 			if (!calculationCombo) {
 				catholyteDiffusionCoeff = Double.valueOf(newValue);
@@ -3944,6 +4591,67 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 				CostAnalysisToolController.this.uncheckCombo();
 			}
 		});
+		txtfbAnolyteReynoldsNumber.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				anolyteReynoldsNumber = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfbAnolyteSchmidtNumber.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				anolyteSchmidtNumber = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfbAnolyteSherwoodNumber.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				anolyteSherwoodNumber = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfbAnolyteDiffLayerThickness.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				anolyteDiffLayerThickness = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfbIlimitAnolyte.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				ilimitAnolyte = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfbCatholyteReynoldsNumber.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				catholyteReynoldsNumber = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfbCatholyteSchmidtNumber.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				catholyteSchmidtNumber = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfbCatholyteSherwoodNumber.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				catholyteSherwoodNumber = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfbCatholyteDiffLayerThickness.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				catholyteDiffLayerThickness = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		txtfbIlimitCatholyte.textProperty().addListener((observable, oldValue, newValue) -> {
+			if (!calculationCombo) {
+				ilimitCatholyte = Double.valueOf(newValue);
+				CostAnalysisToolController.this.uncheckCombo();
+			}
+		});
+		
 		txtfdCellArea.textProperty().addListener((observable, oldValue, newValue) -> {
 			if (!calculationCombo) {
 				cellArea = Double.valueOf(newValue);
@@ -4088,6 +4796,11 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		comboLeftActiveMaterial.setValue("custom");
 		comboRightActiveMaterial.setValue("custom");
 		comboStack.setValue("custom");
+		
+		comboLeftSolvent.setValue("");
+		comboRightSolvent.setValue("");
+		comboLeftSalt.setValue("");
+		comboRightSalt.setValue("");
 
 		inputLeftActiveMaterial = "custom";
 		inputRightActiveMaterial = "custom";
@@ -4181,6 +4894,7 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 			anolyteSaltCost = 0;
 			anolyteSolventCost = 0;
 			anolyteSolventDensity = 0;
+			anolyteSolventViscosity = 0;
 
 			catholyteActMatCost = 0;
 			catholyteActMatCoeff = 0;
@@ -4197,6 +4911,7 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 			catholyteSaltCost = 0;
 			catholyteSolventCost = 0;
 			catholyteSolventDensity = 0;
+			catholyteSolventViscosity = 0;
 			
 			SA_SocRange = 0;
 
@@ -4209,8 +4924,8 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 			temp = rT;
 
 			reversibleCellVoltageEl = 0;
-			catholyteReversiblePotential = 0;
-			anolyteReversiblePotential = 0;
+			catholyteReversiblePotential = 42;
+			anolyteReversiblePotential = 42;
 //			catholyteReversiblePotentialPh0 = 0;
 //			anolyteReversiblePotentialPh0 = 0;
 			ravg = 0;
@@ -4223,7 +4938,8 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 
 			saltCost = 0;
 			solventCost = 0;
-			solventDensity = 0;
+			anolyteSolventDensity = 0;
+			catholyteSolventDensity = 0;
 
 			anolyteTankCost = 0;
 			catholyteTankCost = 0;
@@ -4309,6 +5025,17 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 			catholyteConcentrationOverPotDischarge = 0;
 			anolyteConcentrationOverPotDischarge = 0;
 			concentrationOverPotDischarge = 0;
+			
+			anolyteReynoldsNumber = 0;
+			anolyteSchmidtNumber = 0;
+			anolyteSherwoodNumber = 0;
+			anolyteDiffLayerThickness = 0;
+			ilimitAnolyte = 0;
+			catholyteReynoldsNumber = 0;
+			catholyteSchmidtNumber = 0;
+			catholyteSherwoodNumber = 0;
+			catholyteDiffLayerThickness = 0;
+			ilimitCatholyte = 0;
 
 			cellArea = 0;
 			totalArea = 0;
@@ -4348,6 +5075,8 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 			catholyteCostTotalKAh = 0;
 
 			energyDensity = 0;
+			anolyteEnergyDensity = 0;
+			catholyteEnergyDensity = 0;
 			anolyteEnergyDensityKg = 0;
 			catholyteEnergyDensityKg = 0;
 			energyDensityKg = 0;
@@ -4402,7 +5131,84 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 			
 		}
 	}
+	
+	
+	
+	private void addTooltips() {
+	   
+        String latex = "\\begin{array}{l}";
+        latex += "\\forall\\varepsilon\\in\\mathbb{R}_+^*\\ \\exists\\eta>0\\ |x-x_0|\\leq\\eta\\Longrightarrow|f(x)-f(x_0)|\\leq\\varepsilon\\\\";
+        latex += "\\det\\begin{bmatrix}a_{11}&a_{12}&\\cdots&a_{1n}\\\\a_{21}&\\ddots&&\\vdots\\\\\\vdots&&\\ddots&\\vdots\\\\a_{n1}&\\cdots&\\cdots&a_{nn}\\end{bmatrix}\\overset{\\mathrm{def}}{=}\\sum_{\\sigma\\in\\mathfrak{S}_n}\\varepsilon(\\sigma)\\prod_{k=1}^n a_{k\\sigma(k)}\\\\";
+        latex += "\\sideset{_\\alpha^\\beta}{_\\gamma^\\delta}{\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}}\\\\";
+        latex += "\\int_0^\\infty{x^{2n} e^{-a x^2}\\,dx} = \\frac{2n-1}{2a} \\int_0^\\infty{x^{2(n-1)} e^{-a x^2}\\,dx} = \\frac{(2n-1)!!}{2^{n+1}} \\sqrt{\\frac{\\pi}{a^{2n+1}}}\\\\";
+        latex += "\\int_a^b{f(x)\\,dx} = (b - a) \\sum\\limits_{n = 1}^\\infty  {\\sum\\limits_{m = 1}^{2^n  - 1} {\\left( { - 1} \\right)^{m + 1} } } 2^{ - n} f(a + m\\left( {b - a} \\right)2^{-n} )\\\\";
+        latex += "\\int_{-\\pi}^{\\pi} \\sin(\\alpha x) \\sin^n(\\beta x) dx = \\textstyle{\\left \\{ \\begin{array}{cc} (-1)^{(n+1)/2} (-1)^m \\frac{2 \\pi}{2^n} \\binom{n}{m} & n \\mbox{ odd},\\ \\alpha = \\beta (2m-n) \\\\ 0 & \\mbox{otherwise} \\\\ \\end{array} \\right .}\\\\";
+        latex += "L = \\int_a^b \\sqrt{ \\left|\\sum_{i,j=1}^ng_{ij}(\\gamma(t))\\left(\\frac{d}{dt}x^i\\circ\\gamma(t)\\right)\\left(\\frac{d}{dt}x^j\\circ\\gamma(t)\\right)\\right|}\\,dt\\\\";
+        latex += "\\begin{array}{rl} s &= \\int_a^b\\left\\|\\frac{d}{dt}\\vec{r}\\,(u(t),v(t))\\right\\|\\,dt \\\\ &= \\int_a^b \\sqrt{u'(t)^2\\,\\vec{r}_u\\cdot\\vec{r}_u + 2u'(t)v'(t)\\, \\vec{r}_u\\cdot\\vec{r}_v+ v'(t)^2\\,\\vec{r}_v\\cdot\\vec{r}_v}\\,\\,\\, dt. \\end{array}\\\\";
+        latex += "\\end{array}";
+	        
+        TeXFormula tex = new TeXFormula(latex);
+	  
+        java.awt.Image awtImage = tex.createBufferedImage(TeXConstants.STYLE_TEXT, 14, java.awt.Color.WHITE, null);
+        Image fxImage = SwingFXUtils.toFXImage((BufferedImage) awtImage, null);
+        ImageView view = new ImageView(fxImage);
 
+
+        Tooltip  tooltip = new Tooltip();
+//      tooltip.setPrefSize(200, 100);
+        tooltip.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+
+        tooltip.setGraphic(view);
+
+        Tooltip.install(txtfdAnolyteCostTotal, tooltip);
+
+        
+        
+//      txtfdAnolyteActMatSol
+        String latexAnolyteActMatSol = "\\begin{array}{l}";
+        latexAnolyteActMatSol += "{L = c }\\ \\cdot \\ \\frac{M}{\\varrho}\\ ";
+        latexAnolyteActMatSol += "{= " + String.valueOf(anolyteSaltConc) +"} {\\ mol\\ L}^{-1}\\ \\cdot \\ \\frac{" + String.valueOf(anolyteSaltMolMass) + "\\ g\\ mol^{-1}}{"+ String.valueOf(anolyteSolventDensity*1000) +"\\ g\\ L^{-1}}\\\\" ;
+        latexAnolyteActMatSol += "\\end{array}";
+        
+        ImageView viewAnolyteActMatSol = getTooltipImage(latexAnolyteActMatSol);
+        Tooltip  tooltipAnolyteActMatSol = new Tooltip();
+
+        tooltipAnolyteActMatSol.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+
+        tooltipAnolyteActMatSol.setGraphic(viewAnolyteActMatSol);
+
+        Tooltip.install(txtfdAnolyteActMatSol, tooltipAnolyteActMatSol);
+        
+        
+//      txtfdCatholyteActMatSol        
+        String latexCatholyteActMatSol = "\\begin{array}{l}";
+        latexCatholyteActMatSol += "{L = c }\\ \\cdot \\ \\frac{M}{\\varrho}\\ ";
+        latexCatholyteActMatSol += "{= " + String.valueOf(catholyteSaltConc) +"} {\\ mol\\ L}^{-1}\\ \\cdot \\ \\frac{" + String.valueOf(catholyteSaltMolMass) + "\\ g\\ mol^{-1}}{"+ String.valueOf(catholyteSolventDensity*1000) +"\\ g\\ L^{-1}}\\\\" ;
+        latexCatholyteActMatSol += "\\end{array}";
+        
+        ImageView viewCatholyteActMatSol = getTooltipImage(latexCatholyteActMatSol);
+        Tooltip  tooltipCatholyteActMatSol = new Tooltip();
+
+        tooltipCatholyteActMatSol.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+
+        tooltipCatholyteActMatSol.setGraphic(viewCatholyteActMatSol);
+
+        Tooltip.install(txtfdCatholyteActMatSol, tooltipCatholyteActMatSol);
+			
+	}
+
+	
+	private ImageView getTooltipImage(String latex) {
+		
+        TeXFormula tex = new TeXFormula(latex);
+ 	  
+        java.awt.Image awtImage = tex.createBufferedImage(TeXConstants.STYLE_TEXT, 18, java.awt.Color.WHITE, null);
+        Image fxImage = SwingFXUtils.toFXImage((BufferedImage) awtImage, null);
+        ImageView view = new ImageView(fxImage);
+		
+		
+		return view;
+	}
 
 
 
@@ -4530,6 +5336,7 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 			stage.show();
 			
 			stage.setTitle("ReFlowLab - Stack Selection");
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 		
 			
 			Stage costAnalysisStage = (Stage) AnchorPane1.getScene().getWindow();
@@ -6027,6 +6834,17 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		catholyteChargeTranserOverPotDischarge = result.catholyteChargeTranserOverPotDischarge.getValue();
 		anolyteConcentrationOverPotDischarge = result.anolyteConcentrationOverPotDischarge.getValue();
 		catholyteConcentrationOverPotDischarge = result.catholyteConcentrationOverPotDischarge.getValue();
+		
+		anolyteReynoldsNumber = result.anolyteReynoldsNumber.getValue();
+		anolyteSchmidtNumber = result.anolyteSchmidtNumber.getValue();
+		anolyteSherwoodNumber = result.anolyteSherwoodNumber.getValue();
+		anolyteDiffLayerThickness = result.anolyteDiffLayerThickness.getValue();
+		ilimitAnolyte = result.currentLimitAnolyte.getValue();
+		catholyteReynoldsNumber = result.catholyteReynoldsNumber.getValue();
+		catholyteSchmidtNumber = result.catholyteSchmidtNumber.getValue();
+		catholyteSherwoodNumber = result.catholyteSherwoodNumber.getValue();
+		catholyteDiffLayerThickness = result.catholyteDiffLayerThickness.getValue();
+		ilimitCatholyte = result.currentLimitCatholyte.getValue();
 
 		efficiencyVoltDischarge = result.efficiencyVoltDischarge.getValue();
 		peakPowerRatio = result.peakPowerRatio.getValue();
@@ -6068,11 +6886,11 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		costMaintenance = result.costMaintenance.getValue();
 		costCapital = result.costCapital.getValue();
 
-		double anolyteEnergyDensity = result.anolyteEnergyDensity.getValue();
-		double catholyteEnergyDensity = result.catholyteEnergyDensity.getValue();
+		anolyteEnergyDensity = result.anolyteEnergyDensity.getValue();
+		catholyteEnergyDensity = result.catholyteEnergyDensity.getValue();
 		energyDensity = result.energyDensity.getValue();
-//		anolyteEnergyDensityKg = result.anolyteEnergyDensityKg.getValue();
-//		catholyteEnergyDensityKg = result.catholyteEnergyDensityKg.getValue();
+		anolyteEnergyDensityKg = result.anolyteEnergyDensityKg.getValue();
+		catholyteEnergyDensityKg = result.catholyteEnergyDensityKg.getValue();
 		energyDensityKg = result.energyDensityKg.getValue();
 
 		double cActiveAnolyte = result.cActiveAnolyte.getValue();
@@ -6108,8 +6926,10 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		txtfdAnolyteSocRange.setText(String.valueOf(anolyteSocRange));
 		txtfdAnolyteActMatNumberElectron.setText(String.valueOf(anolyteActMatNumberElectron));
 		txtfdAnolyteActMatNumberProton.setText(String.valueOf(anolyteActMatNumberProton));
+		txtfdAnolyteActMatConc.setText(String.valueOf(anolyteActMatConc));
 		txtfdAnolyteActMatSol.setText(String.valueOf(anolyteActMatSol));
 		txtfdAnolyteSaltMolMass.setText(String.valueOf(anolyteSaltMolMass));
+		txtfdAnolyteSaltConc.setText(String.valueOf(anolyteSaltConc));
 		txtfdAnolyteSaltSol.setText(String.valueOf(anolyteSaltSol));
 		txtfdAnolytePotential.setText(String.valueOf(anolyteReversiblePotential));
 
@@ -6120,8 +6940,10 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		txtfdCatholyteActMatNumberElectron.setText(String.valueOf(catholyteActMatNumberElectron));
 		txtfdCatholyteActMatNumberProton.setText(String.valueOf(catholyteActMatNumberProton));
 		txtfdCatholyteActMatNumberElectron.setText(String.valueOf(catholyteActMatNumberElectron));
+		txtfdCatholyteActMatConc.setText(String.valueOf(catholyteActMatConc));
 		txtfdCatholyteActMatSol.setText(String.valueOf(catholyteActMatSol));
 		txtfdCatholyteSaltMolMass.setText(String.valueOf(catholyteSaltMolMass));
+		txtfdCatholyteSaltConc.setText(String.valueOf(catholyteSaltConc));
 		txtfdCatholyteSaltSol.setText(String.valueOf(catholyteSaltSol));
 		txtfdCatholytePotential.setText(String.valueOf(catholyteReversiblePotential));
 
@@ -6135,7 +6957,10 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 
 		txtfdSaltCost.setText(String.valueOf(anolyteSaltCost));
 		txtfdSolventCost.setText(String.valueOf(anolyteSolventCost));
-		txtfdSolventDensity.setText(String.valueOf(anolyteSolventDensity));
+		txtfdAnolyteSolventDensity.setText(String.valueOf(anolyteSolventDensity));
+		txtfdCatholyteSolventDensity.setText(String.valueOf(catholyteSolventDensity));
+		txtfdAnolyteSolventViscosity.setText(String.valueOf(anolyteSolventViscosity));
+		txtfdCatholyteSolventViscosity.setText(String.valueOf(catholyteSolventViscosity));
 		txtfdTemp.setText(String.valueOf(temp));
 		txtfdPH.setText(String.valueOf(pHElectrolyte));
 
@@ -6173,6 +6998,16 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		txtfbCatholyteChargeTranserOverPotDischarge.setText(String.valueOf(catholyteChargeTranserOverPotDischarge));
 		txtfbAnolyteConcentrationOverPotDischarge.setText(String.valueOf(anolyteConcentrationOverPotDischarge));
 		txtfbCatholyteConcentrationOverPotDischarge.setText(String.valueOf(catholyteConcentrationOverPotDischarge));
+		txtfbAnolyteReynoldsNumber.setText(String.valueOf(anolyteReynoldsNumber));
+		txtfbAnolyteSchmidtNumber.setText(String.valueOf(anolyteSchmidtNumber));
+		txtfbAnolyteSherwoodNumber.setText(String.valueOf(anolyteSherwoodNumber));
+		txtfbAnolyteDiffLayerThickness.setText(String.valueOf(anolyteDiffLayerThickness));
+		txtfbIlimitAnolyte.setText(String.valueOf(ilimitAnolyte));
+		txtfbCatholyteReynoldsNumber.setText(String.valueOf(catholyteReynoldsNumber));
+		txtfbCatholyteSchmidtNumber.setText(String.valueOf(catholyteSchmidtNumber));
+		txtfbCatholyteSherwoodNumber.setText(String.valueOf(catholyteSherwoodNumber));
+		txtfbCatholyteDiffLayerThickness.setText(String.valueOf(catholyteDiffLayerThickness));
+		txtfbIlimitCatholyte.setText(String.valueOf(ilimitCatholyte));
 		
 		txtfbDiaFiber.setText(String.valueOf(dFiber));
 		txtfbFlowVelocity.setText(String.valueOf(flowVelocity));
@@ -6218,8 +7053,11 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 
 		txtfdCatholyteCostTotal.setText(String.valueOf(catholyteCostTotal));
 		txtfdCatholyteCostTotalKAh.setText(String.valueOf(catholyteCostTotalKAh));
-
-		txtfdEnergyDensity.setText(String.valueOf(energyDensity));
+		
+		txtfdAnolyteEnergyDensity.setText(String.valueOf(anolyteEnergyDensity));
+		txtfdCatholyteEnergyDensity.setText(String.valueOf(catholyteEnergyDensity));
+		txtfdAnolyteEnergyDensityKg.setText(String.valueOf(anolyteEnergyDensityKg));
+		txtfdCatholyteEnergyDensityKg.setText(String.valueOf(catholyteEnergyDensityKg));
 
 		txtfdCostElectrolyte.setText(String.valueOf(costElectrolyte));
 		txtfdCostElectrolyteKWh.setText(String.valueOf(costElectrolyteKWh));
@@ -6481,6 +7319,9 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 		CostAnalysisToolController.this.drawNewChartLineChartPdId(newScatterChart3, PdIdDataset);
 
 		calculationCombo = false;
+		
+		
+		CostAnalysisToolController.this.addTooltips();
 	}
 
 
@@ -7056,6 +7897,7 @@ public class CostAnalysisToolController implements javafx.fxml.Initializable {
 
 	@FXML
 	public void btnCalculate(ActionEvent event) {
+		CostAnalysisToolController.this.checkComboInput();
 		CostAnalysisToolController.this.calculation();
 		CostAnalysisToolController.this.output();
 	}

@@ -14,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import de.dominikemmel.reflowlab.Database;
 import de.dominikemmel.reflowlab.VariousMethods;
@@ -40,6 +42,11 @@ public class AddCostsSolventController implements javafx.fxml.Initializable {
 	private TextField inputRefCSolvent;
 	
 	@FXML
+	private TextFlow MSolvent_TextFlow;
+	@FXML
+	private TextFlow CSolvent_TextFlow;
+	
+	@FXML
 	private Button btnInputRefMSolvent; 
 	
 	String table = "costSolvent";
@@ -54,7 +61,32 @@ public class AddCostsSolventController implements javafx.fxml.Initializable {
             }
         });
 		
-		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/controller/maincontrol/img/arrowDown.png"));
+    	//CSolvent:
+    	Text CSolvent1 = new Text("C");
+    	CSolvent1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+    	Text CSolvent2 = new Text(" / $ kg");
+    	CSolvent2.setStyle("-fx-font-weight: bold");
+    	Text CSolvent3 = new Text("⁻¹");
+    	CSolvent3.setStyle("-fx-font-weight: bold");
+		Text CSolvent4 = new Text(":");
+		CSolvent4.setStyle("-fx-font-weight: bold");
+
+    	CSolvent_TextFlow.getChildren().addAll(CSolvent1,CSolvent2,CSolvent3,CSolvent4);
+
+    	//MSolvent:
+    	Text MSolvent1 = new Text("M");
+    	MSolvent1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text MSolvent2 = new Text(" / g mol");
+		MSolvent2.setStyle("-fx-font-weight: bold");
+		Text MSolvent3 = new Text("⁻¹");
+		MSolvent3.setStyle("-fx-font-weight: bold");
+		Text MSolvent4 = new Text(":");
+		MSolvent4.setStyle("-fx-font-weight: bold");
+
+		MSolvent_TextFlow.getChildren().addAll(MSolvent1,MSolvent2,MSolvent3,MSolvent4);
+		
+		
+		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/ArrowDown/0.5x/Asset 2@0.5x.png"));
 		ImageView imgView = new ImageView(img);
 		imgView.setFitHeight(10);
 		imgView.setFitWidth(12);

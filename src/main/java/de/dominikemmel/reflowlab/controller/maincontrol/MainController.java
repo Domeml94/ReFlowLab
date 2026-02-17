@@ -5,6 +5,7 @@ package de.dominikemmel.reflowlab.controller.maincontrol;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -26,10 +27,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import de.dominikemmel.reflowlab.Database;
 import de.dominikemmel.reflowlab.FxmlLoader;
 import de.dominikemmel.reflowlab.VariousMethods;
@@ -56,6 +59,8 @@ public class MainController implements Initializable {
 	private Button btnReference;
 	@FXML
 	private Button btnDB;
+	
+	Stage stageConsole = new Stage();
 
 
 	@Override
@@ -83,6 +88,7 @@ public class MainController implements Initializable {
 		MainController.defaultInitSettings();
 		MainController.this.dbTest();
 		MainController.this.testBtnDB();
+		MainController.this.startConsole();
 
 	}
 
@@ -113,48 +119,30 @@ public class MainController implements Initializable {
         if (file.exists()) {
         	return pathStringDB;
         } else {
-//        	try {
-//				Files.createDirectories(Paths.get(pathString));
-//			} catch (IOException e2) {
-//				// TODO Auto-generated catch block
-//				e2.printStackTrace();
-//			}
+
 			if (!directory.exists()) {
 				directory.mkdirs();
 			}
         	
         	Path pathDB = Paths.get(pathStringDB);
 
-			Path pathDefaultDB = null;
-			
-//			File defaultDBLocation = new File("/de/dominikemmel/reflowlab/default/reflowlabDefaultDB.mv.db");
-//			
-//			if (defaultDBLocation.exists()) {
-					
-				try {
-					pathDefaultDB = Paths.get(MainController.class.getResource("/de/dominikemmel/reflowlab/default/reflowlabDefaultDB.mv.db").toURI());
-				} catch (URISyntaxException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+			InputStream inputStreamDB = MainController.class.getResourceAsStream("/de/dominikemmel/reflowlab/default/reflowlabDefaultDB.mv.db");
 
-				File defaultDB = new File(pathDefaultDB.toUri());
-				try {
-					Files.copy(defaultDB.toPath(), pathDB);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-	        	System.out.println("Path created and default DB copied: "+pathStringDB);
+			try {
+				Files.copy(inputStreamDB, pathDB);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+				
+	        System.out.println("Path created and default DB copied: "+pathStringDB);
 
-//			} else {
-//				pathStringDB = pathString + File.separator + "reflowlabDB.mv.db";
-//			}
         	return pathStringDB;
         	
-
         }
 	}
+	
+	
+	
 	public static String defaultInitSettings () {
 		
 		AppDirs appDirs = AppDirsFactory.getInstance();
@@ -174,20 +162,11 @@ public class MainController implements Initializable {
 			
 			Path pathSet = Paths.get(pathStringSet);
 			
-			Path pathDefaultSet = null;
+			InputStream inputStreamSet = MainController.class.getResourceAsStream("/de/dominikemmel/reflowlab/default/defaultSettings.properties");
+
 			try {
-				pathDefaultSet = Paths.get(MainController.class.getResource("/de/dominikemmel/reflowlab/default/defaultSettings.properties").toURI());
-			} catch (URISyntaxException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
-			File defaultSet = new File(pathDefaultSet.toUri());
-			
-			try {
-				Files.copy(defaultSet.toPath(), pathSet);
+				Files.copy(inputStreamSet, pathSet);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -227,9 +206,9 @@ public class MainController implements Initializable {
 	@FXML
 	public void emailToMe (ActionEvent event) throws IOException {
 
-		 URI msg;
+		URI msg;
 		try {
-			msg = new URI("mailto","d.emmel@tu-braunschweig.de?subject=Redox Flow Battery Calculations Tool", (String) null);
+			msg = new URI("mailto","d.emmel@tu-braunschweig.de?subject=[ReFlowLab]", (String) null);
 			Desktop.getDesktop().mail(msg);
 		} catch (URISyntaxException e) {
 
@@ -555,16 +534,25 @@ public class MainController implements Initializable {
 
 	@FXML
 	public void openConsole(MouseEvent event) {
+
+		stageConsole.show();
+
+	}
+	
+	public void startConsole() {
 		try {
 			Parent rootRagoneTool;
 			rootRagoneTool = FXMLLoader.load(getClass().getResource("/de/dominikemmel/reflowlab/controller/maincontrol/fxml/consoleOverview.fxml"));
-			Stage stage = new Stage();
-			stage.setScene(new Scene(rootRagoneTool));
-			stage.show();
+			
+			stageConsole.setScene(new Scene(rootRagoneTool));
+			stageConsole.initStyle(StageStyle.DECORATED);
+//			stage.show();
+			stageConsole.setTitle("Console");
+			stageConsole.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }

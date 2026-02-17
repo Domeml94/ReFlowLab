@@ -14,6 +14,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import de.dominikemmel.reflowlab.Database;
 import de.dominikemmel.reflowlab.VariousMethods;
@@ -53,6 +56,12 @@ public class AddSolventOrgController implements javafx.fxml.Initializable {
 	@FXML private Button btnInputRefdynViscosity;
 	@FXML private Button btnInputRefElimitCat;
 	
+	@FXML private TextFlow density_TextFlow;
+	@FXML private TextFlow dynViscosity_TextFlow;
+	@FXML private TextFlow kinViscosity_TextFlow;
+	@FXML private TextFlow ElimitCat_TextFlow;
+	@FXML private TextFlow ElimitAn_TextFlow;
+	
 	String table = "solventOrganic";
 
 
@@ -66,7 +75,80 @@ public class AddSolventOrgController implements javafx.fxml.Initializable {
             }
         });
 		
-		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/controller/maincontrol/img/arrowDown.png"));
+		//density:
+		Text density1 = new Text("density");
+		density1.setStyle("-fx-font-weight: bold");
+		Text density2 = new Text(" / g cm");
+		density2.setStyle("-fx-font-weight: bold");
+		Text density3 = new Text("⁻³");
+		density3.setStyle("-fx-font-weight: bold");
+		Text density4 = new Text(":");
+		density4.setStyle("-fx-font-weight: bold");
+
+		density_TextFlow.getChildren().addAll(density1,density2,density3,density4);
+
+
+		//dynViscosity
+		Text dynViscosity1 = new Text("dyn. viscosity");
+		dynViscosity1.setStyle("-fx-font-weight: bold");
+		Text dynViscosity2 = new Text(" / mPa s");
+		dynViscosity2.setStyle("-fx-font-weight: bold");
+		Text dynViscosity3 = new Text(":");
+		dynViscosity3.setStyle("-fx-font-weight: bold");
+
+		dynViscosity_TextFlow.getChildren().addAll(dynViscosity1,dynViscosity2,dynViscosity3);
+
+
+		//kinViscosity
+		Text kinViscosity1 = new Text("kin. viscosity");
+		kinViscosity1.setStyle("-fx-font-weight: bold");
+		Text kinViscosity2 = new Text(" / cm");
+		kinViscosity2.setStyle("-fx-font-weight: bold");
+		Text kinViscosity3 = new Text("²");
+		kinViscosity3.setStyle("-fx-font-weight: bold");
+		Text kinViscosity4 = new Text(" s");
+		kinViscosity4.setStyle("-fx-font-weight: bold");
+		Text kinViscosity5 = new Text("⁻¹");
+		kinViscosity5.setStyle("-fx-font-weight: bold");
+		Text kinViscosity6 = new Text(":");
+		kinViscosity6.setStyle("-fx-font-weight: bold");
+
+		kinViscosity_TextFlow.getChildren().addAll(kinViscosity1,kinViscosity2,kinViscosity3,kinViscosity4,kinViscosity5,kinViscosity6);
+
+
+
+		//ElimitCat
+		Text ElimitCat1 = new Text("E");
+		ElimitCat1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text ElimitCat2 = new Text("limit");
+		ElimitCat2.setStyle("-fx-font-weight: bold");
+		ElimitCat2.setTranslateY(ElimitCat1.getFont().getSize() * 0.3);
+		ElimitCat2.setFont(Font.font(ElimitCat1.getFont().getStyle(),ElimitCat1.getFont().getSize()*0.75));
+		Text ElimitCat3 = new Text(" (cathodic) / V");
+		ElimitCat3.setStyle("-fx-font-weight: bold");
+		Text ElimitCat4 = new Text(":");
+		ElimitCat4.setStyle("-fx-font-weight: bold");
+
+		ElimitCat_TextFlow.getChildren().addAll(ElimitCat1,ElimitCat2,ElimitCat3,ElimitCat4);
+
+
+
+		//ElimitAn
+		Text ElimitAn1 = new Text("E");
+		ElimitAn1.setStyle("-fx-font-weight: bold; -fx-font-style: italic");
+		Text ElimitAn2 = new Text("limit");
+		ElimitAn2.setStyle("-fx-font-weight: bold");
+		ElimitAn2.setTranslateY(ElimitAn1.getFont().getSize() * 0.3);
+		ElimitAn2.setFont(Font.font(ElimitAn1.getFont().getStyle(),ElimitAn1.getFont().getSize()*0.75));
+		Text ElimitAn3 = new Text(" (anodic) / V");
+		ElimitAn3.setStyle("-fx-font-weight: bold");
+		Text ElimitAn4 = new Text(":");
+		ElimitAn4.setStyle("-fx-font-weight: bold");
+
+		ElimitAn_TextFlow.getChildren().addAll(ElimitAn1,ElimitAn2,ElimitAn3,ElimitAn4);
+		
+		
+		Image img = new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/ArrowDown/0.5x/Asset 2@0.5x.png"));
 		ImageView imgViewBtnInputRefDensity = new ImageView(img);
 		imgViewBtnInputRefDensity.setFitHeight(10);
 		imgViewBtnInputRefDensity.setFitWidth(12);

@@ -345,7 +345,7 @@ public class CostAnalysisCalculation {
 
 //		if (reversibleVoltage == 0) {
 			if (!standardSelected) {
-				if (catholyteReversiblePotential == 0) {
+				if (catholyteReversiblePotential == 42) {
 //					catholyteReversiblePotential = calculationElectrolytePotential("standardE_Input", catholyteStandardPotential, temp, z, catholyteActMatRedConc, catholyteActMatOxConc, catholyteActMatCoeff, protonConc, catholyteActMatNumberProton);
 
 					catholyteReversiblePotential = catholyteStandardPotential - G*temp/(z*F)*
@@ -355,7 +355,7 @@ public class CostAnalysisCalculation {
 //							Math.log(Math.pow(catholyteActMatRedConc,catholyteActMatCoeff)/(Math.pow(catholyteActMatOxConc,catholyteActMatCoeff)*Math.pow(1,catholyteActMatNumberProton)));
 
 				}
-				if (anolyteReversiblePotential == 0) {
+				if (anolyteReversiblePotential == 42) {
 					anolyteReversiblePotential= anolyteStandardPotential - G*temp/(z*F)*
 							Math.log(Math.pow(anolyteActMatRedConc,anolyteActMatCoeff)/(Math.pow(anolyteActMatOxConc,anolyteActMatCoeff)*Math.pow(protonConc,anolyteActMatNumberProton)));
 
@@ -376,7 +376,7 @@ public class CostAnalysisCalculation {
 			} else {
 				//Anolyte = standard:
 				if (anolyteStandard) {
-					if (anolyteReversiblePotential == 0) {
+					if (anolyteReversiblePotential == 42) {
 						if (leftAqueous) {
 							anolyteReversiblePotential = -0.6 - G*temp/(2*F)*Math.log(1/Math.pow(protonConc,2));
 
@@ -385,7 +385,7 @@ public class CostAnalysisCalculation {
 							//TODO: organic solvents
 						}
 					}
-					if (catholyteReversiblePotential == 0) {
+					if (catholyteReversiblePotential == 42) {
 						catholyteReversiblePotential = catholyteStandardPotential - G*temp/(z*F)*
 								Math.log(Math.pow(catholyteActMatRedConc,catholyteActMatCoeff)/(Math.pow(catholyteActMatOxConc,catholyteActMatCoeff)*Math.pow(protonConc,catholyteActMatNumberProton)));
 
@@ -400,7 +400,7 @@ public class CostAnalysisCalculation {
 				//Catholyte = standard:
 				if (catholyteStandard) {
 
-					if (catholyteReversiblePotential == 0) {
+					if (catholyteReversiblePotential == 42) {
 						if (leftAqueous) {
 							catholyteReversiblePotential = 1.6 - G*temp/(4*F)*Math.log(1/Math.pow(protonConc,4));
 
@@ -410,7 +410,7 @@ public class CostAnalysisCalculation {
 						}
 					}
 
-					if (anolyteReversiblePotential == 0) {
+					if (anolyteReversiblePotential == 42) {
 						anolyteReversiblePotential = anolyteStandardPotential - G*temp/(z*F)*
 								Math.log(Math.pow(anolyteActMatRedConc,anolyteActMatCoeff)/(Math.pow(anolyteActMatOxConc,anolyteActMatCoeff)*Math.pow(protonConc,anolyteActMatNumberProton)));
 						
@@ -991,12 +991,12 @@ public class CostAnalysisCalculation {
 		
 		// electrolyte:
 		double anolyteSaltConc = input.anolyteSaltConc.getValue();
-		double anolyteSaltSol = input.anolyteSaltSol.getValue();
+//		double anolyteSaltSol = input.anolyteSaltSol.getValue();
 		double anolyteSaltMolMass = input.anolyteSaltMolMass.getValue();
 		double anolyteSolventDensity = input.anolyteSolventDensity.getValue();
 		double anolyteActMatMolMass = input.anolyteActMatMolMass.getValue();
 		double catholyteSaltConc = input.catholyteSaltConc.getValue();
-		double catholyteSaltSol = input.catholyteSaltSol.getValue();
+//		double catholyteSaltSol = input.catholyteSaltSol.getValue();
 		double catholyteSaltMolMass = input.catholyteSaltMolMass.getValue();
 		double catholyteSolventDensity = input.catholyteSolventDensity.getValue();
 		double catholyteActMatMolMass = input.catholyteActMatMolMass.getValue();
@@ -1031,15 +1031,12 @@ public class CostAnalysisCalculation {
 		
 
 		// L / kg kg^-1:
-		if (anolyteSaltSol == 0) {
-			anolyteSaltSol = anolyteSaltConc * anolyteSaltMolMass / (anolyteSolventDensity*1000);
-		}
+		
+		double anolyteSaltSol = anolyteSaltConc * anolyteSaltMolMass / (anolyteSolventDensity*1000);
 
 		double anolyteActMatSol = anolyteActMatConc * anolyteActMatMolMass / (anolyteSolventDensity*1000);
 
-		if (catholyteSaltSol == 0) {
-			catholyteSaltSol = catholyteSaltConc * catholyteSaltMolMass / (catholyteSolventDensity*1000);
-		}
+		double catholyteSaltSol = catholyteSaltConc * catholyteSaltMolMass / (catholyteSolventDensity*1000);
 
 		double catholyteActMatSol = catholyteActMatConc * catholyteActMatMolMass / (catholyteSolventDensity*1000);
 
@@ -1280,7 +1277,7 @@ public class CostAnalysisCalculation {
 		double anolyteEnergyDensityKg = anolyteEnergyDensity / (anolyteSolventDensity + (anolyteActMatMolMass * Math.pow(10, -3) * anolyteActMatConc));
 		double catholyteEnergyDensityKg = catholyteEnergyDensity / (catholyteSolventDensity + (catholyteActMatMolMass * Math.pow(10, -3) * catholyteActMatConc));
 		double energyDensityKg = 0;
-		//TODO: Export with EnergyDensity(Working electrode) + Frontend: Add anolyte and catholyte EnergyDensity
+
 		if (standardSelected) {
 			//Anolyte = standard:
 			if (anolyteStandard) {
@@ -1322,8 +1319,8 @@ public class CostAnalysisCalculation {
 		output.anolyteEnergyDensity.set(anolyteEnergyDensity);
 		output.catholyteEnergyDensity.set(catholyteEnergyDensity);
 		output.energyDensity.set(energyDensity);
-//		output.anolyteEnergyDensityKg.set(anolyteEnergyDensityKg);
-//		output.catholyteEnergyDensityKg.set(catholyteEnergyDensityKg);
+		output.anolyteEnergyDensityKg.set(anolyteEnergyDensityKg);
+		output.catholyteEnergyDensityKg.set(catholyteEnergyDensityKg);
 		output.energyDensityKg.set(energyDensityKg);
 
 

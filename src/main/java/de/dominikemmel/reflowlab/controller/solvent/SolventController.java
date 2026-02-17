@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -123,6 +124,7 @@ public class SolventController implements javafx.fxml.Initializable {
 				stage.setScene(new Scene(rootAddSolvent));
 				stage.show();
 				stage.setTitle("ReFlowLab - Add Solvent inorganic");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 				
@@ -151,6 +153,7 @@ public class SolventController implements javafx.fxml.Initializable {
 				stage.show();
 				
 				stage.setTitle("ReFlowLab - Add Solvent organic");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 				
@@ -209,6 +212,7 @@ public class SolventController implements javafx.fxml.Initializable {
 				stage.show();
 				
 				stage.setTitle("ReFlowLab - Edit Solvent inorganic");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
@@ -258,6 +262,7 @@ public class SolventController implements javafx.fxml.Initializable {
 				stage.show();
 				
 				stage.setTitle("ReFlowLab - Edit Solvent organic");
+				stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 				
 				stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 

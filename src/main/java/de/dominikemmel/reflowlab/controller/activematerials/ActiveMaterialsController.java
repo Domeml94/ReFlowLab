@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -49,6 +50,7 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 	@FXML private TableColumn<ObjActiveMaterial, Double> PH;
 	@FXML private TableColumn<ObjActiveMaterial, Double> E;
 	@FXML private TableColumn<ObjActiveMaterial, String> EDITDATE;
+	@FXML private TableColumn<ObjActiveMaterial, String> Category;
 	
 	@FXML private TableColumn<ObjActiveMaterial, Integer> RefIDn;
 	@FXML private TableColumn<ObjActiveMaterial, Integer> RefIDNumberH;
@@ -68,6 +70,7 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 	@FXML private TextFlow SaltC_TextFlow;
 	@FXML private TextFlow PH_TextFlow;
 	@FXML private TextFlow E_TextFlow;
+	@FXML private TextFlow Category_TextFlow;
 	@FXML private TextFlow EDITDATE_TextFlow;
 
 	@FXML private Button addActiveMaterial;
@@ -86,6 +89,8 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 
 		try {
 			tblActiveMaterial.refresh();
+			
+			Database.createConnection("activeMaterial");
 
 			ResultSet res = Database.selectData("activeMaterial");
 
@@ -107,6 +112,7 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 		    		objActiveMaterial.SaltC.set(res.getDouble("SaltC"));
 		    		objActiveMaterial.PH.set(res.getDouble("PH"));
 		    		objActiveMaterial.E.set(res.getDouble("E"));
+		    		objActiveMaterial.Category.set(res.getString("Category"));
 		    		objActiveMaterial.RefIDn.set(res.getInt("RefIDn"));
 		    		objActiveMaterial.RefIDNumberH.set(res.getInt("RefIDNumberH"));
 		    		objActiveMaterial.RefIDCAM.set(res.getInt("RefIDCAM"));
@@ -134,6 +140,7 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 	    	SaltC.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, Double>("SaltC"));
 	    	PH.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, Double>("PH"));
 	    	E.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, Double>("E"));
+	    	Category.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, String>("Category"));
 	    	EDITDATE.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, String>("EDITDATE"));
 	    	RefIDn.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, Integer>("RefIDn"));
 	    	RefIDNumberH.setCellValueFactory(new PropertyValueFactory<ObjActiveMaterial, Integer>("RefIDNumberH"));
@@ -200,10 +207,8 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 		M1.setStyle("-fx-font-style: italic");
 		Text M2 = new Text(" / g mol");
 		M2.setStyle("-fx-font-weight: bold");
-		Text M3 = new Text("-1");
+		Text M3 = new Text("⁻¹");
 		M3.setStyle("-fx-font-weight: bold");
-		M3.setTranslateY(M1.getFont().getSize() * -0.3);
-		M3.setFont(Font.font(M2.getFont().getStyle(),M2.getFont().getSize()*0.75));
 
 		M_TextFlow.getChildren().addAll(M1,M2,M3);
 
@@ -239,10 +244,8 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 		C_AM2.setFont(Font.font(C_AM1.getFont().getStyle(),C_AM1.getFont().getSize()*0.75));
 		Text C_AM3 = new Text(" / $ kg");
 		C_AM3.setStyle("-fx-font-weight: bold");
-		Text C_AM4 = new Text("-1");
+		Text C_AM4 = new Text("⁻¹");
 		C_AM4.setStyle("-fx-font-weight: bold");
-		C_AM4.setTranslateY(C_AM1.getFont().getSize() * -0.3);
-		C_AM4.setFont(Font.font(C_AM1.getFont().getStyle(),C_AM1.getFont().getSize()*0.75));
 
 		CAM_TextFlow.getChildren().addAll(C_AM1,C_AM2,C_AM3,C_AM4);
 
@@ -268,10 +271,8 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 		SaltC2.setFont(Font.font(SaltC1.getFont().getStyle(),SaltC1.getFont().getSize()*0.75));
 		Text SaltC3 = new Text(" / mol L");
 		SaltC3.setStyle("-fx-font-weight: bold");
-		Text SaltC4 = new Text("-1");
+		Text SaltC4 = new Text("⁻¹");
 		SaltC4.setStyle("-fx-font-weight: bold");
-		SaltC4.setTranslateY(SaltC1.getFont().getSize() * -0.3);
-		SaltC4.setFont(Font.font(SaltC1.getFont().getStyle(),SaltC1.getFont().getSize()*0.75));
 
 		SaltC_TextFlow.getChildren().addAll(SaltC1,SaltC2,SaltC3,SaltC4);
 
@@ -285,11 +286,17 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 		Text E1 = new Text("E");
 		E1.setStyle("-fx-font-weight: bold");
 		E1.setStyle("-fx-font-style: italic");
-		Text E2 = new Text("� vs NHE / V");
+		Text E2 = new Text(" vs NHE / V");
 		E2.setStyle("-fx-font-weight: bold");
 
 		E_TextFlow.getChildren().addAll(E1,E2);
 
+		//Category:
+		Text Category1 = new Text("Category");
+		Category1.setStyle("-fx-font-weight: bold");
+		
+		Category_TextFlow.getChildren().addAll(Category1);
+		
 		//EDITDATE:
 		Text EDITDATE1 = new Text("Date");
 		EDITDATE1.setStyle("-fx-font-weight: bold");
@@ -311,6 +318,7 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 			stage.show();
 			
 			stage.setTitle("ReFlowLab - Add Active materials");
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 			
 			stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 			
@@ -364,6 +372,7 @@ public class ActiveMaterialsController implements javafx.fxml.Initializable {
 			stage.show();
 			
 			stage.setTitle("ReFlowLab - Edit Active materials");
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("/de/dominikemmel/reflowlab/img/logo_simple/1x/logo_simple1x.png")));
 			
 			stage.getScene().getStylesheets().add(getClass().getResource("/de/dominikemmel/reflowlab/style/reflowlabStyle1.css").toExternalForm());
 
